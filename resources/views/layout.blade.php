@@ -24,7 +24,7 @@
 
   <body>
   
-    <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse fixed-top">
+    <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -52,7 +52,9 @@
     <div class="container">
         @section("container")@show
     </div>
-
+    <div class="footer">
+        <p>Sistem Informasi Profil Desa - Pemerintah Daerah Kabupaten Batang Hari </p>
+    </div>
     @section("modal")
     @show 
     @section("javascript")
