@@ -1,4 +1,4 @@
-<nav class="navbar navbar-light bg-faded rounded navbar-toggleable-md" style="margin-top:10px; margin-bottom: 10px;">
+<nav class="navbar navbar-light bg-faded rounded navbar-toggleable-md" style="margin-bottom: 10px;">
       <div class="collapse navbar-collapse" id="containerNavbar">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item @if($route['sub']=='identitas') active @endif">

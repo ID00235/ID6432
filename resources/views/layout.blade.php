@@ -14,7 +14,7 @@
     <!-- Bootstrap core CSS -->
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
     <!-- Custom styles for this template -->
-    <link href="{{asset('css/starter-template.css')}}" rel="stylesheet">
+    <link href="{{asset('css/starter-templates.css')}}" rel="stylesheet">
     <link href="{{asset('css/pe-icon-7-stroke.css')}}" rel="stylesheet" />
     <link href="{{asset('vendor/select2/css/select2.min.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('css/font-awesome.min.css')}}" rel="stylesheet" />
@@ -25,7 +25,7 @@
 
   <body>
   
-    <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+    <nav class="navbar navbar-toggleable-md navbar-inverse bg-primary fixed-top">
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -53,7 +53,7 @@
     <div class="container">
         @section("container")@show
     </div>
-    <footer class="bd-footer text-muted">
+    <footer class="bd-footer">
       <div class="container">
         <center>
             <h6 style="margin-bottom: -15px;">Sistem Informasi Profil Desa - Pemerintah Daerah Kabupaten Batang Hari</h6> <br>
@@ -73,6 +73,7 @@
     <script src="{{asset('js/bootstrap-table.js')}}"></script>
     <script src="{{asset('js/jquery.datatables.js')}}"></script>
     <script src="{{asset('js/jquery.mask.min.js')}}"></script>
+    <script src="{{asset('js/jquery.decimalMask.min.js')}}"></script>
     <script src="{{asset('js/bootbox.min.js')}}"></script>
     <script src="{{asset('js/jquery.form.min.js')}}"></script>
     <script src="{{asset('script/init.js')}}"></script>

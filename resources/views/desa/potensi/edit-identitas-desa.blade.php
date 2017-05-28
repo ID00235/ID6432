@@ -12,7 +12,7 @@ $identitas_desa = DB::table('identitas_desa')->where('id_desa', $id_desa)->first
 	<div class="col-md-12">
 		<ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Potensi</a></li>
-            <li class="breadcrumb-item active">Identitas Desa</li>
+            <li class="breadcrumb-item active"> Edit Identitas Desa</li>
         </ol>
 	</div>
 	<div class="offset-sm-2 col-md-8">
@@ -53,7 +53,7 @@ $identitas_desa = DB::table('identitas_desa')->where('id_desa', $id_desa)->first
     						<td>Luas Desa (Ha)</td>
     						<td>:</td>
     						<td>
-                                <input type="text" name="luas_desa" class="numerik form-control" value="{{$identitas_desa->luas_desa}}">                  
+                                <input type="text" name="luas_desa" class="double form-control input-right" value="{{$identitas_desa->luas_desa}}">                  
                             </td>
     					</tr>
     					<tr>
