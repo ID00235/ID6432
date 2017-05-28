@@ -50,9 +50,11 @@ $identitas_desa = DB::table('identitas_desa')->where('id_desa', $id_desa)->first
     						<td>{{$identitas_desa->kode_pum}}</td>
     					</tr>
     					<tr>
-    						<td>Luas Desa</td>
+    						<td>Luas Desa (Ha)</td>
     						<td>:</td>
-    						<td>{{$identitas_desa->luas_desa}} Hektar</td>
+    						<td>
+                                <input type="text" name="luas_desa" class="numerik form-control" value="{{$identitas_desa->luas_desa}}">                  
+                            </td>
     					</tr>
     					<tr>
     						<td>Koordinat Bujur</td>

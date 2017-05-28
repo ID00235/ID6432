@@ -18,6 +18,7 @@
     <link href="{{asset('css/pe-icon-7-stroke.css')}}" rel="stylesheet" />
     <link href="{{asset('vendor/select2/css/select2.min.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('css/font-awesome.min.css')}}" rel="stylesheet" />
+    <link href="{{asset('css/docs.min.css')}}" rel="stylesheet" />
     @section("stylesheet")
     @show
   </head>
@@ -52,14 +53,21 @@
     <div class="container">
         @section("container")@show
     </div>
-    <div class="footer">
-        <p>Sistem Informasi Profil Desa - Pemerintah Daerah Kabupaten Batang Hari </p>
-    </div>
+    <footer class="bd-footer text-muted">
+      <div class="container">
+        <center>
+            <h6 style="margin-bottom: -15px;">Sistem Informasi Profil Desa - Pemerintah Daerah Kabupaten Batang Hari</h6> <br>
+            &copy;2017 Diskominfo Kabupaten Batang Hari
+        </center>
+      </div>
+    </footer>
     @section("modal")
     @show 
     @section("javascript")
     <script src="{{asset('js/jquery.min.js')}}"></script>
+    <script src="{{asset('js/tether.min.js')}}"></script>
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('js/moment.min.js')}}"></script>
     <script src="{{asset('js/jquery.validate.min.js')}}"></script>
     <script src="{{asset('js/bootstrap-datetimepicker.js')}}"></script>
     <script src="{{asset('js/bootstrap-table.js')}}"></script>

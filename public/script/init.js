@@ -30,13 +30,13 @@ $(document).ready(function(){
 	 })     
 
 
-	 $('.switch-toggle').bootstrapToggle({style:'btn-fill'});
-
 	 //masking input
 	  $('.alpanumerik').mask('AAAAAAAAAAAAAAAAAA', {'translation': {A: {pattern: /[A-Za-z0-9]/},}});
 	  $('.kodifikasi').mask('AAAAAAAAAAAAAA', {'translation': {A: {pattern: /[A-Z0-9_-]/},}});
 	  $('.numerik').mask('000000000000000000000000', {reverse: true});	
 	  $('.money').mask('000.000.000.000.000', {reverse: true});  
+	  $('.double').mask('000.000.000.000.000,0000', {reverse: true});  
+	  $('.double2').mask('000.000.000.000.000,00000000000', {reverse: true}); 
 	  $('.phone').mask('0000-0000-0000');
 	  $('.nama').mask('AAAAAAAAAAAAAAAAAAAAAAAAA');
 	  $('[data-toggle="popover"]').popover();
