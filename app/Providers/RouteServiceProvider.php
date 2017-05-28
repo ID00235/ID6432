@@ -39,7 +39,20 @@ class RouteServiceProvider extends ServiceProvider
     {
         $this->mapWebRoutes($router);
 
-        //
+        //ROUTE UNTUK USER DESA
+        $router->group([
+            'namespace' => $this->namespace, 'prefix' => 'desa','middleware' => ['web','auth','group:desa'],
+        ], function ($router) {
+            require app_path('Http/Routes/desa.php');
+        });
+
+        //ROUTE UNTUK USER NON DESA (KECAMATAN?KABUPATEN)
+        $router->group([
+            'namespace' => $this->namespace, 'prefix' => 'main','middleware' => ['web','auth','group:nondesa']
+        ], function ($router) {
+            require app_path('Http/Routes/nondesa.php');
+        });
+        
     }
 
     /**
