@@ -5,4 +5,6 @@ Route::get('/', function (){
 
 Route::get('/home', "Desa\HomeController@index");
 
-Route::get('/potensi', "Desa\PotensiController@index");
+Route::group(['prefix' =>'potensi'], function(){
+	Route::get('/', "Desa\PotensiIdentitasController@index");					
+});

@@ -75,6 +75,21 @@ $identitas_desa = DB::table('identitas_desa')->where('id_desa', $id_desa)->first
     						<td>:</td>
     						<td>{{$identitas_desa->berbatas_negara ==1 ? 'Ya': 'Tidak'}}</td>
     					</tr>
+    					<tr>
+    						<td>Desa/Kelurahan Terluar Di Provinsi</td>
+    						<td>:</td>
+    						<td>{{$identitas_desa->berbatas_provinsi ==1 ? 'Ya': 'Tidak'}}</td>
+    					</tr>
+    					<tr>
+    						<td>Desa/Kelurahan Terluar Di Kabupaten</td>
+    						<td>:</td>
+    						<td>{{$identitas_desa->berbatas_kabupaten ==1 ? 'Ya': 'Tidak'}}</td>
+    					</tr>
+    					<tr>
+    						<td>Desa/Kelurahan Terluar Di Kecamatan</td>
+    						<td>:</td>
+    						<td>{{$identitas_desa->berbatas_kecamatan ==1 ? 'Ya': 'Tidak'}}</td>
+    					</tr>
     				</tbody>
     			</table>
     		</div>

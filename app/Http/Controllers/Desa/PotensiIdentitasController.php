@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\File;
 
 use Intervention\Image\ImageManagerStatic as Image;
 
-class PotensiController extends Controller{
+class PotensiIdentitasController extends Controller{
 
 	function index(){
 		$route = array("main"=>"potensi","sub"=>"identitas","title"=>"Beranda");
