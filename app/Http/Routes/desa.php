@@ -5,6 +5,4 @@ Route::get('/', function (){
 
 Route::get('/home', "Desa\HomeController@index");
 
-Route::group(['prefix' =>'potensi'], function(){
-	Route::get('/', "Desa\PotensiIdentitasController@index");					
-});
+require "routes1.php";
