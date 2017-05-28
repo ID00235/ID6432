@@ -64,13 +64,14 @@
     <p>&nbsp;</p>
     @section("modal")
     @show 
-    @section("javascript")
+    
     <script src="{{asset('js/jquery.min.js')}}"></script>
     <script src="{{asset('js/tether.min.js')}}"></script>
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
     <script src="{{asset('js/moment.min.js')}}"></script>
     <script src="{{asset('js/jquery.validate.min.js')}}"></script>
     <script src="{{asset('js/bootstrap-datetimepicker.js')}}"></script>
+    <script src="{{asset('js/bootstrap-notify.js')}}"></script>
     <script src="{{asset('js/bootstrap-table.js')}}"></script>
     <script src="{{asset('js/jquery.datatables.js')}}"></script>
     <script src="{{asset('js/jquery.mask.min.js')}}"></script>
@@ -82,7 +83,16 @@
     <script type="text/javascript">
       var base_url = '{{URLGroup()}}';
       var root_url = '{{URL::to('')}}';
+        @if(Session::has('notice'))
+           Notify.showNotice("{!!Session::get('notice')!!}");
+        @endif
+        @if(Session::has('alert'))
+            Notify.showAlert("{!!Session::get('alert')!!}");
+        @endif
+        <?php Session::forget('alert');?>
+        <?php Session::forget('notice');?>
     </script>
+    @section("javascript")
     @show
   </body>
 </html>

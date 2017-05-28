@@ -182,3 +182,19 @@
         return URL::to($prefix);
     }
     
+
+    function system_numerik($data){
+        $data = str_replace(".", "", $data);
+        $data = str_replace(",", ".", $data);
+        return $data;
+    }
+
+    function indo_numerik($data){
+        $data = str_replace(".", ",", $data);
+        return $data;
+    }
+
+    function indo_double($data){
+        return number_format($data, "2", ",", ".");
+        return $data;
+    }

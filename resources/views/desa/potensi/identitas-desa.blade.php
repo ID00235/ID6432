@@ -26,8 +26,8 @@ $identitas_desa = DB::table('identitas_desa')->where('id_desa', $id_desa)->first
     			<table class="table table-sm">
     				<tbody>
     					<tr>
-    						<td style="width: 40%">Nama Desa</td>
-    						<td style="width: 10px;">:</td>
+    						<td style="width: 55%">Nama Desa</td>
+    						<td style="width: 30px;">:</td>
     						<td>{{$desa->nama_desa}}</td>
     					</tr>
     					<tr>
@@ -53,22 +53,22 @@ $identitas_desa = DB::table('identitas_desa')->where('id_desa', $id_desa)->first
     					<tr>
     						<td>Luas Desa</td>
     						<td>:</td>
-    						<td>{{$identitas_desa->luas_desa}} Hektar</td>
+    						<td>{{indo_double($identitas_desa->luas_desa)}} Hektar</td>
     					</tr>
     					<tr>
     						<td>Koordinat Bujur</td>
     						<td>:</td>
-    						<td>{{$identitas_desa->garis_bujur}}</td>
+    						<td>{{indo_numerik($identitas_desa->garis_bujur)}}</td>
     					</tr>
     					<tr>
     						<td>Koordinat Lintang</td>
     						<td>:</td>
-    						<td>{{$identitas_desa->garis_lintang}}</td>
+    						<td>{{indo_numerik($identitas_desa->garis_lintang)}}</td>
     					</tr>
     					<tr>
     						<td>Ketinggian Diatas Permukaan Laut</td>
     						<td>:</td>
-    						<td>{{$identitas_desa->tinggi_dpl}} Meter</td>
+    						<td>{{indo_double($identitas_desa->tinggi_dpl)}} Meter</td>
     					</tr>
     					<tr>
     						<td>Desa/Kelurahan Terluar Di Indonesia</td>

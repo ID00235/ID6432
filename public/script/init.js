@@ -33,10 +33,10 @@ $(document).ready(function(){
 	  $('.alpanumerik').mask('AAAAAAAAAAAAAAAAAA', {'translation': {A: {pattern: /[A-Za-z0-9]/},}});
 	  $('.kodifikasi').mask('AAAAAAAAAAAAAA', {'translation': {A: {pattern: /[A-Z0-9_-]/},}});
 	  $('.numerik').mask('000000000000000000000000', {reverse: true});	
-	  $('.money').mask('000.000.000.000.000,00', {reverse: true});  
+	  $('.double').mask('000.000.000.000.000,00', {reverse: true});  
 	  $('.phone').mask('0000-0000-0000');
 	  $('.nama').mask('AAAAAAAAAAAAAAAAAAAAAAAAA');
-	  $('.double').decimalMask("999999999999999,99999");
+	  $('.koordinat').decimalMask("999999999999999.9999999");
 	  jQuery.fn.extend({
 	    disable: function(state) {
 	        return this.each(function() {
@@ -45,4 +45,24 @@ $(document).ready(function(){
 	    }
 	 });
 
+
+	  //validator langguange
+	  jQuery.extend(jQuery.validator.messages, {
+		    required: "Kolom Ini Wajib Disi.",
+		    email: "Alamat Email Tidak Valid.",
+		    max: jQuery.validator.format("Maksimal {0} Karakter."),
+		    min: jQuery.validator.format("Minimal {0} Karakter.")
+		});
+
 });
+
+
+
+var Notify = {
+	 showAlert: function(message){
+	 	$.notify({message:message},{type: 'danger',delay:5000,timer:1000})
+	 },
+	 showNotice: function(message){
+	 	 $.notify({message:message},{type: 'success',delay:5000,timer: 1000})
+	 }
+}
