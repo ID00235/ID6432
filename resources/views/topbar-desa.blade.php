@@ -5,8 +5,8 @@
 	<a class="nav-link" href="{{URLGroup('ddk')}}">Data Dasar Keluarga</a>
 </li>
 <li class="nav-item @if($route['main']=='potensi') active @endif">
-	<a class="nav-link" href="{{URLGroup('potensi')}}">Data Potensi</a>
+	<a class="nav-link" href="{{URLGroup('potensi')}}">Potensi</a>
 </li>
 <li class="nav-item @if($route['main']=='perkembangan') active @endif">
-	<a class="nav-link" href="{{URLGroup('perkembangan')}}">Data Perkembangan</a>
+	<a class="nav-link" href="{{URLGroup('perkembangan')}}">Perkembangan</a>
 </li>

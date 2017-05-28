@@ -32,7 +32,7 @@
       <a class="navbar-brand" href="{{URLGroup('home')}}">Sistem Informasi Desa</a>
 
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-        <ul class="navbar-nav mr-auto">
+        <ul class="navbar-nav mr-auto navbar-inverse">
             @if($userlogin->usertype=='desa')
             @include("topbar-desa")
             @else
@@ -61,6 +61,7 @@
         </center>
       </div>
     </footer>
+    <p>&nbsp;</p>
     @section("modal")
     @show 
     @section("javascript")
