@@ -18,7 +18,7 @@ $identitas_desa = DB::table('identitas_desa')->where('id_desa', $id_desa)->first
 	<div class="offset-sm-2 col-md-8">
 		<div class="card">
 			<div class="card-header">
-    			<a href="{{URLGroup('identitas-desa/edit')}}" class="pull-right btn btn-secondary">
+    			<a href="{{URLGroup('potensi/edit/identitas')}}" class="pull-right btn btn-secondary">
   				<i class="fa fa-edit"></i> Edit</a>
     			Identitas Desa
   			</div>

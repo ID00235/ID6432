@@ -8,5 +8,10 @@ class PotensiIdentitasController extends BaseController{
 		$route = array("main"=>"potensi","sub"=>"identitas","title"=>"Beranda");
     	return view('desa.potensi.identitas-desa',array("route"=>$route));
 	}
+
+	function editidentitas(){
+		$route = array("main"=>"potensi","sub"=>"identitas","title"=>"Beranda");
+    	return view('desa.potensi.identitas-desa',array("route"=>$route));
+	}
 		
 }
