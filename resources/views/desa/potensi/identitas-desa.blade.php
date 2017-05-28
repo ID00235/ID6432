@@ -20,7 +20,7 @@ $identitas_desa = DB::table('identitas_desa')->where('id_desa', $id_desa)->first
 			<div class="card-header">
     			<a href="{{URLGroup('potensi/edit/identitas')}}" class="pull-right btn btn-secondary">
   				<i class="fa fa-edit"></i> Edit</a>
-    			Identitas Desa
+    			Identitas Desad
   			</div>
   			<div class="card-block">
     			<table class="table table-sm">
