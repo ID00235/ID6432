@@ -28,9 +28,16 @@
       </center>
       <form class="form-signin" action="{{URL::to('submit-login')}}" method="post">
       {{csrf_field()}}
+        <p>
+          @if($errors->has('login'))
+          <div class="alert alert-danger alert-dismissable">
+              {{$errors->first('login')}}
+          </div>
+          @endif
+        </p>
         <input type="text" id="inputEmail" name="username" class="form-control" placeholder="Username" required autofocus>
         <hr>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
         <hr>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
       </form>
