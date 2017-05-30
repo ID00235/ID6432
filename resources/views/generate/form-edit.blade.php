@@ -141,7 +141,7 @@ $primary = $value->Key=="PRI" ? 1 : 0;
 @endif
 @endforeach
 $record->save();
-$request->session()->flash('notice', "Update Data IdeEEntitas Desa Berhasil!");<br>
+$request->session()->flash('notice', "Update Data Berhasil!");<br>
 return redirect(URLGroup('sesuaikan'));<br>
 }else{<br>
 	throw new HttpException(404);<br>

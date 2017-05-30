@@ -136,7 +136,7 @@ $primary = $value->Key=="PRI" ? 1 : 0;
 @endif
 @endforeach
 $record->save();
-$request->session()->flash('notice', "Data {{$table_name}} Berhasil Disimpan");<br>
+$request->session()->flash('notice', "Data Baru Berhasil Disimpan");<br>
 return redirect(URLGroup('sesuaikan'));<br>
 }<br>
 <hr>
