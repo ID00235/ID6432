@@ -1,7 +1,7 @@
 <h3>FORM EDIT (UPDATE)</h3>
 <h4>SCRIPT FORM DI BLADE</h4>
 <hr>
-&#123!! Form::open(['url' => 'route-ke-submit-form-update']) !!&#125
+&#123!! Form::open(['url' => URLGroup("{{$route}}/update"), 'name'=>'form-update-{{$table_name}}']) !!&#125
 @foreach ($columns as $value)
 <?php
 	$type = $value->Type;
@@ -60,10 +60,10 @@
 @endif
 @endforeach
 <?php echo '{!!';?> Form::bsSubmit('Simpan',"") <?php echo '!!}';?> <br>
-&#60;&#47;form&#62;
+&#123!! Form::close() !!&#125  
 <hr>
 <h4>VALIDATOR JS</h4> <br>
-var $validator = $("#form-{{$table_name}}").validate({ <br>
+var $validator = $("form[name=form-update-{{$table_name}}]").validate({ <br>
     ignore:[], <br>
     rules: { <br>
         @foreach ($columns as $value)

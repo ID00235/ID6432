@@ -1,5 +1,9 @@
 <div class="form-group row">
+  @if(isset($attributes["required"]))
+  {{ Form::label($name, null, ['class' => 'col-4 control-label', 'required'=>'true']) }}
+  @else
   {{ Form::label($name, null, ['class' => 'col-4 control-label']) }}
+  @endif
   <div class="col-7"> 
   	<select name="{{$name}}" class="select2" @if($required) required @endif style="width: 100%;">
   		<option>Pilih {{$name}}</option>

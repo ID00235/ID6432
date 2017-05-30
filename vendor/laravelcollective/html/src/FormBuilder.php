@@ -220,8 +220,12 @@ class FormBuilder
     public function label($name, $value = null, $options = [], $escape_html = true)
     {
         $this->labels[] = $name;
-
         $options = $this->html->attributes($options);
+        $star="";
+
+        if(strpos($options, 'required')){
+            $star = " <star>*</star>";
+        }
 
         $value = $this->formatLabel($name, $value);
 
@@ -229,7 +233,8 @@ class FormBuilder
             $value = $this->html->entities($value);
         }
 
-        return $this->toHtmlString('<label for="' . $name . '"' . $options . '>' . $value . '</label>');
+
+        return $this->toHtmlString('<label for="' . $name . '"' . $options . '>' . $value . $star.'</label>');
     }
 
     /**

@@ -1,7 +1,7 @@
 <h3>FORM NEW(INSERT)</h3>
 <h4>SCRIPT FORM DI BLADE</h4>
 <hr>
-&#123!! Form::open(['url' => 'route-ke-submit-form-insert']) !!&#125<br>
+&#123!! Form::open(['url' => URLGroup("{{$route}}/insert"), 'name'=>'form-insert-{{$table_name}}']) !!&#125<br>
 @foreach ($columns as $value)
 <?php
 	$type = $value->Type;
@@ -61,7 +61,7 @@
 <hr>
 <h4>SCRIPT VALIDATOR JS</h4>
 <hr>
-var $validator = $("#form-{{$table_name}}").validate({ <br>
+var $validator = $("form[name=form-insert-{{$table_name}}]").validate({ <br>
     ignore:[], <br>
     rules: { <br>
         @foreach ($columns as $value)

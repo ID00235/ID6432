@@ -24,4 +24,16 @@ class GenerateController extends Controller
          $route = array("main"=>"Generate Form","sub"=>"","title"=>"Login","prefix"=>"");
         return view('generate.form',array("route"=>$route));
     }
+
+    function generateformbaru(Request $request, $table_name){
+		$columns = DB::select('show columns from '.$table_name);
+		return view('generate.form-baru',array("columns"=>$columns,"table_name"=>$table_name,
+			"route"=>$request->input('route')));
+	}
+
+	 function generateformedit(Request $request, $table_name){
+		$columns = DB::select('show columns from '.$table_name);
+		return view('generate.form-edit',array("columns"=>$columns,"table_name"=>$table_name,
+			"route"=>$request->input('route')));
+	}
 }

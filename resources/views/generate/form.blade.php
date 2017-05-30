@@ -34,8 +34,8 @@
           $list = array("baru"=>"Entri Baru","edit"=>"Edit Data");
           $select = "";
           ?>
-          {!! Form::bsRadioInline($list,$select,"jenis") !!} 
-
+          {!! Form::bsRadioInline($list,$select,"jenis",['required'=>true]) !!} 
+          {!! Form::bsText("route","",['required'=>true]) !!} 
           <center>
                 <a href="#" data-loading-text="<i class='fa fa-spinner fa-spin'></i> Sednag Proses..." 
                 class="btn btn-primary" id="generate">Generate</a>
@@ -44,6 +44,7 @@
           <code id="panel-source"> 			
 
           </code>
+
     		</div>
     	</div>
 	</div>
@@ -59,7 +60,8 @@
               $("#generate").text('sedang proses..');
               $("#panel-source").html('sedang proses.....');
               jenis = $("form[name=form-generate] input[name=jenis]:checked").val();
-              $.get(root_url + '/form/' + jenis +'/' + table, function(respon){
+              route = $("form[name=form-generate] input[name=route]").val();
+              $.get(root_url + '/form/' + jenis +'/' + table + '?route=' + route, function(respon){
                   $("#panel-source").html(respon);
                   $("#generate").text('Generate');
               })
