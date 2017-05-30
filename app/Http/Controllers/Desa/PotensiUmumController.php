@@ -19,7 +19,7 @@ use App\User;
 use App\Models\BatasWilayah;
 
 
-class PotensiUmumController  extends Controller{
+class PotensiUmumController extends Controller{
 
 	function bataswilayah(Request $req){
 		$route = array("main"=>"potensi","sub"=>"batas_wilayah","title"=>"Potensi - Batas Wilayah");
