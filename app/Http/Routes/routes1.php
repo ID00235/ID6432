@@ -2,5 +2,12 @@
 //POTENSI DESA
 //IDENTITAS DESA
 Route::get('/potensi', "Desa\PotensiIdentitasController@index");	
+//identitas desa
 Route::get('/potensi/edit/identitas', "Desa\PotensiIdentitasController@editidentitas");	
-Route::post('/potensi/update/identitas', "Desa\PotensiIdentitasController@updateidentitas");	
+Route::post('/potensi/update/identitas', "Desa\PotensiIdentitasController@updateidentitas");
+
+//batas wilayah
+Route::group(['prefix' =>'potensi/batas_wilayah'], function(){
+	Route::get('/', "Desa\PotensiUmumController@bataswilayah");	
+	Route::post('/insert', "Desa\PotensiUmumController@insertbataswilayah");	
+});

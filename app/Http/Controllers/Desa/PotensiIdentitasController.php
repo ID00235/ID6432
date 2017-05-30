@@ -16,6 +16,7 @@ use Intervention\Image\ImageManagerStatic as Image;
 use App\User;
 //model (table) yang digunakan
 use App\Models\IdentitasDesa;
+use App\Models\BatasWilayah;
 
 
 class PotensiIdentitasController  extends Controller{
@@ -44,11 +45,12 @@ class PotensiIdentitasController  extends Controller{
 			$identitas->berbatas_provinsi = $req->input("berbatas_provinsi");
 			$identitas->berbatas_kecamatan = $req->input("berbatas_kecamatan");
 			$identitas->save();
-			$req->session()->flash('notice', "<p>Update Data Identitas Desa <br><b>Berhasil</b></p>");
+			$req->session()->flash('notice', "<p>Update Data IdeEEntitas Desa <br><b>Berhasil</b></p>");
 			return redirect(URLGroup('potensi'));
 		}else{
 			throw new HttpException(404);
 		}
 	}
+
 		
 }

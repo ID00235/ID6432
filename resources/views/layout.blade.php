@@ -19,6 +19,7 @@
     <link href="{{asset('vendor/select2/css/select2.min.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('css/font-awesome.min.css')}}" rel="stylesheet" />
     <link href="{{asset('css/docs.min.css')}}" rel="stylesheet" />
+    <link href="{{asset('css/bootstrap-spinner.css')}}" rel="stylesheet" />
     @section("stylesheet")
     @show
   </head>
@@ -78,6 +79,7 @@
     <script src="{{asset('js/jquery.decimalMask.min.js')}}"></script>
     <script src="{{asset('js/bootbox.min.js')}}"></script>
     <script src="{{asset('js/jquery.form.min.js')}}"></script>
+    <script src="{{asset('js/jquery.spinner.js')}}"></script>
     <script src="{{asset('script/init.js')}}"></script>
     <script src="{{asset('vendor/select2/js/select2.full.min.js')}}"></script>
     <script type="text/javascript">
