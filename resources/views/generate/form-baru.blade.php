@@ -57,7 +57,6 @@
 @endif
 @endforeach
 <?php echo '{!!';?> Form::bsSubmit('Simpan',"") <?php echo '!!}';?> <br>
-&#60;&#47;form&#62;
 &#123!! Form::close() !!&#125  
 <hr>
 <h4>SCRIPT VALIDATOR JS</h4>
