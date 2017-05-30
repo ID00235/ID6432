@@ -1,4 +1,6 @@
 <div class="form-group row">
   {{ Form::label($name, null, ['class' => 'col-4 control-label']) }}
-  {{ Form::text($name, $value, array_merge(['class' => 'col-7 form-control'], $attributes)) }}
+  <div class="col-7"> 
+  {{ Form::text($name, $value, array_merge(['class' => 'form-control'], $attributes)) }}
+  </div>
 </div>

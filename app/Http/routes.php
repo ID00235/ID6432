@@ -16,3 +16,8 @@ Route::get('/',"LoginController@login");
 Route::get('login', "LoginController@login");
 Route::get('logout', "LoginController@logout");
 Route::post('submit-login', "LoginController@submitlogin");
+
+Route::get('form/baru/{table_name}', function($table_name){
+	$columns = DB::select('show columns from '.$table_name);
+	return view('form-builder',array("columns"=>$columns,"table_name"=>$table_name));
+});

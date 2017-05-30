@@ -45,6 +45,11 @@ $identitas_desa = DB::table('identitas_desa')->where('id_desa', $id_desa)->first
     						<td>:</td>
     						<td>Jambi</td>
     					</tr>
+                        <tr>
+                            <td>Status</td>
+                            <td>:</td>
+                            <td>{{ucfirst($identitas_desa->status)}}</td>
+                        </tr>
     					<tr>
     						<td>Kode Desa</td>
     						<td>:</td>
