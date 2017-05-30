@@ -9,20 +9,62 @@
     			Generate Form
   			</div>
   			<div class="card-block">
-  				{!! Form::open(['url' => 'submit-generate-form']) !!}
+  				{!! Form::open(['url' => 'submit-generate-form','name'=>'form-generate']) !!}
+          <div class="form-group row">
+          <label class="control-label col-4">Table</label>
+          <div class="col-7">
+          <select class="select2" name="table" style="width: 100%">
+          <option value="">Pilih Table</option>
           <?php
           $tables = DB::select('SHOW TABLES');
           $array_list = array();
           foreach($tables as $tablex)
           {
                 $table  =  $tablex->Tables_in_phpschema;
-                array_push(array("$table"=>"$table"),array_list);
+          ?>
+            <option value="{{$table}}">{{$table}}</option>
+          <?php
           }
           ?>
-  				{{Form::bsSelect($array_list,"","table", true)}}
-				  {!! Form::close() !!}    			
+          </select>
+          </div>
+          </div>
+
+          <?php
+          $list = array("baru"=>"Entri Baru","edit"=>"Edit Data");
+          $select = "";
+          ?>
+          {!! Form::bsRadioInline($list,$select,"jenis") !!} 
+
+          <center>
+                <a href="#" data-loading-text="<i class='fa fa-spinner fa-spin'></i> Sednag Proses..." 
+                class="btn btn-primary" id="generate">Generate</a>
+          </center>
+				  {!! Form::close() !!}   
+          <code id="panel-source"> 			
+
+          </code>
     		</div>
     	</div>
 	</div>
 </div>
+@endsection
+@section("javascript")
+<script type="text/javascript">
+  $(function(){
+      $("#generate").on('click', function(){
+        
+          table =  $("form[name=form-generate] select[name=table]").val();
+          if(table.length>0){
+              $("#generate").text('sedang proses..');
+              $("#panel-source").html('sedang proses.....');
+              jenis = $("form[name=form-generate] input[name=jenis]:checked").val();
+              $.get(root_url + '/form/' + jenis +'/' + table, function(respon){
+                  $("#panel-source").html(respon);
+                  $("#generate").text('Generate');
+              })
+          }
+      })
+  })
+</script>
 @endsection
