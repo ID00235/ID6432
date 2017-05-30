@@ -12,8 +12,10 @@
 @if(!$primary && $field!='created_at' && $field!='updated_at')
 	@if(substr($type,0,7)=='varchar')
 	<?php echo '{{';?>Form::bsText("{{$field}}","",[<?php echo $required;?>])<?php echo '}}';?><br>
-	@elseif(substr($type,0,3)=='int')
+	@elseif(substr($type,0,3)=='int' && $field!='id_desa')
 	<?php echo '{{';?>Form::bsText("{{$field}}","",['class'=>'col-4 numerik input-right form-control',<?php echo $required;?>])<?php echo '}}';?><br>
+	@elseif( $field=='id_desa')
+	<?php echo '{{';?>Form::hidden("{{$field}}","&#123&#123Hashids::encode(Auth::user()->userdesa)&#125&#125")<?php echo '}}';?><br>
 	@elseif(substr($type,0,7)=='decimal')
 	<?php echo '{{';?>Form::bsText("{{$field}}","",['class'=>'col-4 double input-right form-control',
 	<?php echo $required;?>])<?php echo '}}';?><br>
@@ -87,6 +89,14 @@ var $validator = $("form[name=form-insert-{{$table_name}}]").validate({ <br>
 <?php
 $field_kunci = "";
 ?>
+<?php
+$model_table = explode("_",$table_name);
+$nama_model = "";
+foreach($model_table as $md){
+	$nama_model.=ucfirst($md);
+}
+?>
+function insert{{$nama_model}} { <br>
  @foreach ($columns as $value)
 <?php
 $type = $value->Type;
@@ -98,18 +108,15 @@ $primary = $value->Key=="PRI" ? 1 : 0;
 @if($primary)
 <?php $field_kunci=$field;?>
 @endif
-
-@if(!$primary && $field!='created_at' && $field!='updated_at')
+@if($field=='id_desa')
+${{$field}}=$request->input('{{$field}}');<br>
+${{$field}}=Hashids:decode(${{$field}})[0];<br>
+@endif
+@if(!$primary && $field!='created_at' && $field!='updated_at' && $field!='id_desa')
 ${{$field}}=$request->input('{{$field}}');<br>
 @endif
 @endforeach
-<?php
-$model_table = explode("_",$table_name);
-$nama_model = "";
-foreach($model_table as $md){
-	$nama_model.=ucfirst($md);
-}
-?>
+
 $record = New {{$nama_model}}; <br>
 @foreach ($columns as $value)
 <?php
@@ -131,6 +138,7 @@ $primary = $value->Key=="PRI" ? 1 : 0;
 $record->save();
 $request->session()->flash('notice', "Data {{$table_name}} Berhasil Disimpan");<br>
 return redirect(URLGroup('sesuaikan'));<br>
+}<br>
 <hr>
 <h4>SCRIPT Create Model</h4>
 <hr><br>

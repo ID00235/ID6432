@@ -15,7 +15,7 @@
 @if(!$primary && $field!='created_at' && $field!='updated_at')
 	@if(substr($type,0,7)=='varchar' )
 	<?php echo '{{';?>Form::bsText("{{$field}}","&#123;&#123;$data->{{$field}}&#125;&#125;",[<?php echo $required;?>])<?php echo '}}';?><br>
-	@elseif(substr($type,0,3)=='int')
+	@elseif(substr($type,0,3)=='int' && $field!='id_desa')
 	<?php echo '{{';?>Form::bsText("{{$field}}","&#123;&#123;$data->{{$field}}&#125;&#125;",['class'=>'col-4 numerik input-right form-control',<?php echo $required;?>])<?php echo '}}';?><br>
 	@elseif(substr($type,0,7)=='decimal')
 	<?php echo '{{';?>Form::bsText("{{$field}}","&#123;&#123;$data->{{$field}}&#125;&#125;",['class'=>'col-4 double input-right form-control',
@@ -87,9 +87,18 @@ var $validator = $("form[name=form-update-{{$table_name}}]").validate({ <br>
 <br>
 <h4>REQUEST POST CONTROLLER</h4> 
 <hr>
+
 <?php
 $field_kunci = "";
 ?>
+<?php
+$model_table = explode("_",$table_name);
+$nama_model = "";
+foreach($model_table as $md){
+	$nama_model.=ucfirst($md);
+}
+?>
+function update{{$nama_model}}{ <br>
  @foreach ($columns as $value)
 <?php
 $type = $value->Type;
@@ -101,7 +110,7 @@ $primary = $value->Key=="PRI" ? 1 : 0;
 <?php $field_kunci=$field;?>
 ${{$field}}=Crypt::decrypt($request->input('{{$field}}'));<br>
 @endif
-@if(!$primary && $field!='created_at' && $field!='updated_at')
+@if(!$primary && $field!='created_at' && $field!='updated_at' && $field!='id_desa')
 ${{$field}}=$request->input('{{$field}}');<br>
 @endif
 @endforeach
@@ -121,7 +130,7 @@ $field = $value->Field;
 $required = $value->Null == "NO" ? 1 : 0;
 $primary = $value->Key=="PRI" ? 1 : 0;
 ?>	
-@if(!$primary && $field!='created_at' && $field!='updated_at')
+@if(!$primary && $field!='created_at' && $field!='updated_at'  && $field!='id_desa')
 	@if (substr($type,0,7)=='decimal' || substr($type,0,6)=='double')
 	$record->{{$field}} = system_numerik(${{$field}});<br>
 	@elseif(substr($type,0,4)=='date')
@@ -136,4 +145,5 @@ $request->session()->flash('notice', "Update Data IdeEEntitas Desa Berhasil!");<
 return redirect(URLGroup('sesuaikan'));<br>
 }else{<br>
 	throw new HttpException(404);<br>
+}<br>
 }<br>
