@@ -156,6 +156,16 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        //tambahan
+        Collective\Html\HtmlServiceProvider::class,
+        Vinkla\Hashids\HashidsServiceProvider::class,
+        Yajra\Datatables\DatatablesServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
+        GrahamCampbell\HTMLMin\HTMLMinServiceProvider::class,
+        'Maatwebsite\Excel\ExcelServiceProvider',
+        
+
     ],
 
     /*
@@ -201,6 +211,16 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+
+        //tambahan
+         'Form' => Collective\Html\FormFacade::class,
+         'Html' => Collective\Html\HtmlFacade::class,
+         'Hashids' => Vinkla\Hashids\Facades\Hashids::class,
+         'Datatables' => Yajra\Datatables\Facades\Datatables::class,
+         'Image' => Intervention\Image\Facades\Image::class,
+         'PDF' => Barryvdh\DomPDF\Facade::class,
+         'HTMLMin' =>GrahamCampbell\HTMLMin\Facades\HTMLMin::class,
+         'Excel' => 'Maatwebsite\Excel\Facades\Excel',
 
     ],
 

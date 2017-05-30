@@ -21,4 +21,8 @@ $(function(){
         $("#form-tambah input[name=tahun]").val(tahun);
     })
 
+    $("#select-bulan-tahun").on("change", function(){
+        bulan_tahun = $(this).val();
+        window.location.href = current_url + '?bulan_tahun=' + bulan_tahun;
+    })
 })

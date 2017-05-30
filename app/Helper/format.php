@@ -194,6 +194,8 @@
         return $data;
     }
 
+
+    
     function indo_double($data){
         return number_format($data, "2", ",", ".");
         return $data;

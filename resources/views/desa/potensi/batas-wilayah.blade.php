@@ -5,6 +5,8 @@ $id_desa = Auth::user()->userdesa();
 @section("pagetitle",$route['title'])
 @section("container")
 @include("desa.navbar-sub.potensi")
+
+
 <div class="row">
 	<div class="col-md-12">
 		<ol class="breadcrumb">
@@ -17,22 +19,131 @@ $id_desa = Auth::user()->userdesa();
 			<div class="card-header">
     			<a href="#" class="pull-right btn btn-secondary" data-toggle="modal" data-target="#modal-tambah">
   				<i class="fa fa-plus"></i> Data Baru</a>
-    			Batas Wilayah Desa
+    			Potensi Umum
+    			<?php
+    			$list_bulan_tahun = DB::table('batas_wilayah')->select(['tahun','bulan'])
+    			->where('id_desa', Auth::user()->userdesa())
+    			->orderby('tahun','desc')
+    			->orderby('bulan','desc')
+    			->get();
+    			?>
   			</div>
   			<div class="card-block">
   				@if(isset($data))
     			<table class="table table-sm">
     				<tbody>
     					<tr>
-    						<td style="width: 40%">Bulan/Tahun</td>
-    						<td style="width: 10%">:</td>
-    						<td style="width: 50%">{{$data->bulan}} / {{$data->tahun}}</td>
+    						<td style="width: 40%">Posisi Bulan/Tahun</td>
+    						<td style="width: 5%">:</td>
+    						<td style="width: 50%">
+    							<select id="select-bulan-tahun" class="select2" style="width: 170px;">
+    								@foreach($list_bulan_tahun as $list)
+    								<option value="{{$list->bulan."-".$list->tahun}}"
+    								@if($list->bulan==$data->bulan && $list->tahun == $data->tahun)
+    									selected="selected"
+    								@endif
+    								>
+    									{{namaBulan($list->bulan)}} {{$list->tahun}}
+    								</option>
+    								@endforeach
+    							</select>
+    							<a href="{{URL::to('potensi/batas_wilayah/edit/'.Hashids::encode($data->id))}}"
+    							class="pull-right btn btn-secondary">
+    							<i class="fa fa-edit"></i> Edit
+    							</a>
+    						</td>
+    					</tr>
+    					<tr>
+    						<td colspan="3"><b>Informasi Umum</b></td>
+    					</tr>
+    					<tr>
+    						<td>Tahun Pembentukan</td>
+    						<td>:</td>
+    						<td>{{$data->tahun_pembentukan}}</td>
+    					</tr>
+    					<tr>
+    						<td>Luas Desa</td>
+    						<td>:</td>
+    						<td>{{indo_double($data->luas_desa)}} Ha</td>
+    					</tr>
+    					<tr>
+    						<td>Nama Kepala Desa</td>
+    						<td>:</td>
+    						<td>{{$data->nama_kepala_desa}}</td>
+    					</tr>
+    					<tr>
+    						<td colspan="3"><b>Batas Wilayah</b></td>
+    					</tr>
+    					<tr>
+    						<td>Desa/Kelurahan Sebelah Utara</td>
+    						<td>:</td>
+    						<td>{{$data->desa_sebelah_utara}}</td>
+    					</tr>
+    					<tr>
+    						<td>Desa/Kelurahan Sebelah Selatan</td>
+    						<td>:</td>
+    						<td>{{$data->desa_sebelah_selatan}}</td>
+    					</tr>
+    					<tr>
+    						<td>Desa/Kelurahan Sebelah Timur</td>
+    						<td>:</td>
+    						<td>{{$data->desa_sebelah_timur}}</td>
+    					</tr>
+    					<tr>
+    						<td>Desa/Kelurahan Sebelah Barat</td>
+    						<td>:</td>
+    						<td>{{$data->desa_sebelah_barat}}</td>
+    					</tr>
+    					<tr>
+    						<td>Kecamatan Sebelah Utara</td>
+    						<td>:</td>
+    						<td>{{$data->kecamatan_sebelah_utara}}</td>
+    					</tr>
+    					<tr>
+    						<td>Kecamatan Sebelah Selatan</td>
+    						<td>:</td>
+    						<td>{{$data->kecamatan_sebelah_selatan}}</td>
+    					</tr>
+    					<tr>
+    						<td>Kecamatan Sebelah Timur</td>
+    						<td>:</td>
+    						<td>{{$data->kecamatan_sebelah_timur}}</td>
+    					</tr>
+    					<tr>
+    						<td>Desa/Kelurahan Sebelah Barat</td>
+    						<td>:</td>
+    						<td>{{$data->kecamatan_sebelah_barat}}</td>
+    					</tr>
+
+    					<tr>
+    						<td>Penetapan Batas</td>
+    						<td>:</td>
+    						<td>{{strtoupper($data->penetapan_batas)}}</td>
+    					</tr>
+
+    					<tr>
+    						<td>Peraturan Desa Nomor</td>
+    						<td>:</td>
+    						<td>{{$data->perdes_no}}</td>
+    					</tr>
+
+    					<tr>
+    						<td>Peraturan Daerah Nomor</td>
+    						<td>:</td>
+    						<td>{{$data->perda_no}}</td>
+    					</tr>
+
+    					<tr>
+    						<td>Peta Wilayah</td>
+    						<td>:</td>
+    						<td>{{strtoupper($data->peta_wilayah)}}</td>
     					</tr>
     				</tbody>
     			</table>
     			@else
     				<center>Data Masih Kosong!</center>
     			@endif
+    			
     		</div>
     	</div>
 	</div>
@@ -51,7 +162,7 @@ $id_desa = Auth::user()->userdesa();
 	            <button type="button" class="close" data-dismiss="modal">&times;</button>
 	            <h4 class="modal-title">Tambah Batas Wilayah</h4>
 	          </div>
-	          <div class="modal-body" id="panel-edit-kegiatan">
+	          <div class="modal-body" >
 	               <ul class="nav nav-tabs" role="tablist">
 						  <li class="nav-item">
 						    <a class="nav-link active" data-toggle="tab" href="#tab1" role="tab">Umum</a>
@@ -241,6 +352,24 @@ $id_desa = Auth::user()->userdesa();
 	      </div>
 	    </div>
 	</form>
+
+	{!! Form::open(['url' => URL::to('potensi/batas_wilayah/update'), 'method' => 'post', 'id'=>'form-edit'])!!}
+	<input type="hidden" name="querystring" value="{{Request::getQueryString()}}">
+	{!! Form::hidden('id_data') !!}
+	<div id="modal-edit" class="modal fade" role="dialog">
+	      <div class="modal-dialog modal-lg">
+	        <div class="modal-content">
+	          <div class="modal-header">
+	            <button type="button" class="close" data-dismiss="modal">&times;</button>
+	            <h4 class="modal-title">Edit Potensi Umum</h4>
+	          </div>
+	          <div class="modal-body">
+
+	          </div>
+	        </div>
+	       </div>
+	</div>
+	{!! Form::close() !!}
 @endsection
 
 @section("javascript")
@@ -248,6 +377,7 @@ $id_desa = Auth::user()->userdesa();
 <script type="text/javascript">
 	var bulan = "{{(int)date('m')}}";
 	var tahun = "{{(int)date('Y')}}";
+	var current_url = "{{Request::url()}}";
 </script>
 <script type="text/javascript" src="{{asset('script/desa/action-batas-wilayah.js')}}"></script>
 @endsection

@@ -1,0 +1,5 @@
+<?php
+	$list = array("1"=>"Tidak Ada","0"=>"Ada juga","2"=>"Dua","3"=>"Tiga");
+	$select = "2";
+?>
+{!! Form::bsRadioInline($list,$select,"pilihan") !!}

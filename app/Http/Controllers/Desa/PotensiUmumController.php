@@ -13,6 +13,7 @@ use Symfony\Component\HttpKernel\Exception\HttpException;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\ImageManagerStatic as Image;
+use Vinkla\Hashids\Facades\Hashids;
 use App\User;
 //model (table) yang digunakan
 use App\Models\BatasWilayah;
@@ -28,10 +29,15 @@ class PotensiUmumController  extends Controller{
 			->orderby('bulan','desc')
 			->first();
 		}else{
-			$data = BatasWilayah::where('id_desa',Auth::user()->userdesa())
-			->where('tahun', $tahun)
-			->where('bulan', $bulan)
-			->first();
+			$bulan_tahun = explode("-",$req->input('bulan_tahun'));
+			if (count($bulan_tahun)==2){
+				$data = BatasWilayah::where('id_desa',Auth::user()->userdesa())
+				->where('tahun', $bulan_tahun[1])
+				->where('bulan', $bulan_tahun[0])
+				->first();
+			}else{
+				$data = array();
+			}
 		}
     	return view('desa.potensi.batas-wilayah',array("route"=>$route, "data"=>$data));
 	}
