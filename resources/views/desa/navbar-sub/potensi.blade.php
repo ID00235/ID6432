@@ -8,7 +8,7 @@
             <a class="nav-link" href="{{URLGroup('potensi/batas_wilayah')}}">Potensi Umum</a>
           </li>
           <li class="nav-item @if($route['sub']=='sda') active @endif">
-            <a class="nav-link" href="#">Sumber Daya Alam</a>
+            <a class="nav-link" href="{{URLGroup('Sda/sda')}}">Sumber Daya Alam</a>
           </li>
           <li class="nav-item @if($route['sub']=='sdm') active @endif">
             <a class="nav-link" href="#">Sumber Daya Manusia</a>
