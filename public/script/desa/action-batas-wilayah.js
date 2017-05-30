@@ -26,3 +26,4 @@ $(function(){
         window.location.href = current_url + '?bulan_tahun=' + bulan_tahun;
     })
 })
+

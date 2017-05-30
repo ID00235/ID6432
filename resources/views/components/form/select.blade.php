@@ -1,0 +1,23 @@
+<div class="form-group row">
+  {{ Form::label($name, null, ['class' => 'col-4 control-label']) }}
+  <div class="col-7"> 
+  	<select name="{{$name}}" class="select2" @if($required) required @endif style="width: 100%;">
+  		<option>Pilih {{$name}}</option>
+  		<?php
+  		$arr_val = array_values($list);
+	  	$arr_key = array_keys($list);
+	  	$status=false;
+	  	for($i=0;$i<count($list);$i++){
+	  		if($arr_key[$i]==$select){
+	  			$status=true;
+	  		}else{
+	  			$status=false;
+	  		}
+	  	?>
+  		<option value="{{$arr_key[$i]}}" @if($status) selected="selected" @endif>{{$arr_val[$i]}}</option>
+  		<?php
+  		}
+  		?>
+  	</select>
+  </div>
+</div>

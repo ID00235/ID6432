@@ -353,54 +353,6 @@ $id_desa = Auth::user()->userdesa();
 	      </div>
 	    </div>
 	</form>
-
-	{!! Form::open(['url' => URL::to('potensi/batas_wilayah/update'), 'method' => 'post', 'id'=>'form-edit'])!!}
-	<input type="hidden" name="querystring" value="{{Request::getQueryString()}}">
-	{!! Form::hidden('id_data') !!}
-	<div id="modal-edit" class="modal fade" role="dialog">
-	      <div class="modal-dialog modal-lg">
-	        <div class="modal-content">
-	          <div class="modal-header">
-	            <button type="button" class="close" data-dismiss="modal">&times;</button>
-	            <h4 class="modal-title">Edit Potensi Umum</h4>
-	          </div>
-	          <div class="modal-body">
-	          		{{Form::bsText("kode_pum","",['required'=>true])}}
-					{{Form::bsText("luas_desa","",['class'=>'col-4 double input-right form-control', 'required'=>true])}}
-					{{Form::bsText("tinggi_dpl","",['class'=>'col-4 double input-right form-control', 'required'=>true])}}
-					{{Form::bsText("garis_bujur","",['class'=>'col-4 input-right form-control','required'=>true])}}
-					{{Form::bsText("garis_lintang","",['class'=>'col-4 input-right form-control','required'=>true])}}
-					<?php
-					$list = array(0=>"Tidak", 1=>"Ya", );
-					$select=0;
-					?>
-					{!! Form::bsRadioInline($list,$select,"berbatas_negara","",['required'=>true]) !!}
-					<?php
-					$list = array(0=>"Tidak", 1=>"Ya", );
-					$select=0;
-					?>
-					{!! Form::bsRadioInline($list,$select,"berbatas_provinsi","",['required'=>true]) !!}
-					<?php
-					$list = array(0=>"Tidak", 1=>"Ya", );
-					$select=0;
-					?>
-					{!! Form::bsRadioInline($list,$select,"berbatas_kabupaten","",['required'=>true]) !!}
-					<?php
-					$list = array(0=>"Tidak", 1=>"Ya", );
-					$select=0;
-					?>
-					{!! Form::bsRadioInline($list,$select,"berbatas_kecamatan","",['required'=>true]) !!}
-					<?php
-					$list = array('desa'=>'DESA', 'nagari'=>'NAGARI', 'kelurahan'=>'KELURAHAN', );
-					$select ='desa';
-					?>
-					{!! Form::bsRadioInline($list,$select,"status","",['required'=>true]) !!}
-
-	          </div>
-	        </div>
-	       </div>
-	</div>
-	{!! Form::close() !!}
 @endsection
 
 @section("javascript")
