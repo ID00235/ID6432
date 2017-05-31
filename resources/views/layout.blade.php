@@ -20,6 +20,7 @@
     <link href="{{asset('css/font-awesome.min.css')}}" rel="stylesheet" />
     <link href="{{asset('css/docs.min.css')}}" rel="stylesheet" />
     <link href="{{asset('css/bootstrap-spinner.css')}}" rel="stylesheet" />
+    <link href="{{asset('css/yamm.css')}}" rel="stylesheet" />
     <link href="{{asset('css/awesome-bootstrap-checkbox.css')}}" rel="stylesheet" />
     @section("stylesheet")
     @show
@@ -94,6 +95,11 @@
         @endif
         <?php Session::forget('alert');?>
         <?php Session::forget('notice');?>
+        $(function(){
+            $(document).on('click', '.yamm .dropdown-menu', function(e) {
+              e.stopPropagation()
+            })
+        })
     </script>
     @section("javascript")
     @show

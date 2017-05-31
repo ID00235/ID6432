@@ -12,7 +12,7 @@ $id_desa = Auth::user()->userdesa();
 	<div class="col-md-12">
 		<ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Potensi</a></li>
-            <li class="breadcrumb-item active">Potensi Umum</li>
+            <li class="breadcrumb-item active">Batas Wilayah</li>
         </ol>
 	</div>
 	<div class="offset-sm-2 col-md-8">
@@ -20,7 +20,7 @@ $id_desa = Auth::user()->userdesa();
 			<div class="card-header">
     			<a href="#" class="pull-right btn btn-secondary" data-toggle="modal" data-target="#modal-tambah">
   				<i class="fa fa-plus"></i> Data Baru</a>
-    			Potensi Umum
+    			Batas Wilayah
     			<?php
     			$list_bulan_tahun = DB::table('batas_wilayah')->select(['tahun','bulan'])
     			->where('id_desa', Auth::user()->userdesa())

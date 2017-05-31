@@ -6,12 +6,11 @@ $id_desa = Auth::user()->userdesa();
 @section("container")
 @include("desa.navbar-sub.potensi")
 
-
 <div class="row">
 	<div class="col-md-12">
 		<ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Potensi</a></li>
-            <li class="breadcrumb-item active">Potensi Umum</li>
+            <li class="breadcrumb-item active">Batas Wilayah</li>
         </ol>
 	</div>
 	<div class="offset-sm-2 col-md-8">
