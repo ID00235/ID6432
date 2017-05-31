@@ -93,7 +93,30 @@
           <hr>
             //buat controller dengan nama <code>{{$controller}}</code> <br>
             <code>
-            //jagnan lupa tambahkan use App\Models\{{$model}} pada bagian atas conttroller
+            {{"<?"}}php <br>
+            namespace App\Http\Controllers\Desa;<br>
+            use Illuminate\Http\Request;<br>
+            use App\Http\Controllers\Controller;<br>
+            use Auth;<br>
+            use URL;<br>
+            use DB;<br>
+            use Validator;<br>
+            use Yajra\Datatables\Datatables;<br>
+            use Crypt;<br>
+            use Illuminate\Contracts\Encryption\DecryptException;<br>
+            use Symfony\Component\HttpKernel\Exception\HttpException;<br>
+            use Illuminate\Support\Facades\Storage;<br>
+            use Illuminate\Support\Facades\File;<br>
+            use Intervention\Image\ImageManagerStatic as Image;<br>
+            use Vinkla\Hashids\Facades\Hashids;<br>
+            use App\User;<br>
+            //model (table) yang digunakan <br>
+            use App\Models\{{$model}};<br>
+            class {{$controller}} extends Controller{<br>
+              <br>
+            }<br>
+
+
           </code>
     		</div>
     	</div>
