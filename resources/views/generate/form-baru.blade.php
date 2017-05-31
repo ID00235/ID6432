@@ -13,16 +13,16 @@
 	@if(substr($type,0,7)=='varchar')
 	<?php echo '{{';?>Form::bsText("{{$field}}","",[<?php echo $required;?>])<?php echo '}}';?><br>
 	@elseif(substr($type,0,3)=='int' && $field!='id_desa')
-	<?php echo '{{';?>Form::bsText("{{$field}}","",['class'=>'col-5 numerik input-right form-control',<?php echo $required;?>])<?php echo '}}';?><br>
+	<?php echo '{{';?>Form::bsText("{{$field}}","",['class'=>'col-7 numerik input-right form-control',<?php echo $required;?>])<?php echo '}}';?><br>
 	@elseif( $field=='id_desa')
 	<?php echo '{{';?>Form::hidden("{{$field}}",Hashids::encode(Auth::user()->userdesa()))<?php echo '}}';?><br>
 	@elseif(substr($type,0,7)=='decimal')
-	<?php echo '{{';?>Form::bsText("{{$field}}","",['class'=>'col-5 double input-right form-control',
+	<?php echo '{{';?>Form::bsText("{{$field}}","",['class'=>'col-7 double input-right form-control',
 	<?php echo $required;?>])<?php echo '}}';?><br>
 	@elseif(substr($type,0,6)=='double')
-	<?php echo '{{';?>Form::bsText("{{$field}}","",['class'=>'col-5  input-right form-control',<?php echo $required;?>])<?php echo '}}';?><br>
+	<?php echo '{{';?>Form::bsText("{{$field}}","",['class'=>'col-7  input-right form-control',<?php echo $required;?>])<?php echo '}}';?><br>
 	@elseif(substr($type,0,4)=='date')
-	<?php echo '{{';?>Form::bsText("{{$field}}","",['class'=>'col-5 datepicker form-control',<?php echo $required;?>])<?php echo '}}';?><br>
+	<?php echo '{{';?>Form::bsText("{{$field}}","",['class'=>'col-7 datepicker form-control',<?php echo $required;?>])<?php echo '}}';?><br>
 	@elseif(substr($type,0,4)=='enum')
 	 <?php
 	   $type = str_replace("enum(", "", $type);

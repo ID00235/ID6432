@@ -4,7 +4,7 @@
   @else
   {{ Form::label($name, null, ['class' => 'col-4 control-label']) }}
   @endif
-  <div class="col-7"> 
+  <div class="col-8"> 
   {{ Form::text($name, $value, array_merge(['class' => 'form-control'], $attributes)) }}
   </div>
 </div>
