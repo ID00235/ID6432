@@ -19,6 +19,7 @@ Route::group(['prefix' =>'/potensi/batas-wilayah'], function(){
 //ROUTE kepemilikan_lahan_pangan
 Route::group(['prefix' =>'potensi/sda/kepemilikan-lahan-pangan'], function(){
 Route::get('/', "Desa\PotensiSdaKepemilikanLahanPanganController@listKepemilikanLahanPangan");
+Route::get('/new', "Desa\PotensiSdaKepemilikanLahanPanganController@newKepemilikanLahanPangan");
 Route::get('/edit/{id}', "Desa\PotensiSdaKepemilikanLahanPanganController@editKepemilikanLahanPangan");
 Route::post('/insert', "Desa\PotensiSdaKepemilikanLahanPanganController@insertKepemilikanLahanPangan");
 Route::post('/update', "Desa\PotensiSdaKepemilikanLahanPanganController@updateKepemilikanLahanPangan");

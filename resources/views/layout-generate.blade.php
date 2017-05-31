@@ -29,7 +29,7 @@
   <body>
   
     
-    <div class="container">
+    <div class="container" style="width: 100%">
         @section("container")@show
     </div>
     <footer class="bd-footer">

@@ -120,19 +120,19 @@
 
               }<br><br>
 
-              function new{{$model}}($id){<br><br>
+              function new{{$model}}(){<br><br>
 
               }<br><br>
 
-              function insert{{$model}}($id){<br><br>
+              function insert{{$model}}(Request $request){<br><br>
 
               }<br><br>
 
-              function update{{$model}}($id){<br><br>
+              function update{{$model}}(Request $request){<br><br>
 
               }<br><br>
 
-              function delete{{$model}}($id){<br><br>
+              function delete{{$model}}(Request $request){<br><br>
 
               }<br><br>
             }<br>

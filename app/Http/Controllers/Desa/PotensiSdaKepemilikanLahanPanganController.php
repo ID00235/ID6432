@@ -23,14 +23,15 @@ class PotensiSdaKepemilikanLahanPanganController extends Controller{
 
 		function listKepemilikanLahanPangan(){
 			$id_desa = Auth::user()->userdesa();
-			$data = KepemilikanLahanPangan::where('id_desa',$id_desa);
-			$route = array("main"=>"potensi","sub"=>"batas_wilayah","title"=>"Potensi - Batas Wilayah");
-			return view('desa.potensi.kepemilikan-lahan-pangan',array("route"=>$route, "data"=>$data));
+			$data = KepemilikanLahanPangan::where('id_desa',$id_desa)->get();
+			$route = array("main"=>"potensi","sub"=>"batas_wilayah","title"=>"Potensi - Kepemilikan Lahan Pangan");
+			return view('desa.potensi.list-kepemilikan-lahan-pangan',array("route"=>$route, "data"=>$data));
 		}
 
 
-		function newKepemilikanLahanPangan($id){
-
+		function newKepemilikanLahanPangan(){
+			$route = array("main"=>"potensi","sub"=>"batas_wilayah","title"=>"Potensi - Kepemilikan Lahan Pangan");
+			return view('desa.potensi.new-kepemilikan-lahan-pangan',array("route"=>$route));
 		}
 
 }
