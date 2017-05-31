@@ -1,19 +1,14 @@
 <?php
-//POTENSI DESA
-//IDENTITAS DESA
-//Route::get('/potensi', "Desa\PotensiIdentitasController@index");	
-//identitas desa
-//Route::get('/potensi/edit/identitas', "Desa\PotensiIdentitasController@editidentitas");	
-//Route::post('/potensi/update/identitas', "Desa\PotensiIdentitasController@updateidentitas");
 
-//batas wilayah
-Route::group(['prefix' =>'sda'], function(){
-	Route::get('/', "Desa\PotensiSdaController@psda");	
-	//Route::get('/edit/{id}', "Desa\PotensiUmumController@editbataswilayah");	
-	//Route::post('/insert', "Desa\PotensiUmumController@insertbataswilayah");	
+//Sumber Daya Alam / Jenis Lahan
+//ROUTE jenis_lahan
+Route::group(['prefix' =>'/potensi/sda/jenis-lahan'], function(){
+Route::get('/', "Desa\PotensiSdaJenisLahanController@listJenisLahan");
+Route::get('/edit/{id}', "Desa\PotensiSdaJenisLahanController@editJenisLahan");
+Route::post('/insert', "Desa\PotensiSdaJenisLahanController@insertJenisLahan");
+Route::post('/update', "Desa\PotensiSdaJenisLahanController@updateJenisLahan");
+Route::post('/delete', "Desa\PotensiSdaJenisLahanController@deleteJenisLahan");
 });
-
-
 //kualitas udara
 Route::group(['prefix' =>'/potensi/kualitas-udara'], function(){
 	Route::get('/', "Desa\PotensiKualitasUdaraController@kualitasudara");	
