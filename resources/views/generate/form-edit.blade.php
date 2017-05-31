@@ -121,7 +121,8 @@ $("#delete").on("click", function(){ <br>
 		            }<br>
 		        },<br>
 		        callback: function (result) {<br>
-		            $("form[name=form-delete-batas_wilayah]").submit();<br>
+		        	if(result){ $("form[name=form-delete-batas_wilayah]").submit();}<br>
+
 		        }<br>
 		    });<br>
 	    })<br><br>
@@ -140,7 +141,7 @@ foreach($model_table as $md){
 ?>
 <br>
 <?php $field_kunci="";?>
-//fungsi update data {{$nama_model}}<br>
+//tambahkan fungsi update data {{$nama_model}}<br>
 function update{{$nama_model}} (Request $request) { <br>
  @foreach ($columns as $value)
 <?php
