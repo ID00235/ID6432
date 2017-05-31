@@ -22,7 +22,10 @@ class PotensiSdaKepemilikanLahanPanganController extends Controller{
 
 
 		function listKepemilikanLahanPangan(){
-
+			$id_desa = Auth::user()->userdesa();
+			$data = KepemilikanLahanPangan::where('id_desa',$id_desa);
+			$route = array("main"=>"potensi","sub"=>"batas_wilayah","title"=>"Potensi - Batas Wilayah");
+			return view('desa.potensi.kepemilikan-lahan-pangan',array("route"=>$route, "data"=>$data));
 		}
 
 
