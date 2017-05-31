@@ -60,6 +60,7 @@
               //ROUTE {{$table}} <br>
               Route::group(['prefix' =>'{{$route}}'], function(){<br>
                   Route::get('/', "Desa\{{$controller}}@list{{$model}}"); <br>
+                  Route::get('/new', "Desa\{{$controller}}@new{{$model}}");   <br>
                   Route::get('/edit/{id}', "Desa\{{$controller}}@edit{{$model}}");   <br>
                   Route::post('/insert', "Desa\{{$controller}}@insert{{$model}}");   <br>
                   Route::post('/update', "Desa\{{$controller}}@update{{$model}}");   <br>
@@ -117,9 +118,9 @@
               <br>
               function list{{$model}}(){<br><br>
 
-              }<br><br><br>
+              }<br><br>
 
-              function edit{{$model}}($id){<br><br><br>
+              function edit{{$model}}($id){<br><br>
 
               }<br><br>
             }<br>

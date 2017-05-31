@@ -17,7 +17,17 @@ use Vinkla\Hashids\Facades\Hashids;
 use App\User;
 //model (table) yang digunakan
 use App\Models\KepemilikanLahanPangan;
-class PotensiUmumController extends Controller{
-	
-}
 
+class PotensiSdaKepemilikanLahanPanganController extends Controller{
+
+
+		function listKepemilikanLahanPangan(){
+			
+		}
+
+
+		function editKepemilikanLahanPangan($id){
+
+		}
+
+}
