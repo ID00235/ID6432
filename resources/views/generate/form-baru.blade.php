@@ -15,7 +15,7 @@
 	@elseif(substr($type,0,3)=='int' && $field!='id_desa')
 	<?php echo '{{';?>Form::bsText("{{$field}}","",['class'=>'col-5 numerik input-right form-control',<?php echo $required;?>])<?php echo '}}';?><br>
 	@elseif( $field=='id_desa')
-	<?php echo '{{';?>Form::hidden("{{$field}}","&#123&#123Hashids::encode(Auth::user()->userdesa())&#125&#125")<?php echo '}}';?><br>
+	<?php echo '{{';?>Form::hidden("{{$field}}",Hashids::encode(Auth::user()->userdesa()))<?php echo '}}';?><br>
 	@elseif(substr($type,0,7)=='decimal')
 	<?php echo '{{';?>Form::bsText("{{$field}}","",['class'=>'col-5 double input-right form-control',
 	<?php echo $required;?>])<?php echo '}}';?><br>
