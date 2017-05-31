@@ -42,6 +42,14 @@ class PotensiUmumController extends Controller{
     	return view('desa.potensi.batas-wilayah',array("route"=>$route, "data"=>$data));
 	}
 
+
+	function editbataswilayah($id){
+		$route = array("main"=>"potensi","sub"=>"batas-wilayah","title"=>"Edit - Batas Wilayah");
+		$id = Hashids::decode($id)[0];
+		$data = BatasWilayah::find($id);
+    	return view('desa.potensi.edit-batas-wilayah',array("route"=>$route, "data"=>$data));
+	}
+
 	function insertbataswilayah(Request $R){
 		$querystring = $R->input('querystring');
 		$id_desa = Crypt::decrypt($R->input('id_desa'));
@@ -89,6 +97,51 @@ class PotensiUmumController extends Controller{
 			return redirect(URLGroup('potensi/batas_wilayah?'.$querystring));
 		}else{
 			return redirect(URLGroup('potensi/batas_wilayah'));
+		}
+	}
+
+	function updateBatasWilayah (Request $request) {
+		$id=Crypt::decrypt($request->input('id'));
+		$bulan=$request->input('bulan');
+		$tahun=$request->input('tahun');
+		$tahun_pembentukan=$request->input('tahun_pembentukan');
+		$luas_desa=$request->input('luas_desa');
+		$nama_kepala_desa=$request->input('nama_kepala_desa');
+		$desa_sebelah_utara=$request->input('desa_sebelah_utara');
+		$desa_sebelah_timur=$request->input('desa_sebelah_timur');
+		$desa_sebelah_selatan=$request->input('desa_sebelah_selatan');
+		$desa_sebelah_barat=$request->input('desa_sebelah_barat');
+		$kecamatan_sebelah_utara=$request->input('kecamatan_sebelah_utara');
+		$kecamatan_sebelah_timur=$request->input('kecamatan_sebelah_timur');
+		$kecamatan_sebelah_selatan=$request->input('kecamatan_sebelah_selatan');
+		$kecamatan_sebelah_barat=$request->input('kecamatan_sebelah_barat');
+		$penetapan_batas=$request->input('penetapan_batas');
+		$perdes_no=$request->input('perdes_no');
+		$perda_no=$request->input('perda_no');
+		$peta_wilayah=$request->input('peta_wilayah');
+		$record = BatasWilayah::find($id);
+		if($record){
+		$record->bulan = $bulan;
+		$record->tahun = $tahun;
+		$record->tahun_pembentukan = $tahun_pembentukan;
+		$record->luas_desa = system_numerik($luas_desa);
+		$record->nama_kepala_desa = $nama_kepala_desa;
+		$record->desa_sebelah_utara = $desa_sebelah_utara;
+		$record->desa_sebelah_timur = $desa_sebelah_timur;
+		$record->desa_sebelah_selatan = $desa_sebelah_selatan;
+		$record->desa_sebelah_barat = $desa_sebelah_barat;
+		$record->kecamatan_sebelah_utara = $kecamatan_sebelah_utara;
+		$record->kecamatan_sebelah_timur = $kecamatan_sebelah_timur;
+		$record->kecamatan_sebelah_selatan = $kecamatan_sebelah_selatan;
+		$record->kecamatan_sebelah_barat = $kecamatan_sebelah_barat;
+		$record->penetapan_batas = $penetapan_batas;
+		$record->perdes_no = $perdes_no;
+		$record->perda_no = $perda_no;
+		$record->peta_wilayah = $peta_wilayah;
+		$record->save(); $request->session()->flash('notice', "Update Data Berhasil!");
+		return redirect(URLGroup('potensi/batas-wilayah'));
+		}else{
+		throw new HttpException(404);
 		}
 	}
 		

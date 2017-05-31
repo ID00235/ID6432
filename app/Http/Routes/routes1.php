@@ -7,8 +7,9 @@ Route::get('/potensi/edit/identitas', "Desa\PotensiIdentitasController@editident
 Route::post('/potensi/update/identitas', "Desa\PotensiIdentitasController@updateidentitas");
 
 //batas wilayah
-Route::group(['prefix' =>'potensi/batas_wilayah'], function(){
+Route::group(['prefix' =>'/potensi/batas-wilayah'], function(){
 	Route::get('/', "Desa\PotensiUmumController@bataswilayah");	
 	Route::get('/edit/{id}', "Desa\PotensiUmumController@editbataswilayah");	
 	Route::post('/insert', "Desa\PotensiUmumController@insertbataswilayah");	
+	Route::post('/update', "Desa\PotensiUmumController@updateBatasWilayah");	
 });

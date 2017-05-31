@@ -1,7 +1,7 @@
 <h3>FORM NEW(INSERT)</h3>
 <h4>SCRIPT FORM DI BLADE</h4>
 <hr>
-&#123!! Form::open(['url' => URLGroup("{{$route}}/insert"), 'name'=>'form-insert-{{$table_name}}']) !!&#125<br>
+&#123!!Form::open(['url' => URLGroup("{{$route}}/insert"), 'name'=>'form-insert-{{$table_name}}'])!!&#125<br>
 @foreach ($columns as $value)
 <?php
 	$type = $value->Type;
@@ -13,16 +13,16 @@
 	@if(substr($type,0,7)=='varchar')
 	<?php echo '{{';?>Form::bsText("{{$field}}","",[<?php echo $required;?>])<?php echo '}}';?><br>
 	@elseif(substr($type,0,3)=='int' && $field!='id_desa')
-	<?php echo '{{';?>Form::bsText("{{$field}}","",['class'=>'col-4 numerik input-right form-control',<?php echo $required;?>])<?php echo '}}';?><br>
+	<?php echo '{{';?>Form::bsText("{{$field}}","",['class'=>'col-5 numerik input-right form-control',<?php echo $required;?>])<?php echo '}}';?><br>
 	@elseif( $field=='id_desa')
 	<?php echo '{{';?>Form::hidden("{{$field}}","&#123&#123Hashids::encode(Auth::user()->userdesa())&#125&#125")<?php echo '}}';?><br>
 	@elseif(substr($type,0,7)=='decimal')
-	<?php echo '{{';?>Form::bsText("{{$field}}","",['class'=>'col-4 double input-right form-control',
+	<?php echo '{{';?>Form::bsText("{{$field}}","",['class'=>'col-5 double input-right form-control',
 	<?php echo $required;?>])<?php echo '}}';?><br>
 	@elseif(substr($type,0,6)=='double')
-	<?php echo '{{';?>Form::bsText("{{$field}}","",['class'=>'col-4  input-right form-control',<?php echo $required;?>])<?php echo '}}';?><br>
+	<?php echo '{{';?>Form::bsText("{{$field}}","",['class'=>'col-5  input-right form-control',<?php echo $required;?>])<?php echo '}}';?><br>
 	@elseif(substr($type,0,4)=='date')
-	<?php echo '{{';?>Form::bsText("{{$field}}","",['class'=>'col-4 datepicker form-control',<?php echo $required;?>])<?php echo '}}';?><br>
+	<?php echo '{{';?>Form::bsText("{{$field}}","",['class'=>'col-5 datepicker form-control',<?php echo $required;?>])<?php echo '}}';?><br>
 	@elseif(substr($type,0,4)=='enum')
 	 <?php
 	   $type = str_replace("enum(", "", $type);
@@ -39,7 +39,7 @@
 	   echo '$select ='.$type[0].';<br>';
 	   echo '?><br>';
 	   ?>
-		<?php echo '{!!';?> Form::bsRadioInline($list,$select,"{{$field}}","",[<?php echo $required;?>]) <?php echo '!!}';?><br>
+		<?php echo '{!!';?>Form::bsRadioInline($list,$select,"{{$field}}","",[<?php echo $required;?>])<?php echo '!!}';?><br>
 
 	@elseif(substr($type,0,7)=='tinyint')
 	 <?php
@@ -53,13 +53,13 @@
 	   echo '$select=0; <br>';
 	   echo '?><br>';
 	   ?>
-		<?php echo '{!!';?> Form::bsRadioInline($list,$select,"{{$field}}","",[<?php echo $required;?>]) <?php echo '!!}';?><br>
+		<?php echo '{!!';?>Form::bsRadioInline($list,$select,"{{$field}}","",[<?php echo $required;?>])<?php echo '!!}';?><br>
 	@endif
 
 @endif
 @endforeach
-<?php echo '{!!';?> Form::bsSubmit('Simpan',"") <?php echo '!!}';?> <br>
-&#123!! Form::close() !!&#125  
+<?php echo '{!!';?>Form::bsSubmit('Simpan',"")<?php echo '!!}';?><br>
+&#123!!Form::close()!!&#125  
 <hr>
 <h4>SCRIPT VALIDATOR JS</h4>
 <hr>
@@ -96,7 +96,7 @@ foreach($model_table as $md){
 	$nama_model.=ucfirst($md);
 }
 ?>
-function insert{{$nama_model}} { <br>
+function insert{{$nama_model}} (Request $request) { <br>
  @foreach ($columns as $value)
 <?php
 $type = $value->Type;

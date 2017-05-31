@@ -4,8 +4,8 @@
           <li class="nav-item @if($route['sub']=='identitas') active @endif">
             <a class="nav-link" href="{{URLGroup('potensi')}}">Identitas Desa</a>
           </li>
-          <li class="nav-item @if($route['sub']=='batas_wilayah') active @endif">
-            <a class="nav-link" href="{{URLGroup('potensi/batas_wilayah')}}">Potensi Umum</a>
+          <li class="nav-item @if($route['sub']=='batas-wilayah') active @endif">
+            <a class="nav-link" href="{{URLGroup('potensi/batas-wilayah')}}">Potensi Umum</a>
           </li>
           <li class="nav-item @if($route['sub']=='sda') active @endif">
             <a class="nav-link" href="{{URLGroup('Sda/sda')}}">Sumber Daya Alam</a>

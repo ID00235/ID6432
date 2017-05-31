@@ -48,7 +48,7 @@ $id_desa = Auth::user()->userdesa();
     								</option>
     								@endforeach
     							</select>
-    							<a href="{{URL::to('potensi/batas_wilayah/edit/'.Hashids::encode($data->id))}}"
+    							<a href="{{URLGroup('potensi/batas-wilayah/edit/'.Hashids::encode($data->id))}}"
     							class="pull-right btn btn-secondary">
     							<i class="fa fa-edit"></i> Edit
     							</a>
@@ -152,7 +152,7 @@ $id_desa = Auth::user()->userdesa();
 @endsection
 @section("modal")
 	@@parent
-	<form method="post" id="form-tambah" action="{{URLGroup('potensi/batas_wilayah/insert')}}">
+	<form method="post" id="form-tambah" action="{{URLGroup('potensi/batas-wilayah/insert')}}">
 	    {{csrf_field()}}
 	    <input type="hidden" name="id_desa" value="{{Crypt::encrypt($id_desa)}}">
 	    <input type="hidden" name="querystring" value="{{Request::getQueryString()}}">
