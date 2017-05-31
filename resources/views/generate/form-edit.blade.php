@@ -17,14 +17,14 @@
 	@if(substr($type,0,7)=='varchar' )
 	<?php echo '{{';?>Form::bsText("{{$field}}","$data->{{$field}}",[<?php echo $required;?>])<?php echo '}}';?><br>
 	@elseif(substr($type,0,3)=='int' && $field!='id_desa')
-	<?php echo '{{';?>Form::bsText("{{$field}}","$data->{{$field}}",['class'=>'col-5 numerik input-right form-control',<?php echo $required;?>])<?php echo '}}';?><br>
+	<?php echo '{{';?>Form::bsText("{{$field}}","$data->{{$field}}",['class'=>'col-12 numerik input-right form-control',<?php echo $required;?>])<?php echo '}}';?><br>
 	@elseif(substr($type,0,7)=='decimal')
-	<?php echo '{{';?>Form::bsText("{{$field}}","$data->{{$field}}",['class'=>'col-5 doubleinput-right form-control',
+	<?php echo '{{';?>Form::bsText("{{$field}}","$data->{{$field}}",['class'=>'col-12 doubleinput-right form-control',
 	<?php echo $required;?>])<?php echo '}}';?><br>
 	@elseif(substr($type,0,6)=='double')
 	<?php echo '{{';?>Form::bsText("{{$field}}","$data->{{$field}}",['class'=>'col-6 input-right form-control',<?php echo $required;?>])<?php echo '}}';?><br>
 	@elseif(substr($type,0,4)=='date')
-	<?php echo '{{';?>Form::bsText("{{$field}}","tanggalIndo($data->{{$field}})",['class'=>'col-4 datepicker form-control',<?php echo $required;?>])<?php echo '}}';?><br>
+	<?php echo '{{';?>Form::bsText("{{$field}}",tanggalIndo($data->{{$field}}),['class'=>'col-4 datepicker form-control',<?php echo $required;?>])<?php echo '}}';?><br>
 	@elseif(substr($type,0,4)=='enum')
 	 <?php
 	   $type = str_replace("enum(", "", $type);
@@ -121,7 +121,7 @@ $("#delete").on("click", function(){ <br>
 		            }<br>
 		        },<br>
 		        callback: function (result) {<br>
-		        	if(result){ $("form[name=form-delete-batas_wilayah]").submit();}<br>
+		        	if(result){ $("form[name=form-delete-{{$table_name}}]").submit();}<br>
 
 		        }<br>
 		    });<br>
@@ -186,7 +186,7 @@ $primary = $value->Key=="PRI" ? 1 : 0;
 @endforeach
 $record->save();<br>
 $request->session()->flash('notice', "Update Data Berhasil!");<br>
-return redirect(URLGroup('sesuaikan'));<br>
+return redirect(URLGroup('{{$route}}'));<br>
 }else{<br>
 	throw new HttpException(404);<br>
 }<br>
@@ -200,7 +200,7 @@ $record = {{$nama_model}}::find(${{$field_kunci}});<br>
 if($record){<br>
 $record->delete();<br>
 $request->session()->flash('notice', "Hapus Data Berhasil!");<br>
-return redirect(URLGroup('sesuaikan'));<br>
+return redirect(URLGroup('{{$route}}'));<br>
 }else{<br>
 	throw new HttpException(404);<br>
 }<br>

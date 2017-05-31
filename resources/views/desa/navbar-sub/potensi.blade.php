@@ -10,7 +10,7 @@
           <li class="nav-item @if($route['sub']=='batas-wilayah') active @endif">
             <a class="nav-link" href="{{URLGroup('potensi/batas-wilayah')}}">Batas Wilayah</a>
           </li>
-          <li class="dropdown yamm-fw nav-item">
+          <li class="dropdown yamm-fw nav-item  @if($route['sub']=='sda') active @endif">
               <a href="#" data-toggle="dropdown" class="dropdown-toggle nav-link" aria-expanded="false">Sumber Daya Alam 
               <b class="caret"></b>
               </a>

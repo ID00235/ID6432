@@ -20,15 +20,16 @@ use App\Models\JenisLahan;
 class PotensiSdaJenisLahanController extends Controller{
 
 
-function listJenisLahan(){
-				$id_desa = Auth::user()->userdesa();
-				$data = JenisLahan::where('id_desa',$id_desa)->get();
-				$route = array("main"=>"potensi","sub"=>"jenis_lahan","title"=>"Potensi - Jenis Lahan");
-				return view('desa.potensi.list-jenis-lahan',array("route"=>$route, "data"=>$data));
+		function listJenisLahan(){
+			$id_desa = Auth::user()->userdesa();
+			$data = JenisLahan::where('id_desa',$id_desa)->get();
+			$route = array("main"=>"potensi","sub"=>"jenis_lahan","title"=>"Potensi - Jenis Lahan");
+			return view('desa.potensi.list-jenis-lahan',array("route"=>$route, "data"=>$data));
 
-					}
+		}
 
 
+<<<<<<< HEAD
 
 
 //tambah data jenis lahan
@@ -153,6 +154,13 @@ $record->save(); $request->session()->flash('notice', "Data Baru Berhasil Disimp
 return redirect(URLGroup('potensi/sda/jenis-lahan'));
 }
 
+=======
+		function editJenisLahan($id)
+		{
+
+
+		}
+>>>>>>> 417d5797ef90a0263ebdf3e0a32b82360c92e23d
 }
 
 

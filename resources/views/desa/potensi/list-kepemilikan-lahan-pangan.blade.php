@@ -28,6 +28,7 @@ $id_desa = Auth::user()->userdesa();
                 <thead>
                   <tr>
                     <th></th>
+                    <th>No</th>
                     <th>Tanggal</th>
                     <th>Memiliki Kurang 10 Ha (KK)</th>
                     <th>Memiliki 10 - 50 Ha (KK)</th>
@@ -38,6 +39,35 @@ $id_desa = Auth::user()->userdesa();
                     <th>Jumlah Keluarga Petani Pangan (KK)</th>
                   </tr>
                 </thead>
+                <tbody>
+                  <?php 
+                  $no = 1;
+                  ?>
+                  @foreach($data as $d)
+                  <tr>
+                    <td align="center">
+                      <a href="{{URLGroup('potensi/sda/kepemilikan-lahan-pangan/edit/')}}/{{Hashids::encode($d->id)}}">
+                        Edit
+                      </a>
+                    </td>
+                    <td align="center">{{$no}}</td>
+                    <td align="center">{{tanggalIndo($d->tanggal)}}</td>
+                    <td align="right">{{$d->memiliki_kurang_10_ha}}</td>
+                    <td align="right">{{$d->memiliki_10_sd_50_ha}}</td>
+                    <td align="right">{{$d->memiliki_50_sd_100_haha}}</td>
+                    <td align="right">{{$d->memiliki_lebih_dari_100_ha}}</td>
+                    <td align="right">{{$d->jumlah_keluarga_memiliki_lahan}}</td>
+                    <td align="right">{{$d->jumlah_keluarga_tidak_memiliki_lahan}}</td>
+                    <td align="right">{{$d->jumlah_keluarga_petani_tanaman_pangan}}</td>
+                  </tr>
+                  <?php $no++;?>
+                  @endforeach
+                  @if(count($data)==0)
+                    <tr>
+                      <td colspan="11">Tidak Ada Data Untuk Ditampilkan!</td>
+                    </tr>
+                  @endif
+                </tbody>
             </table>
     		</div>
     	</div>
