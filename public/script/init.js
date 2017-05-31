@@ -68,4 +68,9 @@ var Notify = {
 	 }
 }
 
+var parseNumerik = function (str){
+	str = str.replace(".", "");
+	str = str.replace(",", ".");
+	return parseFloat(str);
+}
 

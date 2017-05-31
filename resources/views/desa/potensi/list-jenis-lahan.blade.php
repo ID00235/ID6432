@@ -29,13 +29,16 @@ $id_desa = Auth::user()->userdesa();
                   <tr>
                     <th></th>
                     <th>Tanggal</th>
-                    <th>Memiliki Kurang 10 Ha (KK)</th>
-                    <th>Memiliki 10 - 50 Ha (KK)</th>
-                    <th>Memiliki 50 - 100 Ha (KK)</th>
-                    <th>Memiliki Lebih Dari 100 Ha (KK)</th>
-                    <th>Jumlah Keluarga Memiliki Tanah (KK)</th>
-                    <th>Jumlah Keluarga Tidak Memiliki Tanah (KK)</th>
-                    <th>Jumlah Keluarga Petani Pangan (KK)</th>
+                    <th>Luas tanah sawah Ha </th>
+                    <th>Luas Tanah Basah Ha </th>
+                    <th>Kas Desa / Kelurahan Ha </th>
+                    <th>Lokasi Tanah Desa Ha</th>
+                    <th>Luas Tanah Fasilitas Umum Ha</th>
+                    <th>Luas Tanah Perkebunan Ha</th>
+                    <th>Hutan Perkebunan Ha</th>
+                    <th>Hutan Suaka Ha</th>
+                    <th>Luas Tanah Hutan Ha</th>
+                    <th>Luas Desa / Kelurahan Ha</th>
                   </tr>
                 </thead>
             </table>
