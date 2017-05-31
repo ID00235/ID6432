@@ -114,6 +114,14 @@
             use App\Models\{{$model}};<br>
             class {{$controller}} extends Controller{<br>
               <br>
+              <br>
+              function list{{$model}}(){<br><br>
+
+              }<br><br><br>
+
+              function edit{{$model}}($id){<br><br><br>
+
+              }<br><br>
             }<br>
 
 
