@@ -28,24 +28,61 @@ $id_desa = Auth::user()->userdesa();
                 <thead>
                   <tr>
                     <th></th>
+                    <th>No</th>
                     <th>Tanggal</th>
                     <th>Luas tanah sawah Ha </th>
                     <th>Luas Tanah Basah Ha </th>
                     <th>Kas Desa / Kelurahan Ha </th>
                     <th>Lokasi Tanah Desa Ha</th>
                     <th>Luas Tanah Fasilitas Umum Ha</th>
-                    <th>Luas Tanah Perkebunan Ha</th>
-                    <th>Hutan Perkebunan Ha</th>
+                  <!-- <th>Luas Tanah Perkebunan Ha</th>-->
+                    <th>Hutan Produksi Ha</th>
                     <th>Hutan Suaka Ha</th>
                     <th>Luas Tanah Hutan Ha</th>
                     <th>Luas Desa / Kelurahan Ha</th>
                   </tr>
                 </thead>
+                <tbody>
+                     <?php 
+                  $no = 1;
+                  ?>
+                  @foreach($data as $d)
+                  <tr>
+                    <td align="center">
+                      <a href="{{URLGroup('potensi/sda/jenis-lahan/edit/')}}/{{Hashids::encode($d->id)}}">
+                        Edit
+                      </a>
+                    </td>
+                    <td align="center">{{$no}}</td>
+                    <td align="center">{{tanggalIndo($d->tanggal)}}</td>
+                    <td align="right">{{$d->luas_tanah_sawah}}</td>
+                    <td align="right">{{$d->luas_tanah_basah}}</td>
+                    <td align="right">{{$d->kas_desa_kelurahan}}</td>
+                    <td align="right">{{$d->lokasi_tanah_kas_desa}}</td>
+                    <td align="right">{{$d->luas_tanah_fasilitas_umum}}</td>
+                    <td align="right">{{$d->hutan_produksi}}</td>
+                    <td align="right">{{$d->hutan_suaka}}</td>
+                    <td align="right">{{$d->luas_tanah_hutan}}</td>
+                    <td align="right">{{$d->luas_desa_kelurahan}}</td>
+                  </tr>
+                  <?php $no++;?>
+                  @endforeach
+                  @if(count($data)==0)
+                    <tr>
+                      <td colspan="12">Tidak Ada Data Untuk Ditampilkan!</td>
+                    </tr>
+                  @endif
+                </tbody>
+
+                </tbody>
             </table>
     		</div>
     	</div>
 	</div>
 </div>
 @endsection
+
+
+
 
 
