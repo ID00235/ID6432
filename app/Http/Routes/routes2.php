@@ -4,6 +4,8 @@
 //ROUTE jenis_lahan
 Route::group(['prefix' =>'/potensi/sda/jenis-lahan'], function(){
 Route::get('/', "Desa\PotensiSdaJenisLahanController@listJenisLahan");
+Route::get('/new', "Desa\PotensiSdaJenisLahanController@newJenisLahan");
+
 Route::get('/edit/{id}', "Desa\PotensiSdaJenisLahanController@editJenisLahan");
 Route::post('/insert', "Desa\PotensiSdaJenisLahanController@insertJenisLahan");
 Route::post('/update', "Desa\PotensiSdaJenisLahanController@updateJenisLahan");
