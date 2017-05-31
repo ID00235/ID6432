@@ -31,7 +31,7 @@ $id_desa = Auth::user()->userdesa();
 {{Form::bsText("sawah_irigasi_setengah_teknis","",['class'=>'col-7 double input-right form-control', ])}}
 {{Form::bsText("sawah_tadah_hujan","",['class'=>'col-7 double input-right form-control', ])}}
 {{Form::bsText("sawah_pasang_surut","",['class'=>'col-7 double input-right form-control', ])}}
-<b>{{Form::bsText("luas_tanah_sawah","",['class'=>'col-7 parseNumerik input-right form-control',])}}</b>
+<b>{{Form::bsText("luas_tanah_sawah","",['class'=>'col-7 double input-right form-control',])}}</b>
 <p><b>Tanah Basah</b></p>
 {{Form::bsText("tanah_rawa","",['class'=>'col-7 double input-right form-control', ])}}
 {{Form::bsText("pasang_surut","",['class'=>'col-7 double input-right form-control', ])}}
@@ -100,29 +100,30 @@ $select ='Didalam Desa';
 <script type="text/javascript">
     $(function(){
         var $validator = $("form[name=form-insert-jenis_lahan]").validate({
-ignore:[],
-rules: {
-id_desa: {required:true},
-tanggal: {required:true},
-lokasi_tanah_kas_desa: {required:true},
-luas_desa_kelurahan: {required:true},
-total_luas_entri_data: {required:true},
-selisih_luas: {required:true},
-},
-messages: {
-},
-submitHandler: function(form) {
-form.submit();
-}
-});
-      $("#luas_tanah_sawah").on('focus', function(){
-            total = parseNumerik($("#tanah_irigasi_teknis").val()) + 
+            ignore:[],
+            rules: {
+            id_desa: {required:true},
+            tanggal: {required:true},
+            lokasi_tanah_kas_desa: {required:true},
+            luas_desa_kelurahan: {required:true},
+            total_luas_entri_data: {required:true},
+            selisih_luas: {required:true},
+            },
+            messages: {
+            },
+            submitHandler: function(form) {
+            form.submit();
+            }
+        });
+
+        $("#luas_tanah_sawah").on('focus', function(){
+            total = parseNumerik($("#sawah_irigasi_teknis").val()) + 
                     parseNumerik($("#sawah_irigasi_setengah_teknis").val()) + 
                     parseNumerik($("#sawah_tadah_hujan").val()) + 
                     parseNumerik($("#sawah_pasang_surut").val()) ;
-            $(this).val(total)
+            $(this).val(parseDesimal(total))
         })
-       }) 
+    }) 
     
 </script>
 @endsection

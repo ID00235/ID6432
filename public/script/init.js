@@ -33,10 +33,8 @@ $(document).ready(function(){
 	  $('.alpanumerik').mask('AAAAAAAAAAAAAAAAAA', {'translation': {A: {pattern: /[A-Za-z0-9]/},}});
 	  $('.kodifikasi').mask('AAAAAAAAAAAAAA', {'translation': {A: {pattern: /[A-Z0-9_-]/},}});
 	  $('.numerik').mask('000000000000000000000000', {reverse: true});	
-	  $('.double').mask('000.000.000.000.000,00', {reverse: true});  
-	  $('.phone').mask('0000-0000-0000');
-	  $('.nama').mask('AAAAAAAAAAAAAAAAAAAAAAAAA');
-	  $('.koordinat').decimalMask("999999999999999.9999999");
+	  $('.double').mask("#.##0,##", {reverse: true});
+
 	  jQuery.fn.extend({
 	    disable: function(state) {
 	        return this.each(function() {
@@ -69,8 +67,17 @@ var Notify = {
 }
 
 var parseNumerik = function (str){
+	str = str.toString();
+	if(str.length==0) return 0;
 	str = str.replace(".", "");
 	str = str.replace(",", ".");
-	return parseFloat(str);
+	return Number(str);
+}
+
+var parseDesimal = function (str){
+	str = str.toString();
+	if(str.length==0) return "0,00";
+	str = str.replace(".", ",");
+	return str;
 }
 
