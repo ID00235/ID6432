@@ -67,3 +67,10 @@ var Notify = {
 	 	 $.notify({message:message},{type: 'success',delay:5000,timer: 1000})
 	 }
 }
+
+var parseNumerik = function (str){
+	str = str.replace(".", "");
+	str = str.replace(",", ".");
+	return parseFloat(str);
+}
+
