@@ -26,7 +26,7 @@ $id_desa = Auth::user()->userdesa();
   			<div class="card-block">	 
           {!!Form::open(['url' => URLGroup("potensi/sda/kepemilikan-lahan-pangan/update"), 'name'=>'form-update-kepemilikan_lahan_pangan'])!!}
           {{Form::hidden("id",Crypt::encrypt($data->id))}}
-          {{Form::bsText("tanggal","tanggalIndo($data->tanggal)",['class'=>'col-4 datepicker form-control','required'=>true])}}
+          {{Form::bsText("tanggal",tanggalIndo($data->tanggal),['class'=>'col-4 datepicker form-control','required'=>true])}}
           {{Form::bsText("memiliki_kurang_10_ha","$data->memiliki_kurang_10_ha",['class'=>'col-12 numerik input-right form-control',])}}
           {{Form::bsText("memiliki_10_sd_50_ha","$data->memiliki_10_sd_50_ha",['class'=>'col-12 numerik input-right form-control',])}}
           {{Form::bsText("memiliki_50_sd_100_ha","$data->memiliki_50_sd_100_ha",['class'=>'col-12 numerik input-right form-control',])}}

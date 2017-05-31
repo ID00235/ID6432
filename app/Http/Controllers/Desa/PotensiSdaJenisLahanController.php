@@ -20,20 +20,20 @@ use App\Models\JenisLahan;
 class PotensiSdaJenisLahanController extends Controller{
 
 
-function listJenisLahan(){
-				$id_desa = Auth::user()->userdesa();
-				$data = JenisLahan::where('id_desa',$id_desa)->get();
-				$route = array("main"=>"potensi","sub"=>"jenis_lahan","title"=>"Potensi - Jenis Lahan");
-				return view('desa.potensi.list-jenis-lahan',array("route"=>$route, "data"=>$data));
+		function listJenisLahan(){
+			$id_desa = Auth::user()->userdesa();
+			$data = JenisLahan::where('id_desa',$id_desa)->get();
+			$route = array("main"=>"potensi","sub"=>"jenis_lahan","title"=>"Potensi - Jenis Lahan");
+			return view('desa.potensi.list-jenis-lahan',array("route"=>$route, "data"=>$data));
 
-					}
-
-
-function editJenisLahan($id)
-{
+		}
 
 
-}
+		function editJenisLahan($id)
+		{
+
+
+		}
 }
 
 

@@ -121,7 +121,7 @@ $("#delete").on("click", function(){ <br>
 		            }<br>
 		        },<br>
 		        callback: function (result) {<br>
-		        	if(result){ $("form[name=form-delete-batas_wilayah]").submit();}<br>
+		        	if(result){ $("form[name=form-delete-{{$table_name}}]").submit();}<br>
 
 		        }<br>
 		    });<br>
@@ -186,7 +186,7 @@ $primary = $value->Key=="PRI" ? 1 : 0;
 @endforeach
 $record->save();<br>
 $request->session()->flash('notice', "Update Data Berhasil!");<br>
-return redirect(URLGroup('sesuaikan'));<br>
+return redirect(URLGroup('{{$route}}'));<br>
 }else{<br>
 	throw new HttpException(404);<br>
 }<br>
@@ -200,7 +200,7 @@ $record = {{$nama_model}}::find(${{$field_kunci}});<br>
 if($record){<br>
 $record->delete();<br>
 $request->session()->flash('notice', "Hapus Data Berhasil!");<br>
-return redirect(URLGroup('sesuaikan'));<br>
+return redirect(URLGroup('{{$route}}'));<br>
 }else{<br>
 	throw new HttpException(404);<br>
 }<br>
