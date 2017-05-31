@@ -42,8 +42,8 @@ $id_desa = Auth::user()->userdesa();
 					$select =$data->penetapan_batas;
 					?>
 					{!!Form::bsRadioInline($list,$select,"penetapan_batas","",['required'=>true])!!}
-					{{Form::bsText("perdes_no","$data->perdes_no",['required'=>true])}}
-					{{Form::bsText("perda_no","$data->perda_no",['required'=>true])}}
+					{{Form::bsText("perdes_no","$data->perdes_no",[])}}
+					{{Form::bsText("perda_no","$data->perda_no",[])}}
 					<?php
 					$list = array('ada'=>'ADA', 'tidak ada'=>'TIDAK ADA', );
 					$select =$data->peta_wilayah;
@@ -56,6 +56,7 @@ $id_desa = Auth::user()->userdesa();
 	</div>
 </div>
 @endsection
+
 @section("javascript")
 @@parent
 <script type="text/javascript">
