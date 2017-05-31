@@ -16,9 +16,12 @@ $id_desa = Auth::user()->userdesa();
 	<div class="offset-sm-2 col-md-8">
 		<div class="card">
 			<div class="card-header">
-    			<a href="{{URLGroup('potensi/batas-wilayah')}}" class="pull-right btn btn-secondary">
-  				<i class="fa fa-arrow-left"></i> Kembali</a>
     			Edit Batas Wilayah
+    			<div class="pull-right">
+    				<a href="#" id="delete" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus</a>
+	    			<a href="{{URLGroup('potensi/batas-wilayah')}}" class="btn btn-secondary">
+	  				<i class="fa fa-arrow-left"></i> Kembali</a> 
+  				</div>
   			</div>
   			<div class="card-block">
   				    {!!Form::open(['url' => URLGroup("potensi/batas-wilayah/update"), 'name'=>'form-update-batas_wilayah'])!!}
@@ -55,7 +58,11 @@ $id_desa = Auth::user()->userdesa();
 	</div>
 </div>
 @endsection
-
+@section("modal")
+{!!Form::open(['url' => URLGroup("potensi/batas-wilayah/delete"), 'name'=>'form-delete-batas_wilayah'])!!}
+{{Form::hidden("id",Crypt::encrypt($data->id))}}
+{!!Form::close()!!} 	
+@endsection
 @section("javascript")
 @@parent
 <script type="text/javascript">
@@ -78,6 +85,25 @@ $id_desa = Auth::user()->userdesa();
 		form.submit();
 		}
 		});
+
+
+	    $("#delete").on("click", function(){
+	    	bootbox.confirm({
+		        title: "Hapus",
+		        message: "Anda Yakin Ingin Menghapus Data Ini.",
+		        buttons: {
+		            cancel: {
+		                label: 'Batal'
+		            },
+		            confirm: {
+		                label: '<i class="fa fa-trash"></i> Ya, Hapus'
+		            }
+		        },
+		        callback: function (result) {
+		            $("form[name=form-delete-batas_wilayah]").submit();
+		        }
+		    });
+	    })
 	})
 </script>
 @endsection

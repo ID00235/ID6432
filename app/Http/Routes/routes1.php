@@ -12,4 +12,5 @@ Route::group(['prefix' =>'/potensi/batas-wilayah'], function(){
 	Route::get('/edit/{id}', "Desa\PotensiUmumController@editbataswilayah");	
 	Route::post('/insert', "Desa\PotensiUmumController@insertbataswilayah");	
 	Route::post('/update', "Desa\PotensiUmumController@updateBatasWilayah");	
+	Route::post('/delete', "Desa\PotensiUmumController@deleteBatasWilayah");	
 });

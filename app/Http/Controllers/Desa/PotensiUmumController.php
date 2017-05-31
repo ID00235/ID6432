@@ -144,5 +144,13 @@ class PotensiUmumController extends Controller{
 		throw new HttpException(404);
 		}
 	}
+
+	function deleteBatasWilayah (Request $request){
+		$id=Crypt::decrypt($request->input('id'));
+		$record = BatasWilayah::find($id);
+		$record->delete();
+		$request->session()->flash('notice', "Data Berhasil  Dihapus!");
+		return redirect(URLGroup('potensi/batas-wilayah'));
+	}
 		
 }

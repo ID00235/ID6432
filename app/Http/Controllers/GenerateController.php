@@ -25,7 +25,7 @@ class GenerateController extends Controller
         return view('generate.form',array("route"=>$route));
     }
 
-    function generateformbaru(Request $request, $table_name){
+    function generateformbaru (Request $request, $table_name){
 		$columns = DB::select('show columns from '.$table_name);
 		return view('generate.form-baru',array("columns"=>$columns,"table_name"=>$table_name,
 			"route"=>$request->input('route')));
@@ -36,4 +36,15 @@ class GenerateController extends Controller
 		return view('generate.form-edit',array("columns"=>$columns,"table_name"=>$table_name,
 			"route"=>$request->input('route')));
 	}
+
+	function generateroute(){
+		$route = array("main"=>"Generate Route","sub"=>"","title"=>"Login","prefix"=>"");
+        return view('generate.route',array("route"=>$route));
+	}
+
+	function generaterouteresult (Request $request){
+		$route = array("main"=>"Generate Route","sub"=>"","title"=>"Login","prefix"=>"");
+        return view('generate.route-result',array("route"=>$route));
+	}
+
 }

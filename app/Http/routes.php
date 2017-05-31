@@ -19,6 +19,8 @@ Route::post('submit-login', "LoginController@submitlogin");
 
 
 Route::get('generate-form', "GenerateController@generateform");
+Route::get('generate-route', "GenerateController@generateroute");
+Route::post('generate-route-result', "GenerateController@generaterouteresult");
 
 Route::get('form/baru/{table_name}', "GenerateController@generateformbaru");
 Route::get('form/edit/{table_name}', "GenerateController@generateformedit");

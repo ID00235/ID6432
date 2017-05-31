@@ -1,5 +1,6 @@
 <h3>FORM EDIT (UPDATE)</h3>
 <h4>SCRIPT FORM DI BLADE</h4>
+<p>copikan ke dalam {{'<div'}} class="card-block"{{'>'}}</p>
 <hr>
 &#123!!Form::open(['url' => URLGroup("{{$route}}/update"), 'name'=>'form-update-{{$table_name}}'])!!&#125<br>
 @foreach ($columns as $value)
@@ -62,7 +63,29 @@
 <?php echo '{!!';?>Form::bsSubmit('Simpan',"")<?php echo '!!}';?> <br>
 &#123!!Form::close()!!&#125  
 <hr>
-<h4>VALIDATOR JS</h4> <br>
+<h4>Tombol Delete</h4>
+copikan ke dalam {{'<div'}} class="card-header"{{'>'}}{{"<"}}div class="pull-right"{{">"}} <br>
+{{'<a href="#" id="delete" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus</a>'}}<br> <br>
+<hr>
+<h4>Form Delete</h4>
+copikan ke dalam {{'section("modal")'}}...<br>...<br>{{'endsection'}} <br>
+&#123!!Form::open(['url' => URLGroup("{{$route}}/delete"), 'name'=>'form-delete-{{$table_name}}'])!!&#125<br>
+@foreach ($columns as $value)
+<?php
+	$type = $value->Type;
+	$field = $value->Field;
+	$required = $value->Null == "NO" ? "'required'=>true" : "";
+	$primary = $value->Key=="PRI" ? 1 : 0;
+?>
+@if($primary)
+<?php echo '{{';?>Form::hidden("{{$field}}",Crypt::encrypt($data->{{$field}}))<?php echo '}}';?><br>
+@endif
+@endforeach
+&#123!!Form::close()!!&#125 <br>
+<hr><br>
+<h4>JAVASCRIPT</h4><br>
+copikan ke dalam {{'$(function){'}}...<br>...<br>{{'})'}}
+<hr>
 var $validator = $("form[name=form-update-{{$table_name}}]").validate({ <br>
     ignore:[], <br>
     rules: { <br>
@@ -84,7 +107,24 @@ var $validator = $("form[name=form-update-{{$table_name}}]").validate({ <br>
       form.submit(); <br>
     }<br>
 });<br>
-<br>
+<br><br>
+$("#delete").on("click", function(){ <br>
+	    	bootbox.confirm({<br>
+		        title: "Hapus",<br>
+		        message: "Anda Yakin Ingin Menghapus Data Ini.",<br>
+		        buttons: {<br>
+		            cancel: {<br>
+		                label: 'Batal'<br>
+		            },<br>
+		            confirm: {
+		                label: 'Ya, Hapus' <br>
+		            }<br>
+		        },<br>
+		        callback: function (result) {<br>
+		            $("form[name=form-delete-batas_wilayah]").submit();<br>
+		        }<br>
+		    });<br>
+	    })<br><br>
 <h4>REQUEST POST CONTROLLER</h4> 
 <hr>
 
@@ -98,6 +138,9 @@ foreach($model_table as $md){
 	$nama_model.=ucfirst($md);
 }
 ?>
+<br>
+<?php $field_kunci="";?>
+//fungsi update data {{$nama_model}}<br>
 function update{{$nama_model}} (Request $request) { <br>
  @foreach ($columns as $value)
 <?php
@@ -140,8 +183,22 @@ $primary = $value->Key=="PRI" ? 1 : 0;
 	@endif
 @endif
 @endforeach
-$record->save();
+$record->save();<br>
 $request->session()->flash('notice', "Update Data Berhasil!");<br>
+return redirect(URLGroup('sesuaikan'));<br>
+}else{<br>
+	throw new HttpException(404);<br>
+}<br>
+}<br>
+<br>
+<br>
+//fungsi hapus data {{$nama_model}}<br>
+function delete{{$nama_model}} (Request $request) { <br>
+${{$field_kunci}}=Crypt::decrypt($request->input('{{$field_kunci}}'));<br>
+$record = {{$nama_model}}::find(${{$field_kunci}});<br>
+if($record){<br>
+$record->delete();<br>
+$request->session()->flash('notice', "Hapus Data Berhasil!");<br>
 return redirect(URLGroup('sesuaikan'));<br>
 }else{<br>
 	throw new HttpException(404);<br>

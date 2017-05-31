@@ -6,13 +6,13 @@
 		<br><br>
 		<div class="card">
 			<div class="card-header">
-    			Generate Form
+    			Generate Route/Controller
           <div class="pull-right">
-            <a href="{{URL::to('generate-route')}}">Generate Route</a>
+            <a href="{{URL::to('generate-form')}}">Generate Form</a>
           </div>
   			</div>
   			<div class="card-block">
-  				{!! Form::open(['url' => 'submit-generate-form','name'=>'form-generate']) !!}
+  				{!! Form::open(['url' => 'generate-route-result','name'=>'form-generate']) !!}
           <div class="form-group row">
           <label class="control-label col-4">Table</label>
           <div class="col-7">
@@ -32,22 +32,11 @@
           </select>
           </div>
           </div>
-
-          <?php
-          $list = array("baru"=>"Entri Baru","edit"=>"Edit Data");
-          $select = "";
-          ?>
-          {!! Form::bsRadioInline($list,$select,"jenis",['required'=>true]) !!} 
           {!! Form::bsText("route","",['required'=>true]) !!} 
           <center>
-                <a href="#" data-loading-text="<i class='fa fa-spinner fa-spin'></i> Sednag Proses..." 
-                class="btn btn-primary" id="generate">Generate</a>
+                <button>Generate</button> 
           </center>
 				  {!! Form::close() !!}   
-          <code id="panel-source"> 			
-
-          </code>
-
     		</div>
     	</div>
 	</div>

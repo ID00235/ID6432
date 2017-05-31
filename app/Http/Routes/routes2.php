@@ -12,3 +12,12 @@ Route::group(['prefix' =>'sda'], function(){
 	//Route::get('/edit/{id}', "Desa\PotensiUmumController@editbataswilayah");	
 	//Route::post('/insert', "Desa\PotensiUmumController@insertbataswilayah");	
 });
+
+
+//kualitas udara
+Route::group(['prefix' =>'/potensi/kualitas-udara'], function(){
+	Route::get('/', "Desa\PotensiKualitasUdaraController@kualitasudara");	
+	Route::get('/edit/{id}', "Desa\PotensiUmumController@editkualitasudara");	
+	Route::post('/insert', "Desa\PotensiUmumController@insertkualitasudara");	
+	Route::post('/update', "Desa\PotensiUmumController@updateBatasWilayah");	
+});
