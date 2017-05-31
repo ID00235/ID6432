@@ -47,7 +47,13 @@
             $model .= ucfirst($t);
           }
           $rt = explode("/",$route);
-          $controller = ucfirst($rt[0]).$model.'Controller';
+          if($rt==2){
+            $controller = ucfirst($rt[0]).$model.'Controller';
+          }
+
+          if($rt==3){
+            $controller = ucfirst($rt[0]).ucfirst($rt[1]).$model.'Controller';
+          }
           ?>
           <p>&nbsp;</p>
           <code>
