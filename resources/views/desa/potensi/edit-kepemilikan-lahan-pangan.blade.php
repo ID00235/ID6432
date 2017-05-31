@@ -88,7 +88,7 @@ $id_desa = Auth::user()->userdesa();
             }
             },
             callback: function (result) {
-            if(result){ $("form[name=form-delete-batas_wilayah]").submit();}
+            if(result){ $("form[name=form-delete-kepemilikan_lahan_pangan]").submit();}
             }
             });
         })
