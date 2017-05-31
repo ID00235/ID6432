@@ -17,6 +17,7 @@ use Vinkla\Hashids\Facades\Hashids;
 use App\User;
 //model (table) yang digunakan
 use App\Models\JenisLahan;
+
 class PotensiSdaJenisLahanController extends Controller{
 
 
@@ -27,8 +28,6 @@ class PotensiSdaJenisLahanController extends Controller{
 			return view('desa.potensi.list-jenis-lahan',array("route"=>$route, "data"=>$data));
 
 		}
-
-
 
 		//tambah data jenis lahan
 		function newJenisLahan(){

@@ -6,5 +6,8 @@
   @endif
   <div class="col-6"> 
   {{ Form::text($name, $value, array_merge(['class' => 'form-control'], $attributes)) }}
+  @if(isset($attributes["help"]))
+  <small class="text-muted">{{$attributes["help"]}}</small>
+  @endif
   </div>
 </div>

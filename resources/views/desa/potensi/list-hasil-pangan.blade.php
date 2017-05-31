@@ -18,16 +18,16 @@ userdesa();
                 Sumber Daya Alam
             </li>
             <li class="breadcrumb-item active">
-                NAMA MENUNYA
+                Produksi Tanaman Pangan
             </li>
         </ol>
     </div>
     <div class="col-md-12">
         <div class="card">
             <div class="card-header">
-                MASUKAN NAMA MENU
+                Produksi Tanaman Pangan
                 <div class="pull-right">
-                    <a class="btn btn-secondary" href="{{URLGroup('ROUTE_URL_FORM_BARUNYA')}}">
+                    <a class="btn btn-secondary" href="{{URLGroup('potensi/sda/hasil-pangan/new')}}">
                         <i class="fa fa-plus">
                         </i>
                         Data Baru
@@ -35,7 +35,7 @@ userdesa();
                 </div>
             </div>
             <div class="card-block">
-                COPYKAN TABLE VIEWNYA
+                
             </div>
         </div>
     </div>

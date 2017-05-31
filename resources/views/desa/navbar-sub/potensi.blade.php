@@ -20,10 +20,7 @@
                           <div class="col">
                             <h6 class="dropdown-header">Sumber Daya</h6>
                             <a class="dropdown-item" href="{{URLGroup('potensi/sda/jenis-lahan')}}">Jenis Lahan</a>
-                            <a class="dropdown-item" href="{{URLGroup('potensi/sda/iklim')}}">Iklim, Tanah dan Erosi</a>
-                            <a class="dropdown-item" href="{{URLGroup('potensi/sda/topografi')}}">Topografi</a>
                             <a class="dropdown-item" href="{{URLGroup('potensi/sda/defosit-galian')}}">Deposit dan Produksi Bahan Galian</a>
-                            <a class="dropdown-item" href="{{URLGroup('potensi/sda/kualitas-udara')}}">Kualitas Udara</a>
                             <a class="dropdown-item" href="{{URLGroup('potensi/sda/ruang-publik')}}">Ruang Publik/Taman</a>
                             <a class="dropdown-item" href="{{URLGroup('potensi/sda/potensi-wisata')}}">Potensi Wisata</a>
                             <a class="dropdown-item" href="{{URLGroup('potensi/sda/apotik-hidup')}}">Apotik Hidup</a>
