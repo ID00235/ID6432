@@ -110,7 +110,7 @@ $primary = $value->Key=="PRI" ? 1 : 0;
 @endif
 @if($field=='id_desa')
 ${{$field}}=$request->input('{{$field}}');<br>
-${{$field}}=Hashids:decode(${{$field}})[0];<br>
+${{$field}}=Hashids::decode(${{$field}})[0];<br>
 @endif
 @if(!$primary && $field!='created_at' && $field!='updated_at' && $field!='id_desa')
 ${{$field}}=$request->input('{{$field}}');<br>
@@ -137,7 +137,7 @@ $primary = $value->Key=="PRI" ? 1 : 0;
 @endforeach
 $record->save();
 $request->session()->flash('notice', "Data Baru Berhasil Disimpan");<br>
-return redirect(URLGroup('sesuaikan'));<br>
+return redirect(URLGroup('{{$route}}'));<br>
 }<br>
 <hr>
 <h4>SCRIPT Create Model</h4>

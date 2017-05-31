@@ -57,6 +57,20 @@ $id_desa = Auth::user()->userdesa();
         form.submit();
         }
         });
+
+        $("#jumlah_keluarga_memiliki_lahan").on('focus', function(){
+            total = Number($("#memiliki_kurang_10_ha").val()) + 
+                    Number($("#memiliki_10_sd_50_ha").val()) + 
+                    Number($("#memiliki_50_sd_100_haha").val()) + 
+                    Number($("#memiliki_lebih_dari_100_ha").val()) ;
+            $(this).val(total)
+        })
+
+        $("#jumlah_keluarga_petani_tanaman_pangan").on('focus', function(){
+            total = Number($("#jumlah_keluarga_memiliki_lahan").val()) - 
+                    Number($("#jumlah_keluarga_tidak_memiliki_lahan").val()) ;
+            $(this).val(total)
+        })
     })
 </script>
 @endsection
