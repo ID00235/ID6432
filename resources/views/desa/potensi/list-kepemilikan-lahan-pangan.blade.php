@@ -34,8 +34,8 @@ $id_desa = Auth::user()->userdesa();
                     <th>Memiliki 50 - 100 Ha (KK)</th>
                     <th>Memiliki Lebih Dari 100 Ha (KK)</th>
                     <th>Jumlah Keluarga Memiliki Tanah (KK)</th>
-                    <th>Jumlah Keluarga Memiliki Tanah (KK)</th>
-                    <th>Jumlah Keluarga Memiliki Tanah (KK)</th>
+                    <th>Jumlah Keluarga Tidak Memiliki Tanah (KK)</th>
+                    <th>Jumlah Keluarga Petani Pangan (KK)</th>
                   </tr>
                 </thead>
             </table>
