@@ -120,7 +120,19 @@
 
               }<br><br>
 
-              function edit{{$model}}($id){<br><br>
+              function new{{$model}}($id){<br><br>
+
+              }<br><br>
+
+              function insert{{$model}}($id){<br><br>
+
+              }<br><br>
+
+              function update{{$model}}($id){<br><br>
+
+              }<br><br>
+
+              function delete{{$model}}($id){<br><br>
 
               }<br><br>
             }<br>

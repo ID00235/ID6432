@@ -22,11 +22,11 @@ class PotensiSdaKepemilikanLahanPanganController extends Controller{
 
 
 		function listKepemilikanLahanPangan(){
-			
+
 		}
 
 
-		function editKepemilikanLahanPangan($id){
+		function newKepemilikanLahanPangan($id){
 
 		}
 
