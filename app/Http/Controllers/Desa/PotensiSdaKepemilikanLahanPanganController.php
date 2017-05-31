@@ -23,17 +23,23 @@ class PotensiSdaKepemilikanLahanPanganController extends Controller{
 
 		function listKepemilikanLahanPangan(){
 			$id_desa = Auth::user()->userdesa();
-			$data = KepemilikanLahanPangan::where('id_desa',$id_desa)->get();
-			$route = array("main"=>"potensi","sub"=>"batas_wilayah","title"=>"Potensi - Kepemilikan Lahan Pangan");
+			$data = KepemilikanLahanPangan::where('id_desa',$id_desa)->orderby('tanggal','desc')->get();
+			$route = array("main"=>"potensi","sub"=>"sda","title"=>"Potensi - Kepemilikan Lahan Pangan");
 			return view('desa.potensi.list-kepemilikan-lahan-pangan',array("route"=>$route, "data"=>$data));
 		}
 
 
 		function newKepemilikanLahanPangan(){
-			$route = array("main"=>"potensi","sub"=>"batas_wilayah","title"=>"Potensi - Kepemilikan Lahan Pangan");
+			$route = array("main"=>"potensi","sub"=>"sda","title"=>"Potensi - Kepemilikan Lahan Pangan");
 			return view('desa.potensi.new-kepemilikan-lahan-pangan',array("route"=>$route));
 		}
 
+
+		function editKepemilikanLahanPangan($id){
+			$data = KepemilikanLahanPangan::find(Hashids::decode($id)[0]);
+			$route = array("main"=>"potensi","sub"=>"sda","title"=>"Potensi - Kepemilikan Lahan Pangan");
+			return view('desa.potensi.edit-kepemilikan-lahan-pangan',array("route"=>$route,"data"=>$data));
+		}
 
 		function insertKepemilikanLahanPangan (Request $request) {
 			$tanggal=$request->input('tanggal');
@@ -51,7 +57,7 @@ class PotensiSdaKepemilikanLahanPanganController extends Controller{
 			$record->id_desa = $id_desa;
 			$record->memiliki_kurang_10_ha = $memiliki_kurang_10_ha;
 			$record->memiliki_10_sd_50_ha = $memiliki_10_sd_50_ha;
-			$record->memiliki_50_sd_100_haha = $memiliki_50_sd_100_haha;
+			$record->memiliki_50_sd_100_ha = $memiliki_50_sd_100_haha;
 			$record->memiliki_lebih_dari_100_ha = $memiliki_lebih_dari_100_ha;
 			$record->jumlah_keluarga_memiliki_lahan = $jumlah_keluarga_memiliki_lahan;
 			$record->jumlah_keluarga_tidak_memiliki_lahan = $jumlah_keluarga_tidak_memiliki_lahan;

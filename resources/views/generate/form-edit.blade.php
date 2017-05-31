@@ -17,14 +17,14 @@
 	@if(substr($type,0,7)=='varchar' )
 	<?php echo '{{';?>Form::bsText("{{$field}}","$data->{{$field}}",[<?php echo $required;?>])<?php echo '}}';?><br>
 	@elseif(substr($type,0,3)=='int' && $field!='id_desa')
-	<?php echo '{{';?>Form::bsText("{{$field}}","$data->{{$field}}",['class'=>'col-5 numerik input-right form-control',<?php echo $required;?>])<?php echo '}}';?><br>
+	<?php echo '{{';?>Form::bsText("{{$field}}","$data->{{$field}}",['class'=>'col-12 numerik input-right form-control',<?php echo $required;?>])<?php echo '}}';?><br>
 	@elseif(substr($type,0,7)=='decimal')
-	<?php echo '{{';?>Form::bsText("{{$field}}","$data->{{$field}}",['class'=>'col-5 doubleinput-right form-control',
+	<?php echo '{{';?>Form::bsText("{{$field}}","$data->{{$field}}",['class'=>'col-12 doubleinput-right form-control',
 	<?php echo $required;?>])<?php echo '}}';?><br>
 	@elseif(substr($type,0,6)=='double')
 	<?php echo '{{';?>Form::bsText("{{$field}}","$data->{{$field}}",['class'=>'col-6 input-right form-control',<?php echo $required;?>])<?php echo '}}';?><br>
 	@elseif(substr($type,0,4)=='date')
-	<?php echo '{{';?>Form::bsText("{{$field}}","tanggalIndo($data->{{$field}})",['class'=>'col-4 datepicker form-control',<?php echo $required;?>])<?php echo '}}';?><br>
+	<?php echo '{{';?>Form::bsText("{{$field}}",tanggalIndo($data->{{$field}}),['class'=>'col-4 datepicker form-control',<?php echo $required;?>])<?php echo '}}';?><br>
 	@elseif(substr($type,0,4)=='enum')
 	 <?php
 	   $type = str_replace("enum(", "", $type);
