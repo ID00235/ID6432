@@ -24,7 +24,21 @@ $id_desa = Auth::user()->userdesa();
     			</div>
   			</div>
   			<div class="card-block">	 
-
+            <table class="table table-striped table-bordered table-sm">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>Tanggal</th>
+                    <th>Memiliki Kurang 10 Ha (KK)</th>
+                    <th>Memiliki 10 - 50 Ha (KK)</th>
+                    <th>Memiliki 50 - 100 Ha (KK)</th>
+                    <th>Memiliki Lebih Dari 100 Ha (KK)</th>
+                    <th>Jumlah Keluarga Memiliki Tanah (KK)</th>
+                    <th>Jumlah Keluarga Memiliki Tanah (KK)</th>
+                    <th>Jumlah Keluarga Memiliki Tanah (KK)</th>
+                  </tr>
+                </thead>
+            </table>
     		</div>
     	</div>
 	</div>

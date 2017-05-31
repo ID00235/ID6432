@@ -67,7 +67,7 @@ $id_desa = Auth::user()->userdesa();
         })
 
         $("#jumlah_keluarga_petani_tanaman_pangan").on('focus', function(){
-            total = Number($("#jumlah_keluarga_memiliki_lahan").val()) - 
+            total = Number($("#jumlah_keluarga_memiliki_lahan").val()) +
                     Number($("#jumlah_keluarga_tidak_memiliki_lahan").val()) ;
             $(this).val(total)
         })
