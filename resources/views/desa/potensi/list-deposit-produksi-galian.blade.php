@@ -46,8 +46,13 @@ $id_desa = Auth::user()->userdesa();
                 <tbody>
                      <?php 
                   $no = 1;
+                  $tahun = 0;
                   ?>
                   @foreach($data as $d)
+                  @if(tahunSystem($d->tanggal)!=$tahun)
+                    <?php $tahun = tahunSystem($d->tanggal);?>
+                    <tr><td colspan="14"><b>Set Data {{$tahun}}</b></td></tr>
+                  @endif
                   <tr>
                     <td align="center">
                       <a href="{{URLGroup('potensi/sda/defosit-galian/edit/')}}/{{Hashids::encode($d->id)}}">
@@ -56,17 +61,17 @@ $id_desa = Auth::user()->userdesa();
                     </td>
                     <td align="center">{{$no}}</td>
                     <td align="center">{{tanggalIndo($d->tanggal)}}</td>
-                    <td align="right">{{$d->jenis_bahan_galian}}</td>
-                    <td align="right">{{$d->status}}</td>
-                    <td align="right">{{$d->hasil_produksi}}</td>
-                    <td align="right">{{$d->di_jual_langsung_ke_konsumen}}</td>
-                    <td align="right">{{$d->di_jual_melalui_kud}}</td>
-                    <td align="right">{{$d->di_jual_melalui_tengkulak}}</td>
-                    <td align="right">{{$d->di_jual_melalui_pengecer}}</td>
-                    <td align="right">{{$d->di_jual_ke_perusahaan}}</td>
-                    <td align="right">{{$d->di_jual_ke_lumbung_desa_kelurahan}}</td>
-                    <td align="right">{{$d->tidak_dijual}}</td>
-                    <td align="right">{{$d->kepemilikan}}</td>
+                    <td align="center">{{$d->nama_komuditas}}</td>
+                    <td align="center">{{$d->status}}</td>
+                    <td align="center">{{$d->hasil_produksi}}</td>
+                    <td align="center">{{$d->di_jual_langsung_ke_konsumen}}</td>
+                    <td align="center">{{$d->di_jual_melalui_kud}}</td>
+                    <td align="center">{{$d->di_jual_melalui_tengkulak}}</td>
+                    <td align="center">{{$d->di_jual_melalui_pengecer}}</td>
+                    <td align="center">{{$d->di_jual_ke_perusahaan}}</td>
+                    <td align="center">{{$d->di_jual_ke_lumbung_desa_kelurahan}}</td>
+                    <td align="center">{{$d->tidak_dijual}}</td>
+                    <td align="center">{{$d->kepemilikan}}</td>
                   </tr>
                   <?php $no++;?>
                   @endforeach

@@ -49,10 +49,10 @@ $id_desa = Auth::user()->userdesa();
                     </td>
                     <td align="center">{{$no}}</td>
                     <td align="center">{{tanggalIndo($d->tanggal)}}</td>
-                    <td align="right">{{$d->lokasi_atau_area_wisata}}</td>
-                    <td align="right">{{$d->keberadaan}}</td>
-                    <td align="right">{{$d->luas_ha}}</td>
-                    <td align="right">{{$d->tingkat_pemanfaatan}}</td>
+                    <td align="center">{{$d->lokasi_atau_area_wisata}}</td>
+                    <td align="center">{{$d->keberadaan}}</td>
+                    <td align="right">{{desimal2($d->luas_ha)}}</td>
+                    <td align="center">{{$d->tingkat_pemanfaatan}}</td>
                   </tr>
                   <?php $no++;?>
                   @endforeach

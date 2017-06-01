@@ -16,7 +16,7 @@ $id_desa = Auth::user()->userdesa();
 	<div class="offset-sm-2 col-md-8">
 		<div class="card">
 			<div class="card-header">
-    			 Deposit & Produksi Bahan Galian(Edit Data)
+    			 Deposit & Produksi Bahan Galian (Edit Data)
     			<div class="pull-right">
                     <a href="#" id="delete" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus</a>
     				<a href="{{URLGroup('potensi/sda/defosit-galian')}}" class="btn btn-secondary">
@@ -26,62 +26,65 @@ $id_desa = Auth::user()->userdesa();
   			<div class="card-block">	 
 
                 {!!Form::open(['url' => URLGroup("potensi/sda/defosit-galian/update"), 'name'=>'form-update-deposit_produksi_galian'])!!}
-{{Form::hidden("id",Crypt::encrypt($data->id))}}
-{{Form::bsText("tanggal",tanggalIndo($data->tanggal),['class'=>'col-4 datepicker form-control','required'=>true])}}
-{{Form::bsText("jenis_bahan_galian","$data->jenis_bahan_galian",['required'=>true])}}
+                {{Form::hidden("id",Crypt::encrypt($data->id))}}
+                {{Form::bsText("tanggal",tanggalIndo($data->tanggal),['class'=>'col-4 datepicker form-control','required'=>true])}}
 
-<?php
-$list = array('Ada Tapi Belum Produktif'=>'ADA TAPI BELUM PRODUKTIF', 'Ada Dan Sudah Produktif'=>'ADA DAN SUDAH PRODUKTIF', );
-$select =$data->status;
-?>
-{!!Form::bsRadioInline($list,$select,"status","",['required'=>true])!!}
-<?php
-$list = array('Kecil'=>'KECIL', 'Sedang'=>'SEDANG', 'Besar'=>'BESAR', );
-$select =$data->hasil_produksi;
-?>
-{!!Form::bsRadioInline($list,$select,"hasil_produksi","",['required'=>true])!!}
-<?php
-$list = array('Ya'=>'YA', 'Tidak'=>'TIDAK', );
-$select =$data->di_jual_langsung_ke_konsumen;
-?>
-{!!Form::bsRadioInline($list,$select,"di_jual_langsung_ke_konsumen","",['required'=>true])!!}
-<?php
-$list = array('Ya'=>'YA', 'Tidak'=>'TIDAK', );
-$select =$data->di_jual_melalui_kud;
-?>
-{!!Form::bsRadioInline($list,$select,"di_jual_melalui_kud","",['required'=>true])!!}
-<?php
-$list = array('Ya'=>'YA', 'Tidak'=>'TIDAK', );
-$select =$data->di_jual_melalui_tengkulak;
-?>
-{!!Form::bsRadioInline($list,$select,"di_jual_melalui_tengkulak","",['required'=>true])!!}
-<?php
-$list = array('Ya'=>'YA', 'Tidak'=>'TIDAK', );
-$select =$data->di_jual_melalui_pengecer;
-?>
-{!!Form::bsRadioInline($list,$select,"di_jual_melalui_pengecer","",['required'=>true])!!}
-<?php
-$list = array('Ya'=>'YA', 'Tidak'=>'TIDAK', );
-$select =$data->di_jual_ke_perusahaan;
-?>
-{!!Form::bsRadioInline($list,$select,"di_jual_ke_perusahaan","",['required'=>true])!!}
-<?php
-$list = array('Ya'=>'YA', 'Tidak'=>'TIDAK', );
-$select =$data->di_jual_ke_lumbung_desa_kelurahan;
-?>
-{!!Form::bsRadioInline($list,$select,"di_jual_ke_lumbung_desa_kelurahan","",['required'=>true])!!}
-<?php
-$list = array('Ya'=>'YA', 'Tidak'=>'TIDAK', );
-$select =$data->tidak_dijual;
-?>
-{!!Form::bsRadioInline($list,$select,"tidak_dijual","",['required'=>true])!!}
-<?php
-$list = array('Pemerintah'=>'PEMERINTAH', 'Swasta'=>'SWASTA', 'Perorangan'=>'PERORANGAN', 'Adat'=>'ADAT', 'Lainnya'=>'LAINNYA', );
-$select =$data->kepemilikan;
-?>
-{!!Form::bsRadioInline($list,$select,"kepemilikan","",['required'=>true])!!}
-{!!Form::bsSubmit('Simpan',"")!!}
-{!!Form::close()!!} 
+                <?php $list = DB::table('komuditas')->where('tipe','galian')->pluck('nama','id');
+                $select = $data->jenis_bahan_galian;?>    
+                {!!Form::bsSelect($list, $select, 'jenis_bahan_galian', ['required'=>true])!!}
+
+                <?php
+                $list = array('Ada Tapi Belum Produktif'=>'ADA TAPI BELUM PRODUKTIF', 'Ada Dan Sudah Produktif'=>'ADA DAN SUDAH PRODUKTIF', );
+                $select =$data->status;
+                ?>
+                {!!Form::bsSelect($list,$select,"status",['required'=>true])!!}
+                <?php
+                $list = array('Kecil'=>'KECIL', 'Sedang'=>'SEDANG', 'Besar'=>'BESAR', );
+                $select =$data->hasil_produksi;
+                ?>
+                {!!Form::bsRadioInline($list,$select,"hasil_produksi","",['required'=>true])!!}
+                <?php
+                $list = array('Ya'=>'YA', 'Tidak'=>'TIDAK', );
+                $select =$data->di_jual_langsung_ke_konsumen;
+                ?>
+                {!!Form::bsRadioInline($list,$select,"di_jual_langsung_ke_konsumen","",['required'=>true])!!}
+                <?php
+                $list = array('Ya'=>'YA', 'Tidak'=>'TIDAK', );
+                $select =$data->di_jual_melalui_kud;
+                ?>
+                {!!Form::bsRadioInline($list,$select,"di_jual_melalui_kud","",['required'=>true])!!}
+                <?php
+                $list = array('Ya'=>'YA', 'Tidak'=>'TIDAK', );
+                $select =$data->di_jual_melalui_tengkulak;
+                ?>
+                {!!Form::bsRadioInline($list,$select,"di_jual_melalui_tengkulak","",['required'=>true])!!}
+                <?php
+                $list = array('Ya'=>'YA', 'Tidak'=>'TIDAK', );
+                $select =$data->di_jual_melalui_pengecer;
+                ?>
+                {!!Form::bsRadioInline($list,$select,"di_jual_melalui_pengecer","",['required'=>true])!!}
+                <?php
+                $list = array('Ya'=>'YA', 'Tidak'=>'TIDAK', );
+                $select =$data->di_jual_ke_perusahaan;
+                ?>
+                {!!Form::bsRadioInline($list,$select,"di_jual_ke_perusahaan","",['required'=>true])!!}
+                <?php
+                $list = array('Ya'=>'YA', 'Tidak'=>'TIDAK', );
+                $select =$data->di_jual_ke_lumbung_desa_kelurahan;
+                ?>
+                {!!Form::bsRadioInline($list,$select,"di_jual_ke_lumbung_desa_kelurahan","",['required'=>true])!!}
+                <?php
+                $list = array('Ya'=>'YA', 'Tidak'=>'TIDAK', );
+                $select =$data->tidak_dijual;
+                ?>
+                {!!Form::bsRadioInline($list,$select,"tidak_dijual","",['required'=>true])!!}
+                <?php
+                $list = array('Pemerintah'=>'PEMERINTAH', 'Swasta'=>'SWASTA', 'Perorangan'=>'PERORANGAN', 'Adat'=>'ADAT', 'Lainnya'=>'LAINNYA', );
+                $select =$data->kepemilikan;
+                ?>
+                {!!Form::bsSelect($list,$select,"kepemilikan",['required'=>true])!!}
+                {!!Form::bsSubmit('Simpan',"")!!}
+                {!!Form::close()!!} 
 
 
     		</div>

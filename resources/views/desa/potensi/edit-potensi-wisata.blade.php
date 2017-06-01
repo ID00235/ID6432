@@ -31,7 +31,7 @@ $id_desa = Auth::user()->userdesa();
 				$list = array('Agrowisata'=>'AGROWISATA', 'Air Terjun'=>'AIR TERJUN', 'Arung Jeram'=>'ARUNG JERAM', 'Cagar Budaya'=>'CAGAR BUDAYA', 'Danau'=>'DANAU', 'Goa'=>'GOA', 'Gunung'=>'GUNUNG', 'Hutan Khusus'=>'HUTAN KHUSUS', 'Wisata Laut'=>'WISATA LAUT', 'Padang Savana'=>'PADANG SAVANA', 'Situs Sejarah dan Museum'=>'SITUS SEJARAH DAN MUSEUM', );
 				$select =$data->lokasi_atau_area_wisata;
 				?>
-				{!!Form::bsRadioInline($list,$select,"lokasi_atau_area_wisata","",['required'=>true])!!}
+				{!!Form::bsSelect($list,$select,"lokasi_atau_area_wisata",['required'=>true])!!}
 				<?php
 				$list = array('Ada'=>'ADA', 'Tidak Ada'=>'TIDAK ADA', );
 				$select =$data->keberadaan;
