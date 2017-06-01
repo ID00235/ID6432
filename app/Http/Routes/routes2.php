@@ -35,6 +35,26 @@ Route::post('/delete', "Desa\PotensiSdaRuangPublikController@deleteRuangPublik")
 });
 
 
+//ROUTE potensi_wisata
+Route::group(['prefix' =>'potensi/sda/potensi-wisata'], function(){
+Route::get('/', "Desa\PotensiSdaPotensiWisataController@listPotensiWisata");
+Route::get('/new', "Desa\PotensiSdaPotensiWisataController@newPotensiWisata");
+Route::get('/edit/{id}', "Desa\PotensiSdaPotensiWisataController@editPotensiWisata");
+Route::post('/insert', "Desa\PotensiSdaPotensiWisataController@insertPotensiWisata");
+Route::post('/update', "Desa\PotensiSdaPotensiWisataController@updatePotensiWisata");
+Route::post('/delete', "Desa\PotensiSdaPotensiWisataController@deletePotensiWisata");
+});
+
+//ROUTE apotik_hidup
+Route::group(['prefix' =>'potensi/sda/apotik-hidup'], function(){
+Route::get('/', "Desa\PotensiSdaApotikHidupController@listApotikHidup");
+Route::get('/new', "Desa\PotensiSdaApotikHidupController@newApotikHidup");
+Route::get('/edit/{id}', "Desa\PotensiSdaApotikHidupController@editApotikHidup");
+Route::post('/insert', "Desa\PotensiSdaApotikHidupController@insertApotikHidup");
+Route::post('/update', "Desa\PotensiSdaApotikHidupController@updateApotikHidup");
+Route::post('/delete', "Desa\PotensiSdaApotikHidupController@deleteApotikHidup");
+});
+
 
 //kualitas udara
 Route::group(['prefix' =>'/potensi/kualitas-udara'], function(){
