@@ -48,7 +48,7 @@ $id_desa = Auth::user()->userdesa();
                     </td>
                     <td align="center">{{$no}}</td>
                     <td align="center">{{tanggalIndo($d->tanggal)}}</td>
-                    <td align="right">{{$d->jenis_ruang_publik_atau_taman}}</td>
+                    <td align="center">{{$d->jenis_ruang_publik_atau_taman}}</td>
                     <td align="right">{{$d->keberadaan}}</td>
                     <td align="right">{{$d->luas_m2}}</td>
                     <td align="right">{{$d->tingkat_pemanfaatan}}</td>

@@ -25,6 +25,7 @@ $id_desa = Auth::user()->userdesa();
   			</div>
   			<div class="card-block">	 
                 {!!Form::open(['url' => URLGroup("potensi/sda/ruang-publik/update"), 'name'=>'form-update-ruang_publik'])!!}
+
                 {{Form::hidden("id",Crypt::encrypt($data->id))}}
                 {{Form::bsText("tanggal",tanggalIndo($data->tanggal),['class'=>'col-4 datepicker form-control','required'=>true])}}
                 <?php
@@ -61,36 +62,38 @@ $id_desa = Auth::user()->userdesa();
 <script type="text/javascript">
     $(function(){
                     var $validator = $("form[name=form-update-ruang_publik]").validate({
-                    ignore:[],
-                    rules: {
-                    tanggal: {required:true},
-                    jenis_ruang_publik_atau_taman: {required:true},
-                    keberadaan: {required:true},
-                    tingkat_pemanfaatan: {required:true},
-                    },
-                    messages: {
-                    },
-                    submitHandler: function(form) {
-                    form.submit();
-                    }
-                    });
+ignore:[],
+rules: {
+id_desa: {required:true},
+tanggal: {required:true},
+jenis_ruang_publik_atau_taman: {required:true},
+keberadaan: {required:true},
+tingkat_pemanfaatan: {required:true},
+},
+messages: {
+},
+submitHandler: function(form) {
+form.submit();
+}
+});
 
 
-                    $("#delete").on("click", function(){
-                    bootbox.confirm({
-                    title: "Hapus",
-                    message: "Anda Yakin Ingin Menghapus Data Ini.",
-                    buttons: {
-                    cancel: {
-                    label: 'Batal'
-                    },
-                    confirm: { label: 'Ya, Hapus'
-                    }
-                    },
-                    callback: function (result) {
-                    if(result){ $("form[name=form-delete-ruang_publik]").submit();}
-                    }
-                    });
-                    })
+$("#delete").on("click", function(){
+bootbox.confirm({
+title: "Hapus",
+message: "Anda Yakin Ingin Menghapus Data Ini.",
+buttons: {
+cancel: {
+label: 'Batal'
+},
+confirm: { label: 'Ya, Hapus'
+}
+},
+callback: function (result) {
+if(result){ $("form[name=form-delete-ruang_publik]").submit();}
+}
+});
+})
+                })
 </script>
 @endsection

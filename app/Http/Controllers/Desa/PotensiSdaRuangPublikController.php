@@ -40,12 +40,15 @@ function listRuangPublik(){
 
 
 function insertRuangPublik (Request $request) {
+		$id_desa=$request->input('id_desa');
+		$id_desa=Hashids::decode($id_desa)[0];
 		$tanggal=$request->input('tanggal');
 		$jenis_ruang_publik_atau_taman=$request->input('jenis_ruang_publik_atau_taman');
 		$keberadaan=$request->input('keberadaan');
 		$luas_m2=$request->input('luas_m2');
 		$tingkat_pemanfaatan=$request->input('tingkat_pemanfaatan');
 		$record = New RuangPublik;
+		$record->id_desa = $id_desa;
 		$record->tanggal = tanggalSystem($tanggal);
 		$record->jenis_ruang_publik_atau_taman = $jenis_ruang_publik_atau_taman;
 		$record->keberadaan = $keberadaan;

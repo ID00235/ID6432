@@ -10,7 +10,7 @@ $id_desa = Auth::user()->userdesa();
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Potensi</a></li>
             <li class="breadcrumb-item">Sumber Daya Alam</li>
-            <li class="breadcrumb-item active">Ruang Publik / Taman</li>
+            <li class="breadcrumb-item active">Ruang Publik Atau Taman</li>
         </ol>
     </div>
     <div class="offset-sm-2 col-md-8">
@@ -24,6 +24,7 @@ $id_desa = Auth::user()->userdesa();
             </div>
             <div class="card-block">     
                 {!!Form::open(['url' => URLGroup("potensi/sda/ruang-publik/insert"), 'name'=>'form-insert-ruang_publik'])!!}
+                {{Form::hidden("id_desa",Hashids::encode(Auth::user()->userdesa()))}}
                 {{Form::bsText("tanggal","",['class'=>'col-7 datepicker form-control','required'=>true])}}
                 <?php
                 $list = array('Hutan Kota'=>'HUTAN KOTA', 'Taman Bermain'=>'TAMAN BERMAIN', 'Taman Desa/Kel'=>'TAMAN DESA/KEL', 'Taman Kota'=>'TAMAN KOTA', 'Tanah Adat'=>'TANAH ADAT', 'Tanah Kas Adat'=>'TANAH KAS ADAT', );
@@ -56,6 +57,7 @@ $id_desa = Auth::user()->userdesa();
                     ignore:[],
                     rules: {
                     tanggal: {required:true},
+                    id_desa: {required:true},
                     jenis_ruang_publik_atau_taman: {required:true},
                     keberadaan: {required:true},
                     tingkat_pemanfaatan: {required:true},

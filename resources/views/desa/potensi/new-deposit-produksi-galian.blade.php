@@ -27,12 +27,15 @@ $id_desa = Auth::user()->userdesa();
                 {!!Form::open(['url' => URLGroup("potensi/sda/defosit-galian/insert"), 'name'=>'form-insert-deposit_produksi_galian'])!!}
 {{Form::hidden("id_desa",Hashids::encode(Auth::user()->userdesa()))}}
 {{Form::bsText("tanggal","",['class'=>'col-7 datepicker form-control','required'=>true])}}
-{{Form::bsText("jenis_bahan_galian","",['required'=>true])}}
+
+<?php $list = DB::table('komuditas')->where('tipe','galian')->pluck('nama','id');
+$select = "";?>    
+{!!Form::bsSelect($list, $select, 'jenis_bahan_galian', ['required'=>true])!!}
 <?php
 $list = array('Ada Tapi Belum Produktif'=>'ADA TAPI BELUM PRODUKTIF', 'Ada Dan Sudah Produktif'=>'ADA DAN SUDAH PRODUKTIF', );
 $select ='Ada Tapi Belum Produktif';
 ?>
-{!!Form::bsRadioInline($list,$select,"status","",['required'=>true])!!}
+{!!Form::bsSelect($list,$select,"status","",['required'=>true])!!}
 <?php
 $list = array('Kecil'=>'KECIL', 'Sedang'=>'SEDANG', 'Besar'=>'BESAR', );
 $select ='Kecil';
@@ -77,7 +80,7 @@ $select ='Ya';
 $list = array('Pemerintah'=>'PEMERINTAH', 'Swasta'=>'SWASTA', 'Perorangan'=>'PERORANGAN', 'Adat'=>'ADAT', 'Lainnya'=>'LAINNYA', );
 $select ='Pemerintah';
 ?>
-{!!Form::bsRadioInline($list,$select,"kepemilikan","",['required'=>true])!!}
+{!!Form::bsSelect($list,$select,"kepemilikan","",['required'=>true])!!}
 {!!Form::bsSubmit('Simpan',"")!!}
 {!!Form::close()!!}
 
