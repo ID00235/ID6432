@@ -15,6 +15,9 @@
         return number_format($nilai, "0", ",", ".");
     }
 
+
+    
+
       function cuttext($text){
         if (strlen($text)> 70){
             return substr($text, 0,70)."...";
@@ -197,6 +200,11 @@
 
     
     function indo_double($data){
+        return number_format($data, "2", ",", ".");
+        return $data;
+    }
+
+    function desimal2($data){
         return number_format($data, "2", ",", ".");
         return $data;
     }

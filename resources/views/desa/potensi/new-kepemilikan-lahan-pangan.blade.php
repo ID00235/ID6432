@@ -87,25 +87,19 @@ $(function() {
             form.submit();
         }
     });
-    $("#delete").on("click", function() {
-        bootbox.confirm({
-            title: "Hapus",
-            message: "Anda Yakin Ingin Menghapus Data Ini.",
-            buttons: {
-                cancel: {
-                    label: 'Batal'
-                },
-                confirm: {
-                    label: 'Ya, Hapus'
-                }
-            },
-            callback: function(result) {
-                if (result) {
-                    $("form[name=form-delete-kepemilikan_lahan_pangan]").submit();
-                }
-            }
-        });
-    })
+        $("#jumlah_keluarga_memiliki_lahan").on('focus', function(){
+            total = Number($("#memiliki_kurang_10_ha").val()) +
+            Number($("#memiliki_10_sd_50_ha").val()) +
+            Number($("#memiliki_50_sd_100_ha").val()) +
+            Number($("#memiliki_lebih_dari_100_ha").val()) ;
+            $(this).val(total)
+        })
+
+        $("#jumlah_keluarga_petani_tanaman_pangan").on('focus', function(){
+            total = Number($("#jumlah_keluarga_memiliki_lahan").val()) +
+            Number($("#jumlah_keluarga_tidak_memiliki_lahan").val()) ;
+            $(this).val(total)
+        })
 })
 </script>
 @endsection

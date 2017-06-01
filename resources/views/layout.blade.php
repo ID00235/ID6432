@@ -78,10 +78,10 @@
     <script src="{{asset('js/bootstrap-table.js')}}"></script>
     <script src="{{asset('js/jquery.datatables.js')}}"></script>
     <script src="{{asset('js/jquery.mask.min.js')}}"></script>
-    <script src="{{asset('js/jquery.decimalMask.min.js')}}"></script>
     <script src="{{asset('js/bootbox.min.js')}}"></script>
     <script src="{{asset('js/jquery.form.min.js')}}"></script>
     <script src="{{asset('js/jquery.spinner.js')}}"></script>
+    <script src="{{asset('js/accounting.min.js')}}"></script>
     <script src="{{asset('script/init.js')}}"></script>
     <script src="{{asset('vendor/select2/js/select2.full.min.js')}}"></script>
     <script type="text/javascript">

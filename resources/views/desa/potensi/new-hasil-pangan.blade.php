@@ -42,15 +42,15 @@ userdesa();
                 ?>
                 {!!Form::bsSelect($list, $select, 'komuditas', ['required'=>true])!!}
 
-                {{Form::bsText("luas_produksi","",['class'=>'col-7 double input-right form-control', ])}}
-                {{Form::bsText("hasil_produksi","",['class'=>'col-7 double input-right form-control', ])}}
+                {{Form::bsText("luas_produksi","",['class'=>'col-7 double input-right form-control', 'help'=>'Hektar'])}}
+                {{Form::bsText("hasil_produksi","",['class'=>'col-7 double input-right form-control', 'help'=>'Ton/Hektar'])}}
                 {{Form::bsText("harga_lokal","",['class'=>'col-7 double input-right form-control', 'help'=>'Rp/Ton'])}}
-                <b>{{Form::bsText("nilai_produksi_tahun_ini","",['class'=>'col-7 double input-right form-control', 'required'=>true])}}</b>
-                {{Form::bsText("biaya_pemupukan","",['class'=>'col-7 double input-right form-control', ])}}
-                {{Form::bsText("biaya_bibit","",['class'=>'col-7 double input-right form-control', ])}}
-                {{Form::bsText("biaya_obat","",['class'=>'col-7 double input-right form-control', ])}}
-                {{Form::bsText("biaya_lainnya","",['class'=>'col-7 double input-right form-control', ])}}
-                <b>{{Form::bsText("saldo_produksi","",['class'=>'col-7 double input-right form-control', 'required'=>true])}}</b>
+                <b>{{Form::bsText("nilai_produksi_tahun_ini","",['class'=>'col-7 double input-right form-control', 'required'=>true, 'help'=>'Rp'])}}</b>
+                {{Form::bsText("biaya_pemupukan","",['class'=>'col-7 double input-right form-control', 'help'=>'Rp'])}}
+                {{Form::bsText("biaya_bibit","",['class'=>'col-7 double input-right form-control', 'help'=>'Rp'])}}
+                {{Form::bsText("biaya_obat","",['class'=>'col-7 double input-right form-control','help'=>'Rp' ])}}
+                {{Form::bsText("biaya_lainnya","",['class'=>'col-7 double input-right form-control','help'=>'Rp' ])}}
+                <b>{{Form::bsText("saldo_produksi","",['class'=>'col-7 double input-right form-control', 'required'=>true, 'help'=>'Rp'])}}</b>
                 {!!Form::bsSubmit('Simpan',"")!!}
                 {!!Form::close()!!} 
             </div>
@@ -76,6 +76,21 @@ userdesa();
             form.submit();
             }
         });
+
+        $("#nilai_produksi_tahun_ini").on('focus', function(){
+            total = parseNumerik($("#luas_produksi").val()) 
+                    * parseNumerik($("#hasil_produksi").val()) 
+                    * parseNumerik($("#harga_lokal").val());
+            $(this).val(parseDesimal(total));
+        })
+
+        $("#saldo_produksi").on('focus', function(){
+            total = parseNumerik($("#nilai_produksi_tahun_ini").val()) -
+                    parseNumerik($("#biaya_pemupukan").val()) -
+                    parseNumerik($("#biaya_obat").val()) -
+                    parseNumerik($("#biaya_lainnya").val());
+            $(this).val(parseDesimal(total));
+        })
 
     })
 </script>

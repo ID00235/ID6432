@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Models\HasilPangan;
 use App\User;
 use Auth;
+use DB;
 use Crypt;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpKernel\Exception\HttpException;
@@ -18,8 +19,12 @@ class PotensiSdaHasilPanganController extends Controller
     public function listHasilPangan()
     {
         $id_desa = Auth::user()->userdesa();
-        $data    = HasilPangan::where('id_desa', $id_desa)->orderby('tanggal', 'desc')->get();
-        $route   = array("main" => "potensi", "sub" => "sda", "title" => "Potensi - Produksi Tanaman Pangan");
+        $data    = HasilPangan::select(['hasil_pangan.*',
+            DB::raw('year(hasil_pangan.tanggal) as tahun'), 'komuditas.nama as nama_komuditas'])
+            ->where('id_desa', $id_desa)
+            ->leftjoin('komuditas', 'komuditas.id', '=', 'hasil_pangan.komuditas')
+            ->orderby('tanggal', 'desc')->get();
+        $route = array("main" => "potensi", "sub" => "sda", "title" => "Potensi - Produksi Tanaman Pangan");
         return view('desa.potensi.list-hasil-pangan', array("route" => $route, "data" => $data));
     }
 

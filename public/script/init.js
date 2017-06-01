@@ -77,13 +77,8 @@ var parseNumerik = function (str){
 var parseDesimal = function (str){
 	str = str.toString();
 	if(str.length==0) return "0,00";
-	str = str.replace(".", ",");
+	number = parseFloat(str);
+	str = accounting.formatNumber(number,2,".",",");
 	return str;
 }
 
-var parseDesimal = function (str){
-	str = str.toString();
-	if(str.length==0) return "0,00";
-	str = str.replace(".", ",");
-	return str;
-}
