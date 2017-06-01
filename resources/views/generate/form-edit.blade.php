@@ -41,7 +41,7 @@
 	   echo '$select =';?>$data-><?php echo $field;?><?php echo ';<br>';
 	   echo '?><br>';
 	   ?>
-		<?php echo '{!!';?>Form::bsRadioInline($list,$select,"{{$field}}","",[<?php echo $required;?>])<?php echo '!!}';?><br>
+		<?php echo '{!!';?>Form::bsRadioInline($list,$select,"{{$field}}",[<?php echo $required;?>])<?php echo '!!}';?><br>
 
 	@elseif(substr($type,0,7)=='tinyint')
 	 <?php
@@ -55,7 +55,7 @@
 	   echo '$select=$data->'; echo $field.';<br>';
 	   echo '?><br>';
 	   ?>
-		<?php echo '{!!';?>Form::bsRadioInline($list,$select,"{{$field}}","",[<?php echo $required;?>])<?php echo '!!}';?><br>
+		<?php echo '{!!';?>Form::bsRadioInline($list,$select,"{{$field}}",[<?php echo $required;?>])<?php echo '!!}';?><br>
 	@endif
 
 @endif

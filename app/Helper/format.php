@@ -1,5 +1,12 @@
 <?php
 
+    function tahunSystem($tgl){
+        $tgl = explode("-",$tgl);
+        if(count($tgl)==3){
+            return $tgl[0];
+        }
+        return 0;
+    }
 	 function namaBulan($bulan){
         $nama_bulan = array(" ","Januari", "Februari", "Maret","April","Mei", "Juni" , "Juli", "Agustus", "September","Oktober","November", "Desember");
         return $nama_bulan[$bulan];

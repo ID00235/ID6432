@@ -39,7 +39,7 @@
 	   echo '$select ='.$type[0].';<br>';
 	   echo '?><br>';
 	   ?>
-		<?php echo '{!!';?>Form::bsRadioInline($list,$select,"{{$field}}","",[<?php echo $required;?>])<?php echo '!!}';?><br>
+		<?php echo '{!!';?>Form::bsRadioInline($list,$select,"{{$field}}",[<?php echo $required;?>])<?php echo '!!}';?><br>
 
 	@elseif(substr($type,0,7)=='tinyint')
 	 <?php

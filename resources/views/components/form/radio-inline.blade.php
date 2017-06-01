@@ -19,7 +19,7 @@
 	  	?>
 	  	  <label class="form-check-label">
             <input id="inlineRadio{{$i}}" value="{{$arr_key[$i]}}" name="{{$name}}" @if($status) checked="true" @endif type="radio"> {{$arr_val[$i]}} &nbsp;
-           </label><br>
+           </label> &nbsp;
 	  <?php
 		}
 	  ?>
