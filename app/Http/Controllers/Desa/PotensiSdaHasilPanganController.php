@@ -8,6 +8,7 @@ use Auth;
 use Crypt;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpKernel\Exception\HttpException;
+use Vinkla\Hashids\Facades\Hashids;
 
 //model (table) yang digunakan
 

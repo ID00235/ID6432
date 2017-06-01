@@ -3,3 +3,6 @@
 	$select = "2";
 ?>
 {!! Form::bsRadioInline($list,$select,"pilihan") !!}
+$list = DB::table('komuditas')->where('jenis','pangan')->pluck('nama,'id');
+$select = array();
+{!!Form::bsSelect($list, $select, 'komuditas', ['required'=>true)!!}

@@ -1,12 +1,11 @@
 <div class="form-group row">
-  @if(isset($attributes["required"]))
+  @if($required)
   {{ Form::label($name, null, ['class' => 'col-4 control-label', 'required'=>'true']) }}
   @else
   {{ Form::label($name, null, ['class' => 'col-4 control-label']) }}
   @endif
   <div class="col-8"> 
-  	<select name="{{$name}}" class="select2" @if($required) required @endif style="width: 100%;">
-  		<option>Pilih {{$name}}</option>
+  	<select name="{{$name}}" class="select2" @if($required) required="true" @endif style="width: 100%;">
   		<?php
   		$arr_val = array_values($list);
 	  	$arr_key = array_keys($list);

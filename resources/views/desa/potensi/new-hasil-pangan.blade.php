@@ -35,17 +35,22 @@ userdesa();
             <div class="card-block">
                 {!!Form::open(['url' => URLGroup("potensi/sda/hasil-pangan/insert"), 'name'=>'form-insert-hasil_pangan'])!!}
                 {{Form::hidden("id_desa",Hashids::encode(Auth::user()->userdesa()))}}
-                {{Form::bsText("tanggal","",['class'=>'col-7 datepicker form-control','required'=>true])}}
-                {{Form::bsText("komuditas","",['class'=>'col-7 numerik input-right form-control','required'=>true])}}
+                {{Form::bsText("tanggal","",['class'=>'col-12 datepicker form-control','required'=>true])}}
+                <?php
+                $list = DB::table('komuditas')->where('tipe','pangan')->pluck('nama','id');
+                $select = "";
+                ?>
+                {!!Form::bsSelect($list, $select, 'komuditas', ['required'=>true])!!}
+
                 {{Form::bsText("luas_produksi","",['class'=>'col-7 double input-right form-control', ])}}
                 {{Form::bsText("hasil_produksi","",['class'=>'col-7 double input-right form-control', ])}}
-                {{Form::bsText("harga_lokal","",['class'=>'col-7 double input-right form-control', ])}}
-                {{Form::bsText("nilai_produksi_tahun_ini","",['class'=>'col-7 double input-right form-control', 'required'=>true])}}
+                {{Form::bsText("harga_lokal","",['class'=>'col-7 double input-right form-control', 'help'=>'Rp/Ton'])}}
+                <b>{{Form::bsText("nilai_produksi_tahun_ini","",['class'=>'col-7 double input-right form-control', 'required'=>true])}}</b>
                 {{Form::bsText("biaya_pemupukan","",['class'=>'col-7 double input-right form-control', ])}}
                 {{Form::bsText("biaya_bibit","",['class'=>'col-7 double input-right form-control', ])}}
                 {{Form::bsText("biaya_obat","",['class'=>'col-7 double input-right form-control', ])}}
                 {{Form::bsText("biaya_lainnya","",['class'=>'col-7 double input-right form-control', ])}}
-                {{Form::bsText("saldo_produksi","",['class'=>'col-7 double input-right form-control', 'required'=>true])}}
+                <b>{{Form::bsText("saldo_produksi","",['class'=>'col-7 double input-right form-control', 'required'=>true])}}</b>
                 {!!Form::bsSubmit('Simpan',"")!!}
                 {!!Form::close()!!} 
             </div>
