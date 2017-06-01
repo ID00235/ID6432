@@ -19,12 +19,11 @@ use App\User;
 use App\Models\JenisLahan;
 class PotensiSdaJenisLahanController extends Controller{
 
-
-		function listJenisLahan(){
-			$id_desa = Auth::user()->userdesa();
-			$data = JenisLahan::where('id_desa',$id_desa)->get();
-			$route = array("main"=>"potensi","sub"=>"jenis_lahan","title"=>"Potensi - Jenis Lahan");
-			return view('desa.potensi.list-jenis-lahan',array("route"=>$route, "data"=>$data));
+	function listJenisLahan(){
+		$id_desa = Auth::user()->userdesa();
+		$data = JenisLahan::where('id_desa',$id_desa)->get();
+		$route = array("main"=>"potensi","sub"=>"jenis_lahan","title"=>"Potensi - Jenis Lahan");
+		return view('desa.potensi.list-jenis-lahan',array("route"=>$route, "data"=>$data));
 
 		}
 
@@ -34,11 +33,7 @@ function newJenisLahan(){
 			return view('desa.potensi.new-jenis-lahan',array("route"=>$route));
 		}
 
-function editJenisLahan($id){
-			$data = JenisLahan::find(Hashids::decode($id)[0]);
-			$route = array("main"=>"potensi","sub"=>"sda","title"=>"Potensi - Kepemilikan Lahan Pangan");
-			return view('desa.potensi.edit-jenis-lahan',array("route"=>$route,"data"=>$data));
-		}
+
 function insertJenisLahan (Request $request) {
 $id_desa=$request->input('id_desa');
 $id_desa=Hashids::decode($id_desa)[0];
@@ -78,6 +73,11 @@ $pemukiman=$request->input('pemukiman');
 $pekarangan=$request->input('pekarangan');
 $luas_tanah_kering=$request->input('luas_tanah_kering');
 $hutan_lindung=$request->input('hutan_lindung');
+$perkebunan_rakyat=$request->input('perkebunan_rakyat');
+$perkebunan_negara=$request->input('perkebunan_negara');
+$perkebunan_swasta=$request->input('perkebunan_swasta');
+$perkebunan_perorangan=$request->input('perkebunan_perorangan');
+$luas_tanah_perkebunan=$request->input('luas_tanah_perkebunan');
 $hutan_produksi_tetap=$request->input('hutan_produksi_tetap');
 $hutan_produksi_terbatas=$request->input('hutan_produksi_terbatas');
 $hutan_produksi=$request->input('hutan_produksi');
@@ -133,6 +133,11 @@ $record->pemukiman = system_numerik($pemukiman);
 $record->pekarangan = system_numerik($pekarangan);
 $record->luas_tanah_kering = system_numerik($luas_tanah_kering);
 $record->hutan_lindung = system_numerik($hutan_lindung);
+$record->perkebunan_rakyat = system_numerik($perkebunan_rakyat);
+$record->perkebunan_negara = system_numerik($perkebunan_negara);
+$record->perkebunan_swasta = system_numerik($perkebunan_swasta);
+$record->perkebunan_perorangan = system_numerik($perkebunan_perorangan);
+$record->luas_tanah_perkebunan = $luas_tanah_perkebunan;
 $record->hutan_produksi_tetap = system_numerik($hutan_produksi_tetap);
 $record->hutan_produksi_terbatas = system_numerik($hutan_produksi_terbatas);
 $record->hutan_produksi = system_numerik($hutan_produksi);
@@ -153,6 +158,15 @@ $record->selisih_luas = $selisih_luas;
 $record->save(); $request->session()->flash('notice', "Data Baru Berhasil Disimpan");
 return redirect(URLGroup('potensi/sda/jenis-lahan'));
 }
+
+// proses update
+
+function editJenisLahan($id){
+			$data = JenisLahan::find(Hashids::decode($id)[0]);
+			$route = array("main"=>"potensi","sub"=>"sda","title"=>"Potensi - Kepemilikan Lahan Pangan");
+			return view('desa.potensi.edit-jenis-lahan',array("route"=>$route,"data"=>$data));
+		}
+		
 //tambahkan fungsi update data JenisLahan
 function updateJenisLahan (Request $request) {
 $id=Crypt::decrypt($request->input('id'));
@@ -192,6 +206,11 @@ $pemukiman=$request->input('pemukiman');
 $pekarangan=$request->input('pekarangan');
 $luas_tanah_kering=$request->input('luas_tanah_kering');
 $hutan_lindung=$request->input('hutan_lindung');
+$perkebunan_rakyat=$request->input('perkebunan_rakyat');
+$perkebunan_negara=$request->input('perkebunan_negara');
+$perkebunan_swasta=$request->input('perkebunan_swasta');
+$perkebunan_perorangan=$request->input('perkebunan_perorangan');
+$luas_tanah_perkebunan=$request->input('luas_tanah_perkebunan');
 $hutan_produksi_tetap=$request->input('hutan_produksi_tetap');
 $hutan_produksi_terbatas=$request->input('hutan_produksi_terbatas');
 $hutan_produksi=$request->input('hutan_produksi');
@@ -247,6 +266,11 @@ $record->pemukiman = system_numerik($pemukiman);
 $record->pekarangan = system_numerik($pekarangan);
 $record->luas_tanah_kering = system_numerik($luas_tanah_kering);
 $record->hutan_lindung = system_numerik($hutan_lindung);
+$record->perkebunan_rakyat = system_numerik($perkebunan_rakyat);
+$record->perkebunan_negara = system_numerik($perkebunan_negara);
+$record->perkebunan_swasta = system_numerik($perkebunan_swasta);
+$record->perkebunan_perorangan = system_numerik($perkebunan_perorangan);
+$record->luas_tanah_perkebunan = $luas_tanah_perkebunan;
 $record->hutan_produksi_tetap = system_numerik($hutan_produksi_tetap);
 $record->hutan_produksi_terbatas = system_numerik($hutan_produksi_terbatas);
 $record->hutan_produksi = system_numerik($hutan_produksi);
@@ -285,8 +309,6 @@ return redirect(URLGroup('potensi/sda/jenis-lahan'));
 throw new HttpException(404);
 }
 }
-
-
 
 }
 

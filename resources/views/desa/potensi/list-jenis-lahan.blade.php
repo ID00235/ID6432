@@ -35,11 +35,12 @@ $id_desa = Auth::user()->userdesa();
                     <th>Kas Desa / Kelurahan Ha </th>
                     <th>Lokasi Tanah Desa Ha</th>
                     <th>Luas Tanah Fasilitas Umum Ha</th>
-                  <!-- <th>Luas Tanah Perkebunan Ha</th>-->
-                    <th>Hutan Produksi Ha</th>
-                    <th>Hutan Suaka Ha</th>
+                    <th>Luas Tanah Perkebunan Ha</th>
                     <th>Luas Tanah Hutan Ha</th>
                     <th>Luas Desa / Kelurahan Ha</th>
+                    <th>Total Luas Entri Data</th>
+                    <th>Selisih Luas HA</th>
+                    <th>Status</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -60,16 +61,18 @@ $id_desa = Auth::user()->userdesa();
                     <td align="right">{{$d->kas_desa_kelurahan}}</td>
                     <td align="right">{{$d->lokasi_tanah_kas_desa}}</td>
                     <td align="right">{{$d->luas_tanah_fasilitas_umum}}</td>
-                    <td align="right">{{$d->hutan_produksi}}</td>
-                    <td align="right">{{$d->hutan_suaka}}</td>
+                    <td align="right">{{$d->luas_tanah_perkebunan}}</td>
                     <td align="right">{{$d->luas_tanah_hutan}}</td>
                     <td align="right">{{$d->luas_desa_kelurahan}}</td>
+                    <td align="right">{{$d->total_luas_entri_data}}</td>
+                    <td align="right">{{$d->selisih_luas}}</td>
+                    <td align="right">{{$d->status}}</td>
                   </tr>
                   <?php $no++;?>
                   @endforeach
                   @if(count($data)==0)
                     <tr>
-                      <td colspan="12">Tidak Ada Data Untuk Ditampilkan!</td>
+                      <td colspan="13">Tidak Ada Data Untuk Ditampilkan!</td>
                     </tr>
                   @endif
                 </tbody>
@@ -80,6 +83,7 @@ $id_desa = Auth::user()->userdesa();
     	</div>
 	</div>
 </div>
+
 @endsection
 
 

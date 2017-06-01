@@ -11,11 +11,11 @@
 	$primary = $value->Key=="PRI" ? 1 : 0;
 ?>
 @if($primary)
-<?php echo '{{';?>Form::hidden("{{$field}}",Crypt::encrypt($data->{{$field}}))<?php echo '}}';?><br>
+&#9;<?php echo '{{';?>Form::hidden("{{$field}}",Crypt::encrypt($data->{{$field}}))<?php echo '}}';?><br>
 @endif
 @if(!$primary && $field!='created_at' && $field!='updated_at')
 	@if(substr($type,0,7)=='varchar' )
-	<?php echo '{{';?>Form::bsText("{{$field}}","$data->{{$field}}",[<?php echo $required;?>])<?php echo '}}';?><br>
+	&#9;<?php echo '{{';?>Form::bsText("{{$field}}","$data->{{$field}}",[<?php echo $required;?>])<?php echo '}}';?><br>
 	@elseif(substr($type,0,3)=='int' && $field!='id_desa')
 	<?php echo '{{';?>Form::bsText("{{$field}}","$data->{{$field}}",['class'=>'col-12 numerik input-right form-control',<?php echo $required;?>])<?php echo '}}';?><br>
 	@elseif(substr($type,0,7)=='decimal')

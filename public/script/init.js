@@ -67,17 +67,16 @@ var Notify = {
 	 	 $.notify({message:message},{type: 'success',delay:5000,timer: 1000})
 	 }
 }
-<<<<<<< HEAD
-=======
 
->>>>>>> 417d5797ef90a0263ebdf3e0a32b82360c92e23d
 var parseNumerik = function (str){
 	str = str.replace(".", "");
 	str = str.replace(",", ".");
 	return parseFloat(str);
-<<<<<<< HEAD
-}
-=======
 }
 
->>>>>>> 417d5797ef90a0263ebdf3e0a32b82360c92e23d
+var parseDesimal = function (str){
+	str = str.toString();
+	if(str.length==0) return "0,00";
+	str = str.replace(".", ",");
+	return str;
+}
