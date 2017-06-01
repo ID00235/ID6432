@@ -24,17 +24,19 @@ $id_desa = Auth::user()->userdesa();
             </div>
             <div class="card-block">     
                  {!!Form::open(['url' => URLGroup("potensi/sda/apotik-hidup/insert"), 'name'=>'form-insert-apotik_hidup'])!!}
-                    {{Form::hidden("id_desa",Hashids::encode(Auth::user()->userdesa()))}}
-                    {{Form::bsText("tanggal","",['class'=>'col-7 datepicker form-control','required'=>true])}}
-                    <?php $list = DB::table('komuditas')->where('tipe','apotik')->pluck('nama','id');
-                    $select = "";?>    
-                    {!!Form::bsSelect($list, $select, 'nama_tanaman_apotik_hidup', ['required'=>true])!!}
-                    {{Form::bsText("luas_produksi_ha","",['class'=>'col-7 double input-right form-control', ])}}
-                    {{Form::bsText("hasil_produksi_ha","",['class'=>'col-7 double input-right form-control', 'required'=>true])}}
-                    <b style="color: blue;">{{Form::bsText("jumlah_produksi_ton","",['class'=>'col-7 numerik input-right form-control','required'=>true])}}</b>
-                    {!!Form::bsSubmit('Simpan',"")!!}
-                    {!!Form::close()!!}  
- 
+{{Form::hidden("id_desa",Hashids::encode(Auth::user()->userdesa()))}}
+{{Form::bsText("tanggal","",['class'=>'col-7 datepicker form-control','required'=>true])}}
+ <?php
+                $list = DB::table('komuditas')->where('tipe','apotik')->pluck('nama','id');
+                $select = "";
+                ?>
+{{Form::bsSelect($list, $select,"nama_tanaman_apotik_hidup","",['class'=>'col-7 numerik input-right form-control','required'=>true])}}
+{{Form::bsText("luas_produksi_ha","",['class'=>'col-7 double input-right form-control', ])}}
+{{Form::bsText("hasil_produksi_ha","",['class'=>'col-7 double input-right form-control', 'required'=>true])}}
+{{Form::bsText("jumlah_produksi_ton","",['class'=>'col-7 numerik input-right form-control','required'=>true])}}
+{!!Form::bsSubmit('Simpan',"")!!}
+{!!Form::close()!!} 
+                     
             </div>
         </div>
     </div>
@@ -43,7 +45,7 @@ $id_desa = Auth::user()->userdesa();
 @section("javascript")
 <script type="text/javascript">
     $(function(){
-         var $validator = $("form[name=form-insert-apotik_hidup]").validate({
+       var $validator = $("form[name=form-insert-apotik_hidup]").validate({
 ignore:[],
 rules: {
 id_desa: {required:true},
@@ -58,6 +60,7 @@ submitHandler: function(form) {
 form.submit();
 }
 });
+
 
           $("#jumlah_produksi_ton").on('focus', function(){
             total = parseNumerik($("#luas_produksi_ha").val()) + 

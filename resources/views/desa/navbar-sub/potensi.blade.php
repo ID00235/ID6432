@@ -23,7 +23,7 @@
                             <a class="dropdown-item" href="{{URLGroup('potensi/sda/defosit-galian')}}">Deposit dan Produksi Bahan Galian <sup style="color: #1E90FF;">OK</sup></a>
                             <a class="dropdown-item" href="{{URLGroup('potensi/sda/ruang-publik')}}">Ruang Publik/Taman <sup style="color: #1E90FF;">OK</sup></a>
                             <a class="dropdown-item" href="{{URLGroup('potensi/sda/potensi-wisata')}}">Potensi Wisata <sup style="color:  #1E90FF;">OK</sup></a>
-                            <a class="dropdown-item" href="{{URLGroup('potensi/sda/apotik-hidup')}}">Apotik Hidup <sup style="color: red;">membutuhkan listbox</sup></a>
+                            <a class="dropdown-item" href="{{URLGroup('potensi/sda/apotik-hidup')}}">Apotik Hidup <sup style="color: #1E90FF;">OK</sup></a>
                             <hr>
                              <h6 class="dropdown-header">Tanaman Pangan</h6>
                             <a class="dropdown-item" href="{{URLGroup('potensi/sda/kepemilikan-lahan-pangan')}}">Kepemilikan Lahan</a>

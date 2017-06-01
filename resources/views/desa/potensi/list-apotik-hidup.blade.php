@@ -39,8 +39,13 @@ $id_desa = Auth::user()->userdesa();
                 <tbody>
                      <?php 
                   $no = 1;
+                  $tahun = 0;
                   ?>
-                  @foreach($data as $d)
+                 @foreach($data as $d)
+                      @if($d->tahun!=$tahun)
+                        <?php $tahun = $d->tahun;?>
+                        <tr><td colspan="12"><b>Set Data Tahun {{$d->tahun}}</b></td></tr>
+                      @endif
                   <tr>
                     <td align="center">
                       <a href="{{URLGroup('potensi/sda/apotik-hidup/edit/')}}/{{Hashids::encode($d->id)}}">
@@ -49,7 +54,7 @@ $id_desa = Auth::user()->userdesa();
                     </td>
                     <td align="center">{{$no}}</td>
                     <td align="center">{{tanggalIndo($d->tanggal)}}</td>
-                    <td align="center">{{$d->nama_tanaman_apotik_hidup}}</td>
+                    <td align="center">{{$d->namaapotik}}</td>
                     <td align="right">{{$d->luas_produksi_ha}}</td>
                     <td align="right">{{$d->jumlah_produksi_ton}}</td>
                     <td align="right">{{$d->hasil_produksi_ha}}</td>

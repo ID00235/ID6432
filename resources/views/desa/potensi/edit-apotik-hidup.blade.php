@@ -25,15 +25,19 @@ $id_desa = Auth::user()->userdesa();
   			</div>
   			<div class="card-block">	 
 			{!!Form::open(['url' => URLGroup("potensi/sda/apotik-hidup/update"), 'name'=>'form-update-apotik_hidup'])!!}
-			{{Form::hidden("id",Crypt::encrypt($data->id))}}
-			{{Form::bsText("tanggal",tanggalIndo($data->tanggal),['class'=>'col-4 datepicker form-control','required'=>true])}}
-			{{Form::bsText("nama_tanaman_apotik_hidup","$data->nama_tanaman_apotik_hidup",['required'=>true])}}
-			{{Form::bsText("luas_produksi_ha","$data->luas_produksi_ha",['class'=>'col-12 double input-right form-control', ])}}
-			{{Form::bsText("hasil_produksi_ha","$data->hasil_produksi_ha",['class'=>'col-12 double input-right form-control', 'required'=>true])}}
-			<b style="color:blue;">{{Form::bsText("jumlah_produksi_ton","$data->jumlah_produksi_ton",['class'=>'col-12 numerik input-right form-control','required'=>true])}}</b>
-			{!!Form::bsSubmit('Simpan',"")!!}
-			{!!Form::close()!!} 
-			 
+{{Form::hidden("id",Crypt::encrypt($data->id))}}
+{{Form::bsText("tanggal",tanggalIndo($data->tanggal),['class'=>'col-4 datepicker form-control','required'=>true])}}
+ <?php
+                $list = DB::table('komuditas')->where('tipe','apotik')->pluck('nama','id');
+                $select = $data->nama_tanaman_apotik_hidup;
+                ?>
+                  {!!Form::bsSelect($list, $select, "nama_tanaman_apotik_hidup",$data->nama_tanaman_apotik_hidup, ['required'=>true])!!}
+
+{{Form::bsText("luas_produksi_ha",$data->luas_produksi_ha,['class'=>'col-12 double input-right form-control', ])}}
+{{Form::bsText("hasil_produksi_ha",$data->hasil_produksi_ha,['class'=>'col-12 double input-right form-control', 'required'=>true])}}
+{{Form::bsText("jumlah_produksi_ton",$data->jumlah_produksi_ton,['class'=>'col-12 numerik input-right form-control','required'=>true])}}
+{!!Form::bsSubmit('Simpan',"")!!}
+{!!Form::close()!!} 
     		</div>
     	</div>
 	</div>
