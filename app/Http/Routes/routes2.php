@@ -24,6 +24,16 @@ Route::post('/update', "Desa\PotensiSdaDepositProduksiGalianController@updateDep
 Route::post('/delete', "Desa\PotensiSdaDepositProduksiGalianController@deleteDepositProduksiGalian");
 });
 
+//ROUTE ruang_publik
+Route::group(['prefix' =>'potensi/sda/ruang-publik'], function(){
+Route::get('/', "Desa\PotensiSdaRuangPublikController@listRuangPublik");
+Route::get('/new', "Desa\PotensiSdaRuangPublikController@newRuangPublik");
+Route::get('/edit/{id}', "Desa\PotensiSdaRuangPublikController@editRuangPublik");
+Route::post('/insert', "Desa\PotensiSdaRuangPublikController@insertRuangPublik");
+Route::post('/update', "Desa\PotensiSdaRuangPublikController@updateRuangPublik");
+Route::post('/delete', "Desa\PotensiSdaRuangPublikController@deleteRuangPublik");
+});
+
 
 
 //kualitas udara

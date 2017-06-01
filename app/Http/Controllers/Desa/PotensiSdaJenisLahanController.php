@@ -17,6 +17,7 @@ use Vinkla\Hashids\Facades\Hashids;
 use App\User;
 //model (table) yang digunakan
 use App\Models\JenisLahan;
+
 class PotensiSdaJenisLahanController extends Controller{
 
 	function listJenisLahan(){
@@ -27,10 +28,11 @@ class PotensiSdaJenisLahanController extends Controller{
 
 		}
 
-//tambah data jenis lahan
-function newJenisLahan(){
-			$route = array("main"=>"potensi","sub"=>"jenis_lahan","title"=>"Potensi - Jenis Lahan");
-			return view('desa.potensi.new-jenis-lahan',array("route"=>$route));
+		//tambah data jenis lahan
+		function newJenisLahan(){
+		$route = array("main"=>"potensi","sub"=>"jenis_lahan","title"=>"Potensi - Jenis Lahan");
+		return view('desa.potensi.new-jenis-lahan',array("route"=>$route));
+
 		}
 
 

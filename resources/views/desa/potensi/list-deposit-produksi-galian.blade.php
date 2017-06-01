@@ -29,7 +29,7 @@ $id_desa = Auth::user()->userdesa();
                   <tr>
                     <th></th>
                     <th>No</th>
-                    <!-- <th>Tanggal</th> -->
+                    <th>Tanggal</th> 
                     <th>Jenis Bahan Galian</th>
                     <th>Status </th>
                     <th>Hasil Produksi </th>
@@ -50,13 +50,13 @@ $id_desa = Auth::user()->userdesa();
                   @foreach($data as $d)
                   <tr>
                     <td align="center">
-                      <a href="{{URLGroup('potensi/sda/deposit-produksi-galian/edit/')}}/{{Hashids::encode($d->id)}}">
+                      <a href="{{URLGroup('potensi/sda/defosit-galian/edit/')}}/{{Hashids::encode($d->id)}}">
                         Edit
                       </a>
                     </td>
                     <td align="center">{{$no}}</td>
                     <td align="center">{{tanggalIndo($d->tanggal)}}</td>
-                    <td align="right">{{$d->id_bahan_galian}}</td>
+                    <td align="right">{{$d->jenis_bahan_galian}}</td>
                     <td align="right">{{$d->status}}</td>
                     <td align="right">{{$d->hasil_produksi}}</td>
                     <td align="right">{{$d->di_jual_langsung_ke_konsumen}}</td>

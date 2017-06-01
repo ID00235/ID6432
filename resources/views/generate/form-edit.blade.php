@@ -19,7 +19,7 @@
 	@elseif(substr($type,0,3)=='int' && $field!='id_desa')
 	<?php echo '{{';?>Form::bsText("{{$field}}","$data->{{$field}}",['class'=>'col-12 numerik input-right form-control',<?php echo $required;?>])<?php echo '}}';?><br>
 	@elseif(substr($type,0,7)=='decimal')
-	<?php echo '{{';?>Form::bsText("{{$field}}","$data->{{$field}}",['class'=>'col-12 doubleinput-right form-control',
+	<?php echo '{{';?>Form::bsText("{{$field}}","$data->{{$field}}",['class'=>'col-12 double input-right form-control',
 	<?php echo $required;?>])<?php echo '}}';?><br>
 	@elseif(substr($type,0,6)=='double')
 	<?php echo '{{';?>Form::bsText("{{$field}}","$data->{{$field}}",['class'=>'col-6 input-right form-control',<?php echo $required;?>])<?php echo '}}';?><br>

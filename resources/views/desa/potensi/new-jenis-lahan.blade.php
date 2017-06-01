@@ -31,7 +31,7 @@ $id_desa = Auth::user()->userdesa();
 {{Form::bsText("sawah_irigasi_setengah_teknis","",['class'=>'col-7 double input-right form-control', ])}}
 {{Form::bsText("sawah_tadah_hujan","",['class'=>'col-7 double input-right form-control', ])}}
 {{Form::bsText("sawah_pasang_surut","",['class'=>'col-7 double input-right form-control', ])}}
-<b>{{Form::bsText("luas_tanah_sawah","",['class'=>'col-7 parseNumerik input-right form-control',])}}</b>
+<b>{{Form::bsText("luas_tanah_sawah","",['class'=>'col-7 double input-right form-control',])}}</b>
 <p><b>Tanah Basah</b></p>
 {{Form::bsText("tanah_rawa","",['class'=>'col-7 double input-right form-control', ])}}
 {{Form::bsText("pasang_surut","",['class'=>'col-7 double input-right form-control', ])}}
@@ -106,6 +106,7 @@ $select ='Didalam Desa';
 <script type="text/javascript">
     $(function(){
         var $validator = $("form[name=form-insert-jenis_lahan]").validate({
+<<<<<<< HEAD
 ignore:[],
 rules: {
 id_desa: {required:true},
@@ -123,11 +124,31 @@ form.submit();
 }
 });
     $("#luas_tanah_sawah").on('focus', function(){
+=======
+            ignore:[],
+            rules: {
+            id_desa: {required:true},
+            tanggal: {required:true},
+            lokasi_tanah_kas_desa: {required:true},
+            luas_desa_kelurahan: {required:true},
+            total_luas_entri_data: {required:true},
+            selisih_luas: {required:true},
+            },
+            messages: {
+            },
+            submitHandler: function(form) {
+            form.submit();
+            }
+        });
+
+        $("#luas_tanah_sawah").on('focus', function(){
+>>>>>>> cb5d9171f84148f432bd2dd4f51fceb0aa264116
             total = parseNumerik($("#sawah_irigasi_teknis").val()) + 
                     parseNumerik($("#sawah_irigasi_setengah_teknis").val()) + 
                     parseNumerik($("#sawah_tadah_hujan").val()) + 
                     parseNumerik($("#sawah_pasang_surut").val()) ;
             $(this).val(parseDesimal(total))
+<<<<<<< HEAD
         })
      $("#luas_tanah_basah").on('focus', function(){
             total = parseNumerik($("#tanah_rawa").val()) + 
@@ -206,8 +227,10 @@ form.submit();
             total = parseNumerik($("#luas_desa_kelurahan").val()) - 
                     parseNumerik($("#hutan_rakyat").val()) ;
             $(this).val(parseDesimal(total))
+=======
+>>>>>>> cb5d9171f84148f432bd2dd4f51fceb0aa264116
         })
-       }) 
+    }) 
     
 </script>
 @endsection
