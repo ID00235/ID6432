@@ -43,7 +43,7 @@ userdesa();
                 {{Form::bsText("tanggal",tanggalIndo($data->tanggal),['class'=>'col-12 datepicker form-control','required'=>true])}}
                 <?php
                 $list = DB::table('komuditas')->where('tipe','pangan')->pluck('nama','id');
-                $select = "";
+                $select = $data->komuditas;
                 ?>
                 {!!Form::bsSelect($list, $select, 'komuditas', ['required'=>true])!!}
 
