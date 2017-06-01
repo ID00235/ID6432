@@ -26,12 +26,12 @@
                             <a class="dropdown-item" href="{{URLGroup('potensi/sda/apotik-hidup')}}">Apotik Hidup <sup style="color: #1E90FF;">OK</sup></a>
                             <hr>
                              <h6 class="dropdown-header">Tanaman Pangan</h6>
-                            <a class="dropdown-item" href="{{URLGroup('potensi/sda/kepemilikan-lahan-pangan')}}">Kepemilikan Lahan</a>
-                            <a class="dropdown-item" href="{{URLGroup('potensi/sda/hasil-pangan')}}">Hasil dan Luas Produksi</a>
+                            <a class="dropdown-item" href="{{URLGroup('potensi/sda/kepemilikan-lahan-pangan')}}">Kepemilikan Lahan <sup style="color: #1E90FF;">OK</sup></a>
+                            <a class="dropdown-item" href="{{URLGroup('potensi/sda/hasil-pangan')}}">Hasil dan Luas Produksi <sup style="color: #1E90FF;">OK</sup></a>
                           </div>
                           <div class="col">                        
                             <h6 class="dropdown-header">Tanaman Buah-Buahan</h6>
-                            <a class="dropdown-item" href="{{URLGroup('potensi/sda/kepemilikan-lahan-buah')}}">Kepemilikan Lahan</a>
+                            <a class="dropdown-item" href="{{URLGroup('potensi/sda/kepemilikan-lahan-buah')}}">Kepemilikan Lahan </a>
                             <a class="dropdown-item" href="{{URLGroup('potensi/sda/hasil-buah')}}">Hasil dan Luas Produksi</a>
                             <hr>
                             <h6 class="dropdown-header">Perkebunan</h6>

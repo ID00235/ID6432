@@ -32,7 +32,7 @@ $id_desa = Auth::user()->userdesa();
                 $list = array('Hutan Kota'=>'HUTAN KOTA', 'Taman Bermain'=>'TAMAN BERMAIN', 'Taman Desa/Kel'=>'TAMAN DESA/KEL', 'Taman Kota'=>'TAMAN KOTA', 'Tanah Adat'=>'TANAH ADAT', 'Tanah Kas Adat'=>'TANAH KAS ADAT', );
                 $select =$data->jenis_ruang_publik_atau_taman;
                 ?>
-                {!!Form::bsRadioInline($list,$select,"jenis_ruang_publik_atau_taman","",['required'=>true])!!}
+                {!!Form::bsSelect($list,$select,"jenis_ruang_publik_atau_taman","",['required'=>true])!!}
                 <?php
                 $list = array('Ada'=>'ADA', 'Tidak Ada'=>'TIDAK ADA', );
                 $select =$data->keberadaan;
