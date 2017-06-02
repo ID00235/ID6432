@@ -66,6 +66,16 @@ Route::post('/update', "Desa\PotensiSdaAirBersihController@updateAirBersih");
 Route::post('/delete', "Desa\PotensiSdaAirBersihController@deleteAirBersih");
 });
 
+//ROUTE kualitas_air_minum
+Route::group(['prefix' =>'potensi/sda/kualitas-air-minum'], function(){
+Route::get('/', "Desa\PotensiSdaKualitasAirMinumController@listKualitasAirMinum");
+Route::get('/new', "Desa\PotensiSdaKualitasAirMinumController@newKualitasAirMinum");
+Route::get('/edit/{id}', "Desa\PotensiSdaKualitasAirMinumController@editKualitasAirMinum");
+Route::post('/insert', "Desa\PotensiSdaKualitasAirMinumController@insertKualitasAirMinum");
+Route::post('/update', "Desa\PotensiSdaKualitasAirMinumController@updateKualitasAirMinum");
+Route::post('/delete', "Desa\PotensiSdaKualitasAirMinumController@deleteKualitasAirMinum");
+});
+
 //kualitas udara
 Route::group(['prefix' =>'/potensi/kualitas-udara'], function(){
 	Route::get('/', "Desa\PotensiKualitasUdaraController@kualitasudara");	
