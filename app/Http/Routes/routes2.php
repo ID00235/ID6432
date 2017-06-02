@@ -56,6 +56,16 @@ Route::post('/delete', "Desa\PotensiSdaApotikHidupController@deleteApotikHidup")
 });
 
 
+//ROUTE air_bersih
+Route::group(['prefix' =>'potensi/sda/sumber-air-bersih'], function(){
+Route::get('/', "Desa\PotensiSdaAirBersihController@listAirBersih");
+Route::get('/new', "Desa\PotensiSdaAirBersihController@newAirBersih");
+Route::get('/edit/{id}', "Desa\PotensiSdaAirBersihController@editAirBersih");
+Route::post('/insert', "Desa\PotensiSdaAirBersihController@insertAirBersih");
+Route::post('/update', "Desa\PotensiSdaAirBersihController@updateAirBersih");
+Route::post('/delete', "Desa\PotensiSdaAirBersihController@deleteAirBersih");
+});
+
 //kualitas udara
 Route::group(['prefix' =>'/potensi/kualitas-udara'], function(){
 	Route::get('/', "Desa\PotensiKualitasUdaraController@kualitasudara");	

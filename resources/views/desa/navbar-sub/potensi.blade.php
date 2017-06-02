@@ -58,7 +58,7 @@
                             <hr>
                             <h6 class="dropdown-header">Sumber Daya Air</h6>
                             <a class="dropdown-item" href="{{URLGroup('potensi/sda/potensi-pemanfaatan-air')}}">Potensi dan Pemanfaatan</a>
-                            <a class="dropdown-item" href="{{URLGroup('potensi/sda/sumber-air-bersih')}}">Sumber Air Bersih</a>
+                            <a class="dropdown-item" href="{{URLGroup('potensi/sda/sumber-air-bersih')}}">Sumber Air Bersih <sup style="color: #1E90FF;">OK</sup></a>
                             <a class="dropdown-item" href="{{URLGroup('potensi/sda/kualitas-air-minum')}}">Kualitas Air Minum</a>
                             <a class="dropdown-item" href="{{URLGroup('potensi/sda/air-panas')}}">Air Panas</a>
                           </div>
