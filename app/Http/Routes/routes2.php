@@ -97,7 +97,58 @@ Route::post('/update', "Desa\PotensiSdaPotensiPemanfaatanAirController@updatePot
 Route::post('/delete', "Desa\PotensiSdaPotensiPemanfaatanAirController@deletePotensiPemanfaatanAir");
 });
 
+///////Perikanan==========================================================>>>>>>>>>>
+//ROUTE produksi_ikan_laut
+Route::group(['prefix' =>'potensi/sda/alat-produksi-ikan-laut'], function(){
+Route::get('/', "Desa\PotensiSdaProduksiIkanLautController@listProduksiIkanLaut");
+Route::get('/new', "Desa\PotensiSdaProduksiIkanLautController@newProduksiIkanLaut");
+Route::get('/edit/{id}', "Desa\PotensiSdaProduksiIkanLautController@editProduksiIkanLaut");
+Route::post('/insert', "Desa\PotensiSdaProduksiIkanLautController@insertProduksiIkanLaut");
+Route::post('/update', "Desa\PotensiSdaProduksiIkanLautController@updateProduksiIkanLaut");
+Route::post('/delete', "Desa\PotensiSdaProduksiIkanLautController@deleteProduksiIkanLaut");
+});
+
+ //ROUTE produksi_ikan_tawar
+Route::group(['prefix' =>'potensi/sda/alat-produksi-ikan-tawar'], function(){
+Route::get('/', "Desa\PotensiSdaProduksiIkanTawarController@listProduksiIkanTawar");
+Route::get('/new', "Desa\PotensiSdaProduksiIkanTawarController@newProduksiIkanTawar");
+Route::get('/edit/{id}', "Desa\PotensiSdaProduksiIkanTawarController@editProduksiIkanTawar");
+Route::post('/insert', "Desa\PotensiSdaProduksiIkanTawarController@insertProduksiIkanTawar");
+Route::post('/update', "Desa\PotensiSdaProduksiIkanTawarController@updateProduksiIkanTawar");
+Route::post('/delete', "Desa\PotensiSdaProduksiIkanTawarController@deleteProduksiIkanTawar");
+});
+
+ //ROUTE jenis_produksi_ikan
+Route::group(['prefix' =>'potensi/sda/jenis-produksi-ikan'], function(){
+Route::get('/', "Desa\PotensiSdaJenisProduksiIkanController@listJenisProduksiIkan");
+Route::get('/new', "Desa\PotensiSdaJenisProduksiIkanController@newJenisProduksiIkan");
+Route::get('/edit/{id}', "Desa\PotensiSdaJenisProduksiIkanController@editJenisProduksiIkan");
+Route::post('/insert', "Desa\PotensiSdaJenisProduksiIkanController@insertJenisProduksiIkan");
+Route::post('/update', "Desa\PotensiSdaJenisProduksiIkanController@updateJenisProduksiIkan");
+Route::post('/delete', "Desa\PotensiSdaJenisProduksiIkanController@deleteJenisProduksiIkan");
+});
+
 ///////==========================================================>>>>>>>>>>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //kualitas udara
 Route::group(['prefix' =>'/potensi/kualitas-udara'], function(){
