@@ -55,6 +55,7 @@ Route::post('/update', "Desa\PotensiSdaApotikHidupController@updateApotikHidup")
 Route::post('/delete', "Desa\PotensiSdaApotikHidupController@deleteApotikHidup");
 });
 
+///////SUMBER DAYA AIR ===========================================================>>>>>>>>>>
 
 //ROUTE air_bersih
 Route::group(['prefix' =>'potensi/sda/sumber-air-bersih'], function(){
@@ -66,6 +67,16 @@ Route::post('/update', "Desa\PotensiSdaAirBersihController@updateAirBersih");
 Route::post('/delete', "Desa\PotensiSdaAirBersihController@deleteAirBersih");
 });
 
+//ROUTE air_panas
+Route::group(['prefix' =>'potensi/sda/air-panas'], function(){
+Route::get('/', "Desa\PotensiSdaAirPanasController@listAirPanas");
+Route::get('/new', "Desa\PotensiSdaAirPanasController@newAirPanas");
+Route::get('/edit/{id}', "Desa\PotensiSdaAirPanasController@editAirPanas");
+Route::post('/insert', "Desa\PotensiSdaAirPanasController@insertAirPanas");
+Route::post('/update', "Desa\PotensiSdaAirPanasController@updateAirPanas");
+Route::post('/delete', "Desa\PotensiSdaAirPanasController@deleteAirPanas");
+});
+
 //ROUTE kualitas_air_minum
 Route::group(['prefix' =>'potensi/sda/kualitas-air-minum'], function(){
 Route::get('/', "Desa\PotensiSdaKualitasAirMinumController@listKualitasAirMinum");
@@ -75,6 +86,18 @@ Route::post('/insert', "Desa\PotensiSdaKualitasAirMinumController@insertKualitas
 Route::post('/update', "Desa\PotensiSdaKualitasAirMinumController@updateKualitasAirMinum");
 Route::post('/delete', "Desa\PotensiSdaKualitasAirMinumController@deleteKualitasAirMinum");
 });
+
+//ROUTE potensi_pemanfaatan_air
+Route::group(['prefix' =>'potensi/sda/potensi-pemanfaatan-air'], function(){
+Route::get('/', "Desa\PotensiSdaPotensiPemanfaatanAirController@listPotensiPemanfaatanAir");
+Route::get('/new', "Desa\PotensiSdaPotensiPemanfaatanAirController@newPotensiPemanfaatanAir");
+Route::get('/edit/{id}', "Desa\PotensiSdaPotensiPemanfaatanAirController@editPotensiPemanfaatanAir");
+Route::post('/insert', "Desa\PotensiSdaPotensiPemanfaatanAirController@insertPotensiPemanfaatanAir");
+Route::post('/update', "Desa\PotensiSdaPotensiPemanfaatanAirController@updatePotensiPemanfaatanAir");
+Route::post('/delete', "Desa\PotensiSdaPotensiPemanfaatanAirController@deletePotensiPemanfaatanAir");
+});
+
+///////==========================================================>>>>>>>>>>
 
 //kualitas udara
 Route::group(['prefix' =>'/potensi/kualitas-udara'], function(){
