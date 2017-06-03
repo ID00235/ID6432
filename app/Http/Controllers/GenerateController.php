@@ -91,7 +91,7 @@ class GenerateController extends Controller
 		echo $tab2.'@foreach(&#36;data as &#36;d)'.$br;
 		echo $tab4.'@if(tahunSystem(&#36;d-&#62;tanggal)!=&#36;tahun)
 			          &#60;?php &#36;tahun = tahunSystem(&#36;d-&#62;tanggal);?&#62;
-			          &#60;tr&#62;&#60;td colspan="'.(count($tampil) + 2).'"&#62;&#60;b&#62;Set Data Tahun &#123;&#123;&#36;d-&#62;tahun&#125;&#125;&#60;&#47;b&#62;&#60;&#47;td&#62;&#60;&#47;tr&#62;
+			          &#60;tr&#62;&#60;td colspan="'.(count($tampil) + 2).'"&#62;&#60;b&#62;Set Data Tahun &#123;&#123;&#36;tahun&#125;&#125;&#60;&#47;b&#62;&#60;&#47;td&#62;&#60;&#47;tr&#62;
 			        @endif'.$br;
 		echo  $tab4.'&#60;tr&#62;'.$br;
 		echo  $tab5.'&#60;td align="'."center".'"&#62;'.$br;

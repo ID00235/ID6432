@@ -24,47 +24,40 @@ $id_desa = Auth::user()->userdesa();
                 </div>
             </div>
             <div class="card-block">
-            <table class="table table-striped table-bordered table-sm">
-                <thead>
-                  <tr>
-                    <th></th>
-                    <th>No</th>
-                    <th>Tanggal</th>
-                    <th>Lokasi/Tempat/Area Wisata</th>
-                    <th>Keberadaan</th>
-                    <th>Luas (Ha)</th>
-                    <th>Tingkat Pemanfaatan</th>
-                  </tr>
-                </thead>
-                <tbody>
-                     <?php 
-                  $no = 1;
-                  ?>
-                  @foreach($data as $d)
-                  <tr>
-                    <td align="center">
-                      <a href="{{URLGroup('potensi/sda/potensi-wisata/edit/')}}/{{Hashids::encode($d->id)}}">
-                        Edit
-                      </a>
-                    </td>
-                    <td align="center">{{$no}}</td>
-                    <td align="center">{{tanggalIndo($d->tanggal)}}</td>
-                    <td align="center">{{$d->lokasi_atau_area_wisata}}</td>
-                    <td align="center">{{$d->keberadaan}}</td>
-                    <td align="right">{{desimal2($d->luas_ha)}}</td>
-                    <td align="center">{{$d->tingkat_pemanfaatan}}</td>
-                  </tr>
-                  <?php $no++;?>
-                  @endforeach
-                  @if(count($data)==0)
-                    <tr>
-                      <td colspan="7">Tidak Ada Data Untuk Ditampilkan!</td>
-                    </tr>
-                  @endif
-                </tbody>
+                  <table class="table table-striped table-bordered table-sm">
+                      <thead>
+                            <tr>
+                               <th></th>
+                               <th>No</th>
+                               <th>Tanggal </th>
+                               <th>Lokasi Atau Area Wisata </th>
+                               <th>Keberadaan </th>
+                               <th>Luas Ha </th>
+                               <th>Tingkat Pemanfaatan </th>
+                            </tr>
+                      </thead>
+                      <tbody>
+                      <?php $no = 1;$tahun = 0;?>
+                      @foreach($data as $d)
+                               @if(tahunSystem($d->tanggal)!=$tahun) <?php $tahun = tahunSystem($d->tanggal);?> <tr><td colspan="7"><b>Set Data Tahun {{$tahun}}</b></td></tr> @endif
+                               <tr>
+                                     <td align="center">
+                                              <a href="{{URLGroup("potensi/sda/potensi-wisata/edit")}}/{{Hashids::encode($d->id)}}">Edit</a>
+                                     </td>
+                                     <td align="center">{{$no}}</td>
+                                     <td align="center">{{tanggalIndo($d->tanggal)}}</td>
+                                     <td>{{($d->lokasi_atau_area_wisata)}}</td>
+                                     <td>{{($d->keberadaan)}}</td>
+                                     <td align="right">{{desimal2($d->luas_ha)}}</td>
+                                     <td>{{($d->tingkat_pemanfaatan)}}</td>
+                               </tr>
+                               <?php $no++;?>
+                         @endforeach
+                         @if(count($data)==0) <tr> <td colspan="7">Tidak Ada Data Untuk Ditampilkan!</td> </tr> @endif
+                      </tbody>
+                </table>
 
-                </tbody>
-            </table>
+
             </div>
         </div>
     </div>
