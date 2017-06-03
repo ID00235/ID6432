@@ -161,7 +161,7 @@ Route::post('/update', "Desa\PotensiSdaKondisiHutanController@updateKondisiHutan
 Route::post('/delete', "Desa\PotensiSdaKondisiHutanController@deleteKondisiHutan");
 });
 
-Route::group(['prefix' =>'potensi/sda/dampak_pengolahan_hutan'], function(){
+Route::group(['prefix' =>'potensi/sda/dampak-pengolahan-hutan'], function(){
 Route::get('/', "Desa\PotensiSdaDampakPengolahanHutanController@listDampakPengolahanHutan");
 Route::get('/new', "Desa\PotensiSdaDampakPengolahanHutanController@newDampakPengolahanHutan");
 Route::get('/edit/{id}', "Desa\PotensiSdaDampakPengolahanHutanController@editDampakPengolahanHutan");

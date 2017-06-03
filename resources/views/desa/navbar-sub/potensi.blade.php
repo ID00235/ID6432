@@ -39,10 +39,10 @@
                             <a class="dropdown-item" href="{{URLGroup('potensi/sda/hasil-kebun')}}">Hasil dan Luas Produksi</a>
                             <hr>
                             <h6 class="dropdown-header">Kehutanan</h6>
-                            <a class="dropdown-item" href="{{URLGroup('potensi/sda/kepemilikan-lahan-hutan')}}">Kepemilikan Lahan</a>
-                            <a class="dropdown-item" href="{{URLGroup('potensi/sda/hasil-hutan')}}">Hasil dan Luas Produksi</a>
-                            <a class="dropdown-item" href="{{URLGroup('potensi/sda/kondisi-hutan')}}">Kondisi Hutan</a>
-                            <a class="dropdown-item" href="{{URLGroup('potensi/sda/dampak-pengolahan-hutan')}}">Dampak Pengolahan</a>
+                            <a class="dropdown-item" href="{{URLGroup('potensi/sda/kepemilikan-lahan-hutan')}}">Kepemilikan Lahan <sup style="color: #1E90FF;">OK</sup></a>
+                            <a class="dropdown-item" href="{{URLGroup('potensi/sda/hasil-hutan')}}">Hasil dan Luas Produksi <sup style="color: #1E90FF;">OK</sup></a>
+                            <a class="dropdown-item" href="{{URLGroup('potensi/sda/kondisi-hutan')}}">Kondisi Hutan <sup style="color: #1E90FF;">OK</sup></a>
+                            <a class="dropdown-item" href="{{URLGroup('potensi/sda/dampak-pengolahan-hutan')}}">Dampak Pengolahan <sup style="color: #1E90FF;">OK</sup></a>
                           </div>
                           <div class="col">
                             <h6 class="dropdown-header">Peternakan</h6>
