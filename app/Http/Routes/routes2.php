@@ -55,6 +55,137 @@ Route::post('/update', "Desa\PotensiSdaApotikHidupController@updateApotikHidup")
 Route::post('/delete', "Desa\PotensiSdaApotikHidupController@deleteApotikHidup");
 });
 
+///////SUMBER DAYA AIR ===========================================================>>>>>>>>>>
+
+//ROUTE air_bersih
+Route::group(['prefix' =>'potensi/sda/sumber-air-bersih'], function(){
+Route::get('/', "Desa\PotensiSdaAirBersihController@listAirBersih");
+Route::get('/new', "Desa\PotensiSdaAirBersihController@newAirBersih");
+Route::get('/edit/{id}', "Desa\PotensiSdaAirBersihController@editAirBersih");
+Route::post('/insert', "Desa\PotensiSdaAirBersihController@insertAirBersih");
+Route::post('/update', "Desa\PotensiSdaAirBersihController@updateAirBersih");
+Route::post('/delete', "Desa\PotensiSdaAirBersihController@deleteAirBersih");
+});
+
+//ROUTE air_panas
+Route::group(['prefix' =>'potensi/sda/air-panas'], function(){
+Route::get('/', "Desa\PotensiSdaAirPanasController@listAirPanas");
+Route::get('/new', "Desa\PotensiSdaAirPanasController@newAirPanas");
+Route::get('/edit/{id}', "Desa\PotensiSdaAirPanasController@editAirPanas");
+Route::post('/insert', "Desa\PotensiSdaAirPanasController@insertAirPanas");
+Route::post('/update', "Desa\PotensiSdaAirPanasController@updateAirPanas");
+Route::post('/delete', "Desa\PotensiSdaAirPanasController@deleteAirPanas");
+});
+
+//ROUTE kualitas_air_minum
+Route::group(['prefix' =>'potensi/sda/kualitas-air-minum'], function(){
+Route::get('/', "Desa\PotensiSdaKualitasAirMinumController@listKualitasAirMinum");
+Route::get('/new', "Desa\PotensiSdaKualitasAirMinumController@newKualitasAirMinum");
+Route::get('/edit/{id}', "Desa\PotensiSdaKualitasAirMinumController@editKualitasAirMinum");
+Route::post('/insert', "Desa\PotensiSdaKualitasAirMinumController@insertKualitasAirMinum");
+Route::post('/update', "Desa\PotensiSdaKualitasAirMinumController@updateKualitasAirMinum");
+Route::post('/delete', "Desa\PotensiSdaKualitasAirMinumController@deleteKualitasAirMinum");
+});
+
+//ROUTE potensi_pemanfaatan_air
+Route::group(['prefix' =>'potensi/sda/potensi-pemanfaatan-air'], function(){
+Route::get('/', "Desa\PotensiSdaPotensiPemanfaatanAirController@listPotensiPemanfaatanAir");
+Route::get('/new', "Desa\PotensiSdaPotensiPemanfaatanAirController@newPotensiPemanfaatanAir");
+Route::get('/edit/{id}', "Desa\PotensiSdaPotensiPemanfaatanAirController@editPotensiPemanfaatanAir");
+Route::post('/insert', "Desa\PotensiSdaPotensiPemanfaatanAirController@insertPotensiPemanfaatanAir");
+Route::post('/update', "Desa\PotensiSdaPotensiPemanfaatanAirController@updatePotensiPemanfaatanAir");
+Route::post('/delete', "Desa\PotensiSdaPotensiPemanfaatanAirController@deletePotensiPemanfaatanAir");
+});
+
+///////Perikanan==========================================================>>>>>>>>>>
+//ROUTE produksi_ikan_laut
+Route::group(['prefix' =>'potensi/sda/alat-produksi-ikan-laut'], function(){
+Route::get('/', "Desa\PotensiSdaProduksiIkanLautController@listProduksiIkanLaut");
+Route::get('/new', "Desa\PotensiSdaProduksiIkanLautController@newProduksiIkanLaut");
+Route::get('/edit/{id}', "Desa\PotensiSdaProduksiIkanLautController@editProduksiIkanLaut");
+Route::post('/insert', "Desa\PotensiSdaProduksiIkanLautController@insertProduksiIkanLaut");
+Route::post('/update', "Desa\PotensiSdaProduksiIkanLautController@updateProduksiIkanLaut");
+Route::post('/delete', "Desa\PotensiSdaProduksiIkanLautController@deleteProduksiIkanLaut");
+});
+
+ //ROUTE produksi_ikan_tawar
+Route::group(['prefix' =>'potensi/sda/alat-produksi-ikan-tawar'], function(){
+Route::get('/', "Desa\PotensiSdaProduksiIkanTawarController@listProduksiIkanTawar");
+Route::get('/new', "Desa\PotensiSdaProduksiIkanTawarController@newProduksiIkanTawar");
+Route::get('/edit/{id}', "Desa\PotensiSdaProduksiIkanTawarController@editProduksiIkanTawar");
+Route::post('/insert', "Desa\PotensiSdaProduksiIkanTawarController@insertProduksiIkanTawar");
+Route::post('/update', "Desa\PotensiSdaProduksiIkanTawarController@updateProduksiIkanTawar");
+Route::post('/delete', "Desa\PotensiSdaProduksiIkanTawarController@deleteProduksiIkanTawar");
+});
+
+ //ROUTE jenis_produksi_ikan
+Route::group(['prefix' =>'potensi/sda/jenis-produksi-ikan'], function(){
+Route::get('/', "Desa\PotensiSdaJenisProduksiIkanController@listJenisProduksiIkan");
+Route::get('/new', "Desa\PotensiSdaJenisProduksiIkanController@newJenisProduksiIkan");
+Route::get('/edit/{id}', "Desa\PotensiSdaJenisProduksiIkanController@editJenisProduksiIkan");
+Route::post('/insert', "Desa\PotensiSdaJenisProduksiIkanController@insertJenisProduksiIkan");
+Route::post('/update', "Desa\PotensiSdaJenisProduksiIkanController@updateJenisProduksiIkan");
+Route::post('/delete', "Desa\PotensiSdaJenisProduksiIkanController@deleteJenisProduksiIkan");
+});
+
+/////// Kehutanan ==========================================================>>>>>>>>>>
+
+//ROUTE kepemilikan_lahan_hutan
+Route::group(['prefix' =>'potensi/sda/kepemilikan-lahan-hutan'], function(){
+Route::get('/', "Desa\PotensiSdaKepemilikanLahanHutanController@listKepemilikanLahanHutan");
+Route::get('/new', "Desa\PotensiSdaKepemilikanLahanHutanController@newKepemilikanLahanHutan");
+Route::get('/edit/{id}', "Desa\PotensiSdaKepemilikanLahanHutanController@editKepemilikanLahanHutan");
+Route::post('/insert', "Desa\PotensiSdaKepemilikanLahanHutanController@insertKepemilikanLahanHutan");
+Route::post('/update', "Desa\PotensiSdaKepemilikanLahanHutanController@updateKepemilikanLahanHutan");
+Route::post('/delete', "Desa\PotensiSdaKepemilikanLahanHutanController@deleteKepemilikanLahanHutan");
+});
+
+//ROUTE hasil_hutan
+Route::group(['prefix' =>'potensi/sda/hasil-hutan'], function(){
+Route::get('/', "Desa\PotensiSdaHasilHutanController@listHasilHutan");
+Route::get('/new', "Desa\PotensiSdaHasilHutanController@newHasilHutan");
+Route::get('/edit/{id}', "Desa\PotensiSdaHasilHutanController@editHasilHutan");
+Route::post('/insert', "Desa\PotensiSdaHasilHutanController@insertHasilHutan");
+Route::post('/update', "Desa\PotensiSdaHasilHutanController@updateHasilHutan");
+Route::post('/delete', "Desa\PotensiSdaHasilHutanController@deleteHasilHutan");
+});
+
+
+//ROUTE kondisi_hutan
+Route::group(['prefix' =>'potensi/sda/kondisi-hutan'], function(){
+Route::get('/', "Desa\PotensiSdaKondisiHutanController@listKondisiHutan");
+Route::get('/new', "Desa\PotensiSdaKondisiHutanController@newKondisiHutan");
+Route::get('/edit/{id}', "Desa\PotensiSdaKondisiHutanController@editKondisiHutan");
+Route::post('/insert', "Desa\PotensiSdaKondisiHutanController@insertKondisiHutan");
+Route::post('/update', "Desa\PotensiSdaKondisiHutanController@updateKondisiHutan");
+Route::post('/delete', "Desa\PotensiSdaKondisiHutanController@deleteKondisiHutan");
+});
+
+Route::group(['prefix' =>'potensi/sda/dampak_pengolahan_hutan'], function(){
+Route::get('/', "Desa\PotensiSdaDampakPengolahanHutanController@listDampakPengolahanHutan");
+Route::get('/new', "Desa\PotensiSdaDampakPengolahanHutanController@newDampakPengolahanHutan");
+Route::get('/edit/{id}', "Desa\PotensiSdaDampakPengolahanHutanController@editDampakPengolahanHutan");
+Route::post('/insert', "Desa\PotensiSdaDampakPengolahanHutanController@insertDampakPengolahanHutan");
+Route::post('/update', "Desa\PotensiSdaDampakPengolahanHutanController@updateDampakPengolahanHutan");
+Route::post('/delete', "Desa\PotensiSdaDampakPengolahanHutanController@deleteDampakPengolahanHutan");
+});
+
+
+/////// Kehutanan ==========================================================>>>>>>>>>>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //kualitas udara
 Route::group(['prefix' =>'/potensi/kualitas-udara'], function(){

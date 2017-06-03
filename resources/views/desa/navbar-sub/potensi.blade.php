@@ -52,15 +52,15 @@
                             <a class="dropdown-item" href="{{URLGroup('potensi/sda/pengolahan-hasil-ternak')}}">Pengolahan Hasil Ternak</a>
                             <hr>
                             <h6 class="dropdown-header">Perikanan</h6>
-                            <a class="dropdown-item" href="{{URLGroup('potensi/sda/alat-produksi-ikan-laut')}}">Alat Produksi Budidaya Ikan Laut</a>
-                            <a class="dropdown-item" href="{{URLGroup('potensi/sda/alat-produksi-ikan-tawar')}}">Alat Produksi Budidaya Ikan Air Tawar</a>
-                            <a class="dropdown-item" href="{{URLGroup('potensi/sda/jenis-produksi-ikan')}}">Jenis dan Produksi Ikan</a>
+                            <a class="dropdown-item" href="{{URLGroup('potensi/sda/alat-produksi-ikan-laut')}}">Alat Produksi Budidaya Ikan Laut <sup style="color: #1E90FF;">OK</sup></a>
+                            <a class="dropdown-item" href="{{URLGroup('potensi/sda/alat-produksi-ikan-tawar')}}">Alat Produksi Budidaya Ikan Air Tawar <sup style="color: #1E90FF;">OK</sup></a>
+                            <a class="dropdown-item" href="{{URLGroup('potensi/sda/jenis-produksi-ikan')}}">Jenis dan Produksi Ikan <sup style="color: #1E90FF;">OK</sup></a>
                             <hr>
                             <h6 class="dropdown-header">Sumber Daya Air</h6>
-                            <a class="dropdown-item" href="{{URLGroup('potensi/sda/potensi-pemanfaatan-air')}}">Potensi dan Pemanfaatan</a>
-                            <a class="dropdown-item" href="{{URLGroup('potensi/sda/sumber-air-bersih')}}">Sumber Air Bersih</a>
-                            <a class="dropdown-item" href="{{URLGroup('potensi/sda/kualitas-air-minum')}}">Kualitas Air Minum</a>
-                            <a class="dropdown-item" href="{{URLGroup('potensi/sda/air-panas')}}">Air Panas</a>
+                            <a class="dropdown-item" href="{{URLGroup('potensi/sda/potensi-pemanfaatan-air')}}">Potensi dan Pemanfaatan <sup style="color: #1E90FF;">OK</sup></a>
+                            <a class="dropdown-item" href="{{URLGroup('potensi/sda/sumber-air-bersih')}}">Sumber Air Bersih <sup style="color: #1E90FF;">OK</sup></a>
+                            <a class="dropdown-item" href="{{URLGroup('potensi/sda/kualitas-air-minum')}}">Kualitas Air Minum  <sup style="color:  #1E90FF;">OK</sup></a>
+                            <a class="dropdown-item" href="{{URLGroup('potensi/sda/air-panas')}}">Air Panas <sup style="color: #1E90FF;">OK</sup></a>
                           </div>
                       </div>
                   </div>
