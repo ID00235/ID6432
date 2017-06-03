@@ -128,13 +128,50 @@ Route::post('/update', "Desa\PotensiSdaJenisProduksiIkanController@updateJenisPr
 Route::post('/delete', "Desa\PotensiSdaJenisProduksiIkanController@deleteJenisProduksiIkan");
 });
 
-///////==========================================================>>>>>>>>>>
+/////// Kehutanan ==========================================================>>>>>>>>>>
+
+//ROUTE kepemilikan_lahan_hutan
+Route::group(['prefix' =>'potensi/sda/kepemilikan-lahan-hutan'], function(){
+Route::get('/', "Desa\PotensiSdaKepemilikanLahanHutanController@listKepemilikanLahanHutan");
+Route::get('/new', "Desa\PotensiSdaKepemilikanLahanHutanController@newKepemilikanLahanHutan");
+Route::get('/edit/{id}', "Desa\PotensiSdaKepemilikanLahanHutanController@editKepemilikanLahanHutan");
+Route::post('/insert', "Desa\PotensiSdaKepemilikanLahanHutanController@insertKepemilikanLahanHutan");
+Route::post('/update', "Desa\PotensiSdaKepemilikanLahanHutanController@updateKepemilikanLahanHutan");
+Route::post('/delete', "Desa\PotensiSdaKepemilikanLahanHutanController@deleteKepemilikanLahanHutan");
+});
+
+//ROUTE hasil_hutan
+Route::group(['prefix' =>'potensi/sda/hasil-hutan'], function(){
+Route::get('/', "Desa\PotensiSdaHasilHutanController@listHasilHutan");
+Route::get('/new', "Desa\PotensiSdaHasilHutanController@newHasilHutan");
+Route::get('/edit/{id}', "Desa\PotensiSdaHasilHutanController@editHasilHutan");
+Route::post('/insert', "Desa\PotensiSdaHasilHutanController@insertHasilHutan");
+Route::post('/update', "Desa\PotensiSdaHasilHutanController@updateHasilHutan");
+Route::post('/delete', "Desa\PotensiSdaHasilHutanController@deleteHasilHutan");
+});
 
 
+//ROUTE kondisi_hutan
+Route::group(['prefix' =>'potensi/sda/kondisi-hutan'], function(){
+Route::get('/', "Desa\PotensiSdaKondisiHutanController@listKondisiHutan");
+Route::get('/new', "Desa\PotensiSdaKondisiHutanController@newKondisiHutan");
+Route::get('/edit/{id}', "Desa\PotensiSdaKondisiHutanController@editKondisiHutan");
+Route::post('/insert', "Desa\PotensiSdaKondisiHutanController@insertKondisiHutan");
+Route::post('/update', "Desa\PotensiSdaKondisiHutanController@updateKondisiHutan");
+Route::post('/delete', "Desa\PotensiSdaKondisiHutanController@deleteKondisiHutan");
+});
+
+Route::group(['prefix' =>'potensi/sda/dampak_pengolahan_hutan'], function(){
+Route::get('/', "Desa\PotensiSdaDampakPengolahanHutanController@listDampakPengolahanHutan");
+Route::get('/new', "Desa\PotensiSdaDampakPengolahanHutanController@newDampakPengolahanHutan");
+Route::get('/edit/{id}', "Desa\PotensiSdaDampakPengolahanHutanController@editDampakPengolahanHutan");
+Route::post('/insert', "Desa\PotensiSdaDampakPengolahanHutanController@insertDampakPengolahanHutan");
+Route::post('/update', "Desa\PotensiSdaDampakPengolahanHutanController@updateDampakPengolahanHutan");
+Route::post('/delete', "Desa\PotensiSdaDampakPengolahanHutanController@deleteDampakPengolahanHutan");
+});
 
 
-
-
+/////// Kehutanan ==========================================================>>>>>>>>>>
 
 
 
