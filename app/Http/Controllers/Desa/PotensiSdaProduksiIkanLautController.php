@@ -23,7 +23,7 @@ class PotensiSdaProduksiIkanLautController extends Controller{
 public function listProduksiIkanLaut()
     {
         $id_desa = Auth::user()->userdesa();
-        $data    = ProduksiIkanLaut::where('id_desa', $id_desa)->get();
+        $data    = ProduksiIkanLaut::where('id_desa', $id_desa)->orderby('tanggal','desc')->get();
         $route   = array("main" => "potensi", "sub" => "alat-produksi-ikan-laut", "title" => "Potensi - Alat Poduksi Budidaya Ikan Laut");
         return view('desa.potensi.list-alat-produksi-ikan-laut', array("route" => $route, "data" => $data));
 

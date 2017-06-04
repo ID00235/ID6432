@@ -16,7 +16,7 @@ $id_desa = Auth::user()->userdesa();
 	<div class="offset-sm-2 col-md-8">
 		<div class="card">
 			<div class="card-header">
-    			NAMA MENU (Edit Data)
+    			NAMA_MENU (Edit Data)
     			<div class="pull-right">
             <a href="#" id="delete" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus</a>
     				<a href="{{URLGroup('ROUTE_MENU_LIST')}}" class="btn btn-secondary">

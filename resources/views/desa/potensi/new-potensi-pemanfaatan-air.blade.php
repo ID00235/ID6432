@@ -27,8 +27,8 @@ $id_desa = Auth::user()->userdesa();
               {{Form::hidden("id_desa",Hashids::encode(Auth::user()->userdesa()))}}
               {{Form::bsText("tanggal","",['class'=>'col-7 datepicker form-control','required'=>true])}}
               <?php
-              $list = array('Bendungan/Waduk/Situ (Ha'=>'BENDUNGAN/WADUK/SITU (HA', 'Danau (Ha'=>'DANAU (HA', 'Embung-Embung (Ha'=>'EMBUNG-EMBUNG (HA', 'Jebakan Air (Ha'=>'JEBAKAN AIR (HA', 'Mata Air (Buah'=>'MATA AIR (BUAH', 'Rawa (Ha'=>'RAWA (HA', 'Sungai (Buah'=>'SUNGAI (BUAH', );
-              $select ='Bendungan/Waduk/Situ (Ha';
+               $list = array('Bendungan/Waduk/Situ (Ha)'=>'BENDUNGAN/WADUK/SITU (HA)', 'Danau (Ha)'=>'DANAU (HA', 'Embung-Embung (Ha)'=>'EMBUNG-EMBUNG (HA)', 'Jebakan Air (Ha)'=>'JEBAKAN AIR (HA)', 'Mata Air (Buah)'=>'MATA AIR (BUAH)', 'Rawa (Ha)'=>'RAWA (HA)', 'Sungai (Buah)'=>'SUNGAI (BUAH)', );
+              $select ='Bendungan/Waduk/Situ (Ha)';
               ?>
               {!!Form::bsSelect($list,$select,"jenis_potensi_air_dan_sumber_daya_air",['required'=>true])!!}
               {{Form::bsText("jumlah_buah_atau_luas_ha","",['class'=>'col-7 double input-right form-control', 'required'=>true])}}

@@ -40,7 +40,7 @@ $id_desa = Auth::user()->userdesa();
                              <th></th>
                              <th>No</th>
                              <th>Tanggal</th>
-                             <th>Komuditas</th>
+                             <th>Komoditas</th>
                              <th>Luas Produksi (Ha)</th>
                              <th>Hasil Produksi (Ton/Ha)</th>
                              <th>Harga Lokal (Rp/Ton)</th>

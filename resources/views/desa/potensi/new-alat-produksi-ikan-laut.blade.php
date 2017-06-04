@@ -16,22 +16,22 @@ $id_desa = Auth::user()->userdesa();
     <div class="offset-sm-2 col-md-8">
         <div class="card">
             <div class="card-header">
-                Alat Produksi Budidaya Ikan Laut(Tambah Data Baru)
+                Alat Produksi Budidaya Ikan Laut (Tambah Data Baru)
                 <div class="pull-right">
                     <a href="{{URLGroup('potensi/sda/alat-produksi-ikan-laut')}}" class="btn btn-secondary">
             Kembali</a>
                 </div>
             </div>
             <div class="card-block">     
-                 {!!Form::open(['url' => URLGroup("potensi/sda/alat-produksi-ikan-laut/insert"), 'name'=>'form-insert-produksi_ikan_laut'])!!}
+                {!!Form::open(['url' => URLGroup("potensi/sda/alat-produksi-ikan-laut/insert"), 'name'=>'form-insert-produksi_ikan_laut'])!!}
                 {{Form::hidden("id_desa",Hashids::encode(Auth::user()->userdesa()))}}
                 {{Form::bsText("tanggal","",['class'=>'col-7 datepicker form-control','required'=>true])}}
                 <?php
-                $list = array('Jala (Unit'=>'JALA (UNIT', 'Jermal (Unit'=>'JERMAL (UNIT', 'Keramba (Unit'=>'KERAMBA (UNIT', 'Pancing (Unit'=>'PANCING (UNIT', 'Pukat (Unit'=>'PUKAT (UNIT', 'Tambak (Ha'=>'TAMBAK (HA', );
-                $select ='Jala (Unit';
+                $list = array('Jala'=>'JALA', 'Jermal'=>'JERMAL', 'Keramba'=>'KERAMBA', 'Pancing'=>'PANCING', 'Pukat'=>'PUKAT', 'Tambak'=>'TAMBAK', );
+                $select ='Jala';
                 ?>
                 {!!Form::bsSelect($list,$select,"jenis_dan_alat_produksi",['required'=>true])!!}
-                {{Form::bsText("jumlah_alat_atau_luas","",['class'=>'col-7 double input-right form-control', ])}}
+                {{Form::bsText("jumlah_alat_atau_luas","",['class'=>'col-7 double input-right form-control', 'help'=>'Unit atau Hektar'])}}
                 {{Form::bsText("hasil_produksi_ton_pertahun","",['class'=>'col-7 double input-right form-control', ])}}
                 {!!Form::bsSubmit('Simpan',"")!!}
                 {!!Form::close()!!} 

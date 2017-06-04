@@ -31,7 +31,7 @@ $id_desa = Auth::user()->userdesa();
                 {{Form::bsText("milik_adat_atau_ulayat_ha",$data->milik_adat_atau_ulayat_ha,['class'=>'col-12 double input-right form-control', ])}}
                 {{Form::bsText("perhutanan_instansi_sektoral_ha",$data->perhutanan_instansi_sektoral_ha,['class'=>'col-12 double input-right form-control', ])}}
                 {{Form::bsText("milik_masyarakat_perorangan_ha",$data->milik_masyarakat_perorangan_ha,['class'=>'col-12 double input-right form-control', ])}}
-                {{Form::bsText("luas_hutan_ha",$data->luas_hutan_ha,['class'=>'col-12 numerik input-right form-control',])}}
+                {{Form::bsText("luas_hutan_ha",$data->luas_hutan_ha,['class'=>'col-12 double input-right form-control',])}}
                 {!!Form::bsSubmit('Simpan',"")!!}
                 {!!Form::close()!!} 
 
@@ -83,13 +83,13 @@ $id_desa = Auth::user()->userdesa();
                 })
 
                 $("#luas_hutan_ha").on('focus',function(){
-                    total=parseNUmerik($("#milik_negara_ha").val ()) +
-                          parseNUmerik($("#milik_adat_atau_ulayat_ha").val ()) +
-                          parseNUmerik($("#perhutanan_instansi_sektoral_ha").val ()) +
-                          parseNUmerik($("#milik_masyarakat_perorangan_ha").val ());
-
-                          $(this).val(parseDecimal(total))
-                })
+                    total = parseNumerik($("#milik_negara_ha").val()) +
+                            parseNumerik($("#milik_adat_atau_ulayat_ha").val()) +
+                            parseNumerik($("#perhutanan_instansi_sektoral_ha").val ()) +
+                            parseNumerik($("#milik_masyarakat_perorangan_ha").val ());
+                        $(this).val(parseDesimal(total))
+                                 
+                    }) 
       })
 
 </script>

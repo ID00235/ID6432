@@ -21,7 +21,7 @@ class PotensiSdaAirBersihController extends Controller{
 
 	function listAirBersih(){
 		$id_desa = Auth::user()->userdesa();
-		$data = AirBersih::where('id_desa',$id_desa)->get();
+		$data = AirBersih::where('id_desa',$id_desa)->orderby('tanggal','desc')->get();
 		$route = array("main"=>"potensi","sub"=>"sumber-air-bersih","title"=>"Potensi - Sumber Air Bersih");
 		return view('desa.potensi.list-air-bersih',array("route"=>$route, "data"=>$data));
 		}

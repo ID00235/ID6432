@@ -29,7 +29,7 @@ $id_desa = Auth::user()->userdesa();
                     <th></th>
                     <th>No</th>
                     <th>Tanggal</th>
-                    <th>Jenis Alat Produksi</th>
+                    <th>Jenis Alat Produksi (Unit atau Ha)</th>
                     <th>Jumlah Alat</th>
                     <th>Jumlah Alat (Ton/Tahun)</th>
                    

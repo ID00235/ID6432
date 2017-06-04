@@ -10,13 +10,13 @@ $id_desa = Auth::user()->userdesa();
 		<ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Potensi</a></li>
             <li class="breadcrumb-item">Sumber Daya Alam</li>
-            <li class="breadcrumb-item active">NAMA MENU</li>
+            <li class="breadcrumb-item active">NAMA_MENU</li>
         </ol>
 	</div>
 	<div class="offset-sm-2 col-md-8">
 		<div class="card">
 			<div class="card-header">
-    			ISI Nama Menu (Tambah Data Baru)
+    			NAMA_MENU (Tambah Data Baru)
     			<div class="pull-right">
     				<a href="{{URLGroup('ISIKAN_NAMA_MENUNYA')}}" class="btn btn-secondary">
             Kembali</a>

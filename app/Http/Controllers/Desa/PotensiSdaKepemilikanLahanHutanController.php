@@ -23,7 +23,7 @@ class PotensiSdaKepemilikanLahanHutanController extends Controller{
 public function listKepemilikanLahanHutan()
     {
         $id_desa = Auth::user()->userdesa();
-        $data    = KepemilikanLahanHutan::where('id_desa', $id_desa)->get();
+        $data    = KepemilikanLahanHutan::where('id_desa', $id_desa)->orderby('tanggal','desc')->get();
         $route   = array("main" => "potensi", "sub" => "kepemilikan-lahan-hutan", "title" => "Potensi - Kepemilikan Lahan Hutan");
         return view('desa.potensi.list-kepemilikan-lahan-hutan', array("route" => $route, "data" => $data));
 

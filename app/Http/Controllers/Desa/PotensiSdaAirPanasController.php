@@ -22,7 +22,7 @@ class PotensiSdaAirPanasController extends Controller{
 public function listAirPanas()
     {
         $id_desa = Auth::user()->userdesa();
-        $data    = AirPanas::where('id_desa', $id_desa)->get();
+        $data    = AirPanas::where('id_desa', $id_desa)->orderby('tanggal','desc')->get();
         $route   = array("main" => "potensi", "sub" => "air-panas", "title" => "Potensi - Air Panas");
         return view('desa.potensi.list-air-panas', array("route" => $route, "data" => $data));
 

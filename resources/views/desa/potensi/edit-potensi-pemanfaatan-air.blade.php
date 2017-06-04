@@ -28,7 +28,7 @@ $id_desa = Auth::user()->userdesa();
       {{Form::hidden("id",Crypt::encrypt($data->id))}}
       {{Form::bsText("tanggal",tanggalIndo($data->tanggal),['class'=>'col-4 datepicker form-control','required'=>true])}}
       <?php
-      $list = array('Bendungan/Waduk/Situ (Ha'=>'BENDUNGAN/WADUK/SITU (HA', 'Danau (Ha'=>'DANAU (HA', 'Embung-Embung (Ha'=>'EMBUNG-EMBUNG (HA', 'Jebakan Air (Ha'=>'JEBAKAN AIR (HA', 'Mata Air (Buah'=>'MATA AIR (BUAH', 'Rawa (Ha'=>'RAWA (HA', 'Sungai (Buah'=>'SUNGAI (BUAH', );
+      $list = array('Bendungan/Waduk/Situ (Ha)'=>'BENDUNGAN/WADUK/SITU (HA)', 'Danau (Ha)'=>'DANAU (HA', 'Embung-Embung (Ha)'=>'EMBUNG-EMBUNG (HA)', 'Jebakan Air (Ha)'=>'JEBAKAN AIR (HA)', 'Mata Air (Buah)'=>'MATA AIR (BUAH)', 'Rawa (Ha)'=>'RAWA (HA)', 'Sungai (Buah)'=>'SUNGAI (BUAH)', );
       $select =$data->jenis_potensi_air_dan_sumber_daya_air;
       ?>
       {!!Form::bsSelect($list,$select,"jenis_potensi_air_dan_sumber_daya_air",['required'=>true])!!}

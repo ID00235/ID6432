@@ -28,29 +28,23 @@
                              <h6 class="dropdown-header">Tanaman Pangan</h6>
                             <a class="dropdown-item" href="{{URLGroup('potensi/sda/kepemilikan-lahan-pangan')}}">Kepemilikan Lahan <sup style="color: #1E90FF;">OK</sup></a>
                             <a class="dropdown-item" href="{{URLGroup('potensi/sda/hasil-pangan')}}">Hasil dan Luas Produksi <sup style="color: #1E90FF;">OK</sup></a>
-                          </div>
-                          <div class="col">                        
-                            <h6 class="dropdown-header">Tanaman Buah-Buahan</h6>
-                            <a class="dropdown-item" href="{{URLGroup('potensi/sda/kepemilikan-lahan-buah')}}">Kepemilikan Lahan </a>
-                            <a class="dropdown-item" href="{{URLGroup('potensi/sda/hasil-buah')}}">Hasil dan Luas Produksi</a>
                             <hr>
-                            <h6 class="dropdown-header">Perkebunan</h6>
+                             <h6 class="dropdown-header">Perkebunan</h6>
                             <a class="dropdown-item" href="{{URLGroup('potensi/sda/kepemilikan-lahan-kebun')}}">Kepemilikan Lahan</a>
                             <a class="dropdown-item" href="{{URLGroup('potensi/sda/hasil-kebun')}}">Hasil dan Luas Produksi</a>
-                            <hr>
+                          </div>
+                          <div class="col">                        
                             <h6 class="dropdown-header">Kehutanan</h6>
                             <a class="dropdown-item" href="{{URLGroup('potensi/sda/kepemilikan-lahan-hutan')}}">Kepemilikan Lahan</a>
                             <a class="dropdown-item" href="{{URLGroup('potensi/sda/hasil-hutan')}}">Hasil dan Luas Produksi</a>
                             <a class="dropdown-item" href="{{URLGroup('potensi/sda/kondisi-hutan')}}">Kondisi Hutan</a>
                             <a class="dropdown-item" href="{{URLGroup('potensi/sda/dampak-pengolahan-hutan')}}">Dampak Pengolahan</a>
+                            <hr>
+                            <h6 class="dropdown-header">Peternakan</h6>
+                            <a class="dropdown-item" href="{{URLGroup('potensi/sda/populasi-ternak')}}">Jenis Populasi Ternak</a>
+                            <a class="dropdown-item" href="{{URLGroup('potensi/sda/produksi-ternak')}}">Produksi Peternakan</a>
                           </div>
                           <div class="col">
-                            <h6 class="dropdown-header">Peternakan</h6>
-                            <a class="dropdown-item" href="{{URLGroup('potensi/sda/jenis-populasi-ternak')}}">Jenis Populasi Ternak</a>
-                            <a class="dropdown-item" href="{{URLGroup('potensi/sda/produksi-ternak')}}">Produksi Peternakan</a>
-                            <a class="dropdown-item" href="{{URLGroup('potensi/sda/lahan-pakan-ternak')}}">Lahan dan Pakan Ternak</a>
-                            <a class="dropdown-item" href="{{URLGroup('potensi/sda/pengolahan-hasil-ternak')}}">Pengolahan Hasil Ternak</a>
-                            <hr>
                             <h6 class="dropdown-header">Perikanan</h6>
                             <a class="dropdown-item" href="{{URLGroup('potensi/sda/alat-produksi-ikan-laut')}}">Alat Produksi Budidaya Ikan Laut <sup style="color: #1E90FF;">OK</sup></a>
                             <a class="dropdown-item" href="{{URLGroup('potensi/sda/alat-produksi-ikan-tawar')}}">Alat Produksi Budidaya Ikan Air Tawar <sup style="color: #1E90FF;">OK</sup></a>
@@ -61,6 +55,29 @@
                             <a class="dropdown-item" href="{{URLGroup('potensi/sda/sumber-air-bersih')}}">Sumber Air Bersih <sup style="color: #1E90FF;">OK</sup></a>
                             <a class="dropdown-item" href="{{URLGroup('potensi/sda/kualitas-air-minum')}}">Kualitas Air Minum  <sup style="color:  #1E90FF;">OK</sup></a>
                             <a class="dropdown-item" href="{{URLGroup('potensi/sda/air-panas')}}">Air Panas <sup style="color: #1E90FF;">OK</sup></a>
+                          </div>
+                      </div>
+                  </div>
+              </ul>
+          </li>
+          <li class="dropdown yamm-fw nav-item  @if($route['sub']=='sdm') active @endif">
+              <a href="#" data-toggle="dropdown" class="dropdown-toggle nav-link" aria-expanded="false">Penduduk, Lembaga , Sarana & Prasarana
+              <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                  <div class="container-menu">
+                      <div class="row">
+                          <div class="col">
+                            <h6 class="dropdown-header">Sumber Daya Manusia</h6>
+                            <a class="dropdown-item" href="{{URLGroup('potensi/sdm/jumlah-penduduk')}}">Jumlah Penduduk</a>
+                            <a class="dropdown-item" href="{{URLGroup('potensi/sdm/tingkat-usia')}}">Tingkat Usia</a>
+                            <a class="dropdown-item" href="{{URLGroup('potensi/sdm/pendidikan')}}">Pendidikan</a>
+                            <a class="dropdown-item" href="{{URLGroup('potensi/sdm/mata-pencarian')}}">Mata Pencaharian Pokok</a>
+                            <a class="dropdown-item" href="{{URLGroup('potensi/sdm/mata-pencarian')}}">Mata Pencaharian Pokok</a>
+                          </div>
+                          <div class="col">                        
+                          </div>
+                          <div class="col">
                           </div>
                       </div>
                   </div>

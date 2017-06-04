@@ -33,7 +33,7 @@ $(document).ready(function(){
 	  $('.alpanumerik').mask('AAAAAAAAAAAAAAAAAA', {'translation': {A: {pattern: /[A-Za-z0-9]/},}});
 	  $('.kodifikasi').mask('AAAAAAAAAAAAAA', {'translation': {A: {pattern: /[A-Z0-9_-]/},}});
 	  $('.numerik').mask('000000000000000000000000', {reverse: true});	
-	  $('.double').mask("#.##0,##", {reverse: true});
+	  $('.double').mask("####.###.###.###.###.###,##", {reverse: true});
 
 	  jQuery.fn.extend({
 	    disable: function(state) {

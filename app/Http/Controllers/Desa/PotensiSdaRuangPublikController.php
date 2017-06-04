@@ -21,7 +21,7 @@ class PotensiSdaRuangPublikController extends Controller{
 
 function listRuangPublik(){
 		$id_desa = Auth::user()->userdesa();
-		$data = RuangPublik::where('id_desa',$id_desa)->get();
+		$data = RuangPublik::where('id_desa',$id_desa)->orderby('tanggal','desc')->get();
 		$route = array("main"=>"potensi","sub"=>"ruang-publik","title"=>"Potensi - Ruang Publik Atau Taman");
 		return view('desa.potensi.list-ruang-publik',array("route"=>$route, "data"=>$data));
 		}

@@ -18,14 +18,14 @@ userdesa();
                 Sumber Daya Alam
             </li>
             <li class="breadcrumb-item active">
-                NAMA MENUNYA
+                NAMA_MENU
             </li>
         </ol>
     </div>
     <div class="col-md-12">
         <div class="card">
             <div class="card-header">
-                MASUKAN NAMA MENU
+                NAMA_MENU
                 <div class="pull-right">
                     <a class="btn btn-secondary" href="{{URLGroup('ROUTE_URL_FORM_BARUNYA')}}">
                         <i class="fa fa-plus">

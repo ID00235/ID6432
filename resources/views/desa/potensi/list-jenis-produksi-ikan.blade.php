@@ -39,7 +39,7 @@ $id_desa = Auth::user()->userdesa();
                     <th>Jumlah Jenis Usaha Perikanan (Buah)</th>
                     <th>Dijual Langsung Ke Konsumen</th>
                     <th>Dijual Ke Pasar Desa/Kelurahan</th>  
-                    <th>Dijual Melalui KUD/th>
+                    <th>Dijual Melalui KUD</th>
                     <th>Dijual Melalui Tengkulak</th>
                     <th>Dijual Melalui Pengecer</th>
                     <th>Dijual Ke Lumbung Desa/Kelurahan</th>

@@ -30,7 +30,7 @@ $id_desa = Auth::user()->userdesa();
                     {{Form::bsText("milik_adat_atau_ulayat_ha","",['class'=>'col-7 double input-right form-control', ])}}
                     {{Form::bsText("perhutanan_instansi_sektoral_ha","",['class'=>'col-7 double input-right form-control', ])}}
                     {{Form::bsText("milik_masyarakat_perorangan_ha","",['class'=>'col-7 double input-right form-control', ])}}
-                   <b style="color: blue;"> {{Form::bsText("luas_hutan_ha","",['class'=>'col-7 numerik input-right form-control',])}}</b> 
+                   <b style="color: blue;"> {{Form::bsText("luas_hutan_ha","",['class'=>'col-7 double input-right form-control',])}}</b> 
                     {!!Form::bsSubmit('Simpan',"")!!}
                     {!!Form::close()!!} 
 

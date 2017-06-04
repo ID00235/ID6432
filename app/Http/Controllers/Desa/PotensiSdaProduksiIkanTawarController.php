@@ -23,7 +23,7 @@ class PotensiSdaProduksiIkanTawarController extends Controller{
 public function listProduksiIkanTawar()
     {
         $id_desa = Auth::user()->userdesa();
-        $data    = ProduksiIkanTawar::where('id_desa', $id_desa)->get();
+        $data    = ProduksiIkanTawar::where('id_desa', $id_desa)->orderby('tanggal','desc')->get();
         $route   = array("main" => "potensi", "sub" => "alat-produksi-ikan-tawar", "title" => "Potensi - Alat Poduksi Budidaya Ikan Tawar");
         return view('desa.potensi.list-alat-produksi-ikan-tawar', array("route" => $route, "data" => $data));
 

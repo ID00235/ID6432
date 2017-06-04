@@ -21,7 +21,10 @@ class PotensiSdaDampakPengolahanHutanController extends Controller{
 
 
 function listDampakPengolahanHutan(){
-
+		$id_desa = Auth::user()->userdesa();
+        $data    = DampakPengolahanHutan::where('id_desa', $id_desa)->orderby('tanggal', 'desc')->get();
+        $route   = array("main" => "potensi", "sub" => "sda", "title" => "Potensi - Dampak Pengolahan Hutan");
+        return view('desa.potensi.list-dampak-hutan', array("route" => $route, "data" => $data));
 }
 
 function newDampakPengolahanHutan(){

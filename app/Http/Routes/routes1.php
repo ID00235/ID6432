@@ -34,3 +34,68 @@ Route::group(['prefix' => 'potensi/sda/hasil-pangan'], function () {
     Route::post('/update', "Desa\PotensiSdaHasilPanganController@updateHasilPangan");
     Route::post('/delete', "Desa\PotensiSdaHasilPanganController@deleteHasilPangan");
 });
+
+
+//ROUTE kepemilikan_lahan_kebun
+Route::group(['prefix' =>'potensi/sda/kepemilikan-lahan-kebun'], function(){
+Route::get('/', "Desa\PotensiSdaKepemilikanLahanKebunController@listKepemilikanLahanKebun");
+Route::get('/new', "Desa\PotensiSdaKepemilikanLahanKebunController@newKepemilikanLahanKebun");
+Route::get('/edit/{id}', "Desa\PotensiSdaKepemilikanLahanKebunController@editKepemilikanLahanKebun");
+Route::post('/insert', "Desa\PotensiSdaKepemilikanLahanKebunController@insertKepemilikanLahanKebun");
+Route::post('/update', "Desa\PotensiSdaKepemilikanLahanKebunController@updateKepemilikanLahanKebun");
+Route::post('/delete', "Desa\PotensiSdaKepemilikanLahanKebunController@deleteKepemilikanLahanKebun");
+});
+
+//ROUTE hasil_kebun
+Route::group(['prefix' =>'potensi/sda/hasil-kebun'], function(){
+Route::get('/', "Desa\PotensiSdaHasilKebunController@listHasilKebun");
+Route::get('/new', "Desa\PotensiSdaHasilKebunController@newHasilKebun");
+Route::get('/edit/{id}', "Desa\PotensiSdaHasilKebunController@editHasilKebun");
+Route::post('/insert', "Desa\PotensiSdaHasilKebunController@insertHasilKebun");
+Route::post('/update', "Desa\PotensiSdaHasilKebunController@updateHasilKebun");
+Route::post('/delete', "Desa\PotensiSdaHasilKebunController@deleteHasilKebun");
+//perhitungan data
+Route::post('/hitung_nilai_produksi', "Desa\PotensiSdaHasilKebunController@hitungnilaiproduksi");
+Route::post('/hitung_saldo_produksi', "Desa\PotensiSdaHasilKebunController@hitungsaldoproduksi");
+});
+
+//ROUTE populasi_ternak
+Route::group(['prefix' =>'potensi/sda/populasi-ternak'], function(){
+Route::get('/', "Desa\PotensiSdaPopulasiTernakController@listPopulasiTernak");
+Route::get('/new', "Desa\PotensiSdaPopulasiTernakController@newPopulasiTernak");
+Route::get('/edit/{id}', "Desa\PotensiSdaPopulasiTernakController@editPopulasiTernak");
+Route::post('/insert', "Desa\PotensiSdaPopulasiTernakController@insertPopulasiTernak");
+Route::post('/update', "Desa\PotensiSdaPopulasiTernakController@updatePopulasiTernak");
+Route::post('/delete', "Desa\PotensiSdaPopulasiTernakController@deletePopulasiTernak");
+});
+
+
+//ROUTE produksi_ternak
+Route::group(['prefix' =>'potensi/sda/produksi-ternak'], function(){
+Route::get('/', "Desa\PotensiSdaProduksiTernakController@listProduksiTernak");
+Route::get('/new', "Desa\PotensiSdaProduksiTernakController@newProduksiTernak");
+Route::get('/edit/{id}', "Desa\PotensiSdaProduksiTernakController@editProduksiTernak");
+Route::post('/insert', "Desa\PotensiSdaProduksiTernakController@insertProduksiTernak");
+Route::post('/update', "Desa\PotensiSdaProduksiTernakController@updateProduksiTernak");
+Route::post('/delete', "Desa\PotensiSdaProduksiTernakController@deleteProduksiTernak");
+});
+
+//ROUTE jumlah_penduduk
+Route::group(['prefix' =>'potensi/sdm/jumlah-penduduk'], function(){
+Route::get('/', "Desa\PotensiSdmJumlahPendudukController@listJumlahPenduduk");
+Route::get('/new', "Desa\PotensiSdmJumlahPendudukController@newJumlahPenduduk");
+Route::get('/edit/{id}', "Desa\PotensiSdmJumlahPendudukController@editJumlahPenduduk");
+Route::post('/insert', "Desa\PotensiSdmJumlahPendudukController@insertJumlahPenduduk");
+Route::post('/update', "Desa\PotensiSdmJumlahPendudukController@updateJumlahPenduduk");
+Route::post('/delete', "Desa\PotensiSdmJumlahPendudukController@deleteJumlahPenduduk");
+});
+
+//ROUTE tingkat_usia
+Route::group(['prefix' =>'potensi/sdm/tingkat-usia'], function(){
+Route::get('/', "Desa\PotensiSdmTingkatUsiaController@listTingkatUsia");
+Route::get('/new', "Desa\PotensiSdmTingkatUsiaController@newTingkatUsia");
+Route::get('/edit/{id}', "Desa\PotensiSdmTingkatUsiaController@editTingkatUsia");
+Route::post('/insert', "Desa\PotensiSdmTingkatUsiaController@insertTingkatUsia");
+Route::post('/update', "Desa\PotensiSdmTingkatUsiaController@updateTingkatUsia");
+Route::post('/delete', "Desa\PotensiSdmTingkatUsiaController@deleteTingkatUsia");
+});

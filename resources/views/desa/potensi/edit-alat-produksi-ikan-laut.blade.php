@@ -24,18 +24,18 @@ $id_desa = Auth::user()->userdesa();
   			</div>
   			<div class="card-block">	 
 		   
-                {!!Form::open(['url' => URLGroup("potensi/sda/alat-produksi-ikan-laut/update"), 'name'=>'form-update-produksi_ikan_laut'])!!}
+               {!!Form::open(['url' => URLGroup("potensi/sda/alat-produksi-ikan-laut/update"), 'name'=>'form-update-produksi_ikan_laut'])!!}
                 {{Form::hidden("id",Crypt::encrypt($data->id))}}
-                {{Form::bsText("tanggal",tanggalIndo($data->tanggal),['class'=>'col-4 datepicker form-control','required'=>true])}}
-                <?php
-                $list = array('Jala (Unit'=>'JALA (UNIT', 'Jermal (Unit'=>'JERMAL (UNIT', 'Keramba (Unit'=>'KERAMBA (UNIT', 'Pancing (Unit'=>'PANCING (UNIT', 'Pukat (Unit'=>'PUKAT (UNIT', 'Tambak (Ha'=>'TAMBAK (HA', );
-                $select =$data->jenis_dan_alat_produksi;
-                ?>
+              {{Form::bsText("tanggal",tanggalIndo($data->tanggal),['class'=>'col-4 datepicker form-control','required'=>true])}}
+              <?php
+              $list = array('Jala'=>'JALA', 'Jermal'=>'JERMAL', 'Keramba'=>'KERAMBA', 'Pancing'=>'PANCING', 'Pukat'=>'PUKAT', 'Tambak'=>'TAMBAK', );
+               $select =$data->jenis_dan_alat_produksi;
+               ?>
                 {!!Form::bsSelect($list,$select,"jenis_dan_alat_produksi",['required'=>true])!!}
-                {{Form::bsText("jumlah_alat_atau_luas",$data->jumlah_alat_atau_luas,['class'=>'col-12 double input-right form-control', ])}}
-                {{Form::bsText("hasil_produksi_ton_pertahun",$data->hasil_produksi_ton_pertahun,['class'=>'col-12 double input-right form-control', ])}}
-                {!!Form::bsSubmit('Simpan',"")!!}
-                {!!Form::close()!!} 
+             {{Form::bsText("jumlah_alat_atau_luas",$data->jumlah_alat_atau_luas,['class'=>'col-12 double input-right form-control', 'help'=>'Unit atau Hektar' ])}}
+              {{Form::bsText("hasil_produksi_ton_pertahun",$data->hasil_produksi_ton_pertahun,['class'=>'col-12 double input-right form-control', ])}}
+              {!!Form::bsSubmit('Simpan',"")!!}
+              {!!Form::close()!!} 
 
 
     		</div>
