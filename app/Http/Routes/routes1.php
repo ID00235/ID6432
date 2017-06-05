@@ -99,3 +99,34 @@ Route::post('/insert', "Desa\PotensiSdmTingkatUsiaController@insertTingkatUsia")
 Route::post('/update', "Desa\PotensiSdmTingkatUsiaController@updateTingkatUsia");
 Route::post('/delete', "Desa\PotensiSdmTingkatUsiaController@deleteTingkatUsia");
 });
+
+//ROUTE tingkat_pendidikan
+Route::group(['prefix' =>'potensi/sdm/tingkat-pendidikan'], function(){
+Route::get('/', "Desa\PotensiSdmTingkatPendidikanController@listTingkatPendidikan");
+Route::get('/new', "Desa\PotensiSdmTingkatPendidikanController@newTingkatPendidikan");
+Route::get('/edit/{id}', "Desa\PotensiSdmTingkatPendidikanController@editTingkatPendidikan");
+Route::post('/insert', "Desa\PotensiSdmTingkatPendidikanController@insertTingkatPendidikan");
+Route::post('/update', "Desa\PotensiSdmTingkatPendidikanController@updateTingkatPendidikan");
+Route::post('/delete', "Desa\PotensiSdmTingkatPendidikanController@deleteTingkatPendidikan");
+});
+
+//ROUTE lembaga_pemerintahan
+Route::group(['prefix' =>'potensi/sdm/lembaga-pemerintahan'], function(){
+Route::get('/', "Desa\PotensiSdmLembagaPemerintahanController@listLembagaPemerintahan");
+Route::get('/new', "Desa\PotensiSdmLembagaPemerintahanController@newLembagaPemerintahan");
+Route::get('/edit/{id}', "Desa\PotensiSdmLembagaPemerintahanController@editLembagaPemerintahan");
+Route::post('/insert', "Desa\PotensiSdmLembagaPemerintahanController@insertLembagaPemerintahan");
+Route::post('/update', "Desa\PotensiSdmLembagaPemerintahanController@updateLembagaPemerintahan");
+Route::post('/delete', "Desa\PotensiSdmLembagaPemerintahanController@deleteLembagaPemerintahan");
+});
+
+
+//ROUTE lembaga_masyarakat
+Route::group(['prefix' =>'potensi/sdm/lembaga-masyarakat'], function(){
+Route::get('/', "Desa\PotensiSdmLembagaMasyarakatController@listLembagaMasyarakat");
+Route::get('/new', "Desa\PotensiSdmLembagaMasyarakatController@newLembagaMasyarakat");
+Route::get('/edit/{id}', "Desa\PotensiSdmLembagaMasyarakatController@editLembagaMasyarakat");
+Route::post('/insert', "Desa\PotensiSdmLembagaMasyarakatController@insertLembagaMasyarakat");
+Route::post('/update', "Desa\PotensiSdmLembagaMasyarakatController@updateLembagaMasyarakat");
+Route::post('/delete', "Desa\PotensiSdmLembagaMasyarakatController@deleteLembagaMasyarakat");
+});

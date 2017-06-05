@@ -2,11 +2,15 @@
 	<a class="nav-link" href="{{URLGroup('home')}}">Home <span class="sr-only">(current)</span></a>
 </li>
 <li class="nav-item @if($route['main']=='ddk') active @endif">
-	<a class="nav-link" href="{{URLGroup('ddk')}}">Data Dasar Keluarga</a>
+	<a class="nav-link" href="{{URLGroup('ddk')}}">Modul Data Dasar Keluarga</a>
 </li>
 <li class="nav-item @if($route['main']=='potensi') active @endif">
-	<a class="nav-link" href="{{URLGroup('potensi')}}">Potensi</a>
+	<a class="nav-link" href="{{URLGroup('potensi')}}">Modul Potensi Desa</a>
 </li>
-<li class="nav-item @if($route['main']=='perkembangan') active @endif">
-	<a class="nav-link" href="{{URLGroup('perkembangan')}}">Perkembangan</a>
+<li class="nav-item @if($route['main']=='potensi') active @endif">
+	<a class="nav-link" href="{{URLGroup('potensi')}}">Modul Perkembangan Desa</a>
+</li>
+
+<li class="nav-item @if($route['main']=='potensi') active @endif">
+	<a class="nav-link" href="{{URLGroup('potensi')}}">Modul Aset dan Keuangan Desa</a>
 </li>

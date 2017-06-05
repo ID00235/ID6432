@@ -16,6 +16,7 @@ class AppServiceProvider extends ServiceProvider
     {
         //
         Form::component('bsText', 'components.form.text', ['name', 'value'=>null, 'attributes'=>[]]);
+        Form::component('bsText2', 'components.form.text2', ['name', 'value'=>null, 'attributes'=>[]]);
         Form::component('bsSubmit', 'components.form.submit', ['label', 'back'=>null]);
         Form::component('bsText3', 'components.form.text-col-3', ['name', 'value'=>null, 'attributes'=>[]]);
         Form::component('bsTextarea', 'components.form.textarea', ['name', 'value'=>null, 'attributes'=>['rows'=>4]]);

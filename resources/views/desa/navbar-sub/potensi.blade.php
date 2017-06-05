@@ -1,6 +1,6 @@
 <div class="navbar navbar-default yamm navbar-light bg-faded rounded navbar-toggleable-md" style="margin-bottom: 10px;">
     <div class="navbar-header">
-        <a href="#" class="navbar-brand">Potensi</a>
+        <a href="#" class="navbar-brand">Modul Potensi Desa</a>
     </div>
     <div class="collapse navbar-collapse" id="containerNavbar">
         <ul class="nav navbar-nav mr-auto">
@@ -71,13 +71,23 @@
                             <h6 class="dropdown-header">Sumber Daya Manusia</h6>
                             <a class="dropdown-item" href="{{URLGroup('potensi/sdm/jumlah-penduduk')}}">Jumlah Penduduk</a>
                             <a class="dropdown-item" href="{{URLGroup('potensi/sdm/tingkat-usia')}}">Tingkat Usia</a>
-                            <a class="dropdown-item" href="{{URLGroup('potensi/sdm/pendidikan')}}">Pendidikan</a>
-                            <a class="dropdown-item" href="{{URLGroup('potensi/sdm/mata-pencarian')}}">Mata Pencaharian Pokok</a>
-                            <a class="dropdown-item" href="{{URLGroup('potensi/sdm/mata-pencarian')}}">Mata Pencaharian Pokok</a>
+                            <a class="dropdown-item" href="{{URLGroup('potensi/sdm/tingkat-pendidikan')}}">Tingkat Pendidikan</a>
+                            <a class="dropdown-item" href="{{URLGroup('potensi/sdm/mata-pencarian')}}">Mata Pencaharian Pokok <sup>Dari Data DDK</sup></a>
                           </div>
-                          <div class="col">                        
+                          <div class="col">      
+                            <h6 class="dropdown-header">Lembaga</h6>
+                            <a class="dropdown-item" href="{{URLGroup('potensi/sdm/lembaga-pemerintahan')}}">Lembaga Pemerintahan</a>
+                            <a class="dropdown-item" href="{{URLGroup('potensi/sdm/lembaga-masyarakat')}}">Lembaga Kemasyarakatan</a>
+                            <a class="dropdown-item" href="{{URLGroup('potensi/sdm/lembaga-ekonomi')}}">Lembaga Ekonomi</a> 
+                            <a class="dropdown-item" href="{{URLGroup('potensi/sdm/lembaga-ekonomi')}}">Lembaga Keamanan</a>                 
                           </div>
                           <div class="col">
+                            <h6 class="dropdown-header">Sarana Prasarana</h6>
+                            <a class="dropdown-item" href="{{URLGroup('potensi/sdm/lembaga-pemerintahan')}}">Prasarana Air Bersih</a>
+                            <a class="dropdown-item" href="{{URLGroup('potensi/sdm/lembaga-pemerintahan')}}">Prasarana Sanitasi</a>
+                            <a class="dropdown-item" href="{{URLGroup('potensi/sdm/lembaga-pemerintahan')}}">Prasarana Kesehatan</a>
+                            <a class="dropdown-item" href="{{URLGroup('potensi/sdm/lembaga-pemerintahan')}}">Prasarana Energi dan Penerangan</a>
+                            <a class="dropdown-item" href="{{URLGroup('potensi/sdm/lembaga-ekonomi')}}">Kantor Desa</a> 
                           </div>
                       </div>
                   </div>
