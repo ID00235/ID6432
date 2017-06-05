@@ -83,7 +83,7 @@
                             <a class="dropdown-item" href="{{URLGroup('potensi/sdm/lembaga-pemerintahan')}}">Lembaga Pemerintahan</a>
                             <a class="dropdown-item" href="{{URLGroup('potensi/sdm/lembaga-masyarakat')}}">Lembaga Kemasyarakatan</a>
                             <a class="dropdown-item" href="{{URLGroup('potensi/sdm/lembaga-ekonomi')}}">Lembaga Ekonomi</a> 
-                            <a class="dropdown-item" href="{{URLGroup('potensi/sdm/lembaga-ekonomi')}}">Lembaga Keamanan</a>                 
+                            <a class="dropdown-item" href="{{URLGroup('potensi/sdm/lembaga-keamanan')}}">Lembaga Keamanan</a>                 
                           </div>
                           <div class="col">
                             <h6 class="dropdown-header">Sarana Prasarana</h6>

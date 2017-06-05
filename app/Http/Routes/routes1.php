@@ -130,3 +130,13 @@ Route::post('/insert', "Desa\PotensiSdmLembagaMasyarakatController@insertLembaga
 Route::post('/update', "Desa\PotensiSdmLembagaMasyarakatController@updateLembagaMasyarakat");
 Route::post('/delete', "Desa\PotensiSdmLembagaMasyarakatController@deleteLembagaMasyarakat");
 });
+
+ //ROUTE lembaga_ekonomi
+Route::group(['prefix' =>'potensi/sdm/lembaga-ekonomi'], function(){
+Route::get('/', "Desa\PotensiSdmLembagaEkonomiController@listLembagaEkonomi");
+Route::get('/new', "Desa\PotensiSdmLembagaEkonomiController@newLembagaEkonomi");
+Route::get('/edit/{id}', "Desa\PotensiSdmLembagaEkonomiController@editLembagaEkonomi");
+Route::post('/insert', "Desa\PotensiSdmLembagaEkonomiController@insertLembagaEkonomi");
+Route::post('/update', "Desa\PotensiSdmLembagaEkonomiController@updateLembagaEkonomi");
+Route::post('/delete', "Desa\PotensiSdmLembagaEkonomiController@deleteLembagaEkonomi");
+});
