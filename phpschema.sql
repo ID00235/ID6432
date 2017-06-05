@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 03, 2017 at 02:18 
+-- Generation Time: Jun 03, 2017 at 05:30 
 -- Server version: 5.6.16
 -- PHP Version: 5.5.11
 
@@ -160,7 +160,17 @@ CREATE TABLE IF NOT EXISTS `dampak_pengolahan_hutan` (
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`),
   KEY `id_desa` (`id_desa`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+
+--
+-- Dumping data for table `dampak_pengolahan_hutan`
+--
+
+INSERT INTO `dampak_pengolahan_hutan` (`id`, `id_desa`, `tanggal`, `jenis_dampak`, `keterangan`, `created_at`, `updated_at`) VALUES
+(1, 1, '2017-06-21', 'Berubahnya Fungsi Hutan', 'TIdak', '2017-06-03 15:28:56', '2017-06-03 08:28:56'),
+(2, 1, '2017-06-15', 'Pencemaran Air', 'Ya', '2017-06-03 08:17:17', '2017-06-03 08:17:17'),
+(4, 1, '2017-06-15', 'Kerusakan biota/plasma nutfah hutan', 'Ya', '2017-06-03 08:19:03', '2017-06-03 08:19:03'),
+(5, 1, '2017-06-15', 'Kerusakan biota/plasma nutfah hutan', 'Ya', '2017-06-03 08:20:06', '2017-06-03 08:20:06');
 
 -- --------------------------------------------------------
 
@@ -245,7 +255,14 @@ CREATE TABLE IF NOT EXISTS `hasil_hutan` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `hasil_hutan`
+--
+
+INSERT INTO `hasil_hutan` (`id`, `id_desa`, `tanggal`, `nama_komoditas`, `hasil_produksi`, `satuan`, `dijual_langsung_ke_konsumen`, `dijual_kepasar`, `dijual_melalui_KUD`, `dijual_melalui_tengkulak`, `dijual_melalui_pengecer`, `dijual_ke_lumbung_desa_atau_kelurahan`, `tidak_dijual`, `created_at`, `updated_at`) VALUES
+(2, 1, '2017-06-14', 111, '343.430', 'LITER/TH', 'Tidak', 'Ya', 'Ya', 'Ya', 'Ya', 'Tidak', 'Tidak', '2017-06-03 07:03:09', '2017-06-03 07:03:09');
 
 -- --------------------------------------------------------
 
@@ -940,7 +957,14 @@ CREATE TABLE IF NOT EXISTS `kondisi_hutan` (
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`),
   KEY `id_desa` (`id_desa`,`tanggal`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `kondisi_hutan`
+--
+
+INSERT INTO `kondisi_hutan` (`id`, `id_desa`, `tanggal`, `jenis_hutan`, `kondisi_baik_ha`, `kondisi_rusak_ha`, `jumlah_luas_hutan_ha`, `created_at`, `updated_at`) VALUES
+(1, 1, '2017-05-31', 'Hutan Produksi', '121.200', '122.100', 24, '2017-06-03 15:13:22', '2017-06-03 08:13:22');
 
 -- --------------------------------------------------------
 

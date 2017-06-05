@@ -9,6 +9,7 @@
     			Generate Form
           <div class="pull-right">
             <a href="{{URL::to('generate-route')}}">Generate Route</a>
+            <a href="{{URL::to('generate-list')}}">Generate List</a>
           </div>
   			</div>
   			<div class="card-block">
