@@ -7,10 +7,3 @@
 <li class="nav-item @if($route['main']=='potensi') active @endif">
 	<a class="nav-link" href="{{URLGroup('potensi')}}">Modul Potensi Desa</a>
 </li>
-<li class="nav-item @if($route['main']=='potensi') active @endif">
-	<a class="nav-link" href="{{URLGroup('potensi')}}">Modul Perkembangan Desa</a>
-</li>
-
-<li class="nav-item @if($route['main']=='potensi') active @endif">
-	<a class="nav-link" href="{{URLGroup('potensi')}}">Modul Aset dan Keuangan Desa</a>
-</li>
