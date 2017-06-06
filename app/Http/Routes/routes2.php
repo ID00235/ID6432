@@ -171,15 +171,47 @@ Route::post('/delete', "Desa\PotensiSdaDampakPengolahanHutanController@deleteDam
 });
 
 
-/////// Kehutanan ==========================================================>>>>>>>>>>
+/////// SDM ==========================================================>>>>>>>>>>
 
+//ROUTE prasarana_air_bersih
+Route::group(['prefix' =>'potensi/sdm/prasarana-air-bersih'], function(){
+Route::get('/', "Desa\PotensiSdmPrasaranaAirBersihController@listPrasaranaAirBersih");
+Route::get('/new', "Desa\PotensiSdmPrasaranaAirBersihController@newPrasaranaAirBersih");
+Route::get('/edit/{id}', "Desa\PotensiSdmPrasaranaAirBersihController@editPrasaranaAirBersih");
+Route::post('/insert', "Desa\PotensiSdmPrasaranaAirBersihController@insertPrasaranaAirBersih");
+Route::post('/update', "Desa\PotensiSdmPrasaranaAirBersihController@updatePrasaranaAirBersih");
+Route::post('/delete', "Desa\PotensiSdmPrasaranaAirBersihController@deletePrasaranaAirBersih");
+});
 
+//ROUTE prasarana_sanitasi
+Route::group(['prefix' =>'potensi/sdm/prasarana-sanitasi'], function(){
+Route::get('/', "Desa\PotensiSdmPrasaranaSanitasiController@listPrasaranaSanitasi");
+Route::get('/new', "Desa\PotensiSdmPrasaranaSanitasiController@newPrasaranaSanitasi");
+Route::get('/edit/{id}', "Desa\PotensiSdmPrasaranaSanitasiController@editPrasaranaSanitasi");
+Route::post('/insert', "Desa\PotensiSdmPrasaranaSanitasiController@insertPrasaranaSanitasi");
+Route::post('/update', "Desa\PotensiSdmPrasaranaSanitasiController@updatePrasaranaSanitasi");
+Route::post('/delete', "Desa\PotensiSdmPrasaranaSanitasiController@deletePrasaranaSanitasi");
+});
 
+//ROUTE prasarana_kesehatan
+Route::group(['prefix' =>'potensi/sdm/prasarana-kesehatan'], function(){
+Route::get('/', "Desa\PotensiSdmPrasaranaKesehatanController@listPrasaranaKesehatan");
+Route::get('/new', "Desa\PotensiSdmPrasaranaKesehatanController@newPrasaranaKesehatan");
+Route::get('/edit/{id}', "Desa\PotensiSdmPrasaranaKesehatanController@editPrasaranaKesehatan");
+Route::post('/insert', "Desa\PotensiSdmPrasaranaKesehatanController@insertPrasaranaKesehatan");
+Route::post('/update', "Desa\PotensiSdmPrasaranaKesehatanController@updatePrasaranaKesehatan");
+Route::post('/delete', "Desa\PotensiSdmPrasaranaKesehatanController@deletePrasaranaKesehatan");
+});
 
-
-
-
-
+//ROUTE prasarana_energi
+Route::group(['prefix' =>'potensi/sdm/prasarana-energi'], function(){
+Route::get('/', "Desa\PotensiSdmPrasaranaEnergiController@listPrasaranaEnergi");
+Route::get('/new', "Desa\PotensiSdmPrasaranaEnergiController@newPrasaranaEnergi");
+Route::get('/edit/{id}', "Desa\PotensiSdmPrasaranaEnergiController@editPrasaranaEnergi");
+Route::post('/insert', "Desa\PotensiSdmPrasaranaEnergiController@insertPrasaranaEnergi");
+Route::post('/update', "Desa\PotensiSdmPrasaranaEnergiController@updatePrasaranaEnergi");
+Route::post('/delete', "Desa\PotensiSdmPrasaranaEnergiController@deletePrasaranaEnergi");
+});
 
 
 
