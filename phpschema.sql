@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
+-- version 4.1.12
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: Jun 05, 2017 at 04:57 PM
--- Server version: 10.1.16-MariaDB
--- PHP Version: 5.6.24
+-- Host: localhost
+-- Generation Time: Jun 06, 2017 at 05:17 
+-- Server version: 5.6.16
+-- PHP Version: 5.5.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Database: `phpschema`
@@ -26,8 +26,8 @@ SET time_zone = "+00:00";
 -- Table structure for table `air_bersih`
 --
 
-CREATE TABLE `air_bersih` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `air_bersih` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_desa` int(11) NOT NULL,
   `tanggal` date NOT NULL,
   `jenis_sumber_air_bersih` enum('Bak penampung air hujan','Beli dari tangki swasta','Depot isi ulang','Embung','Hidran umum','Mata Air','Sungai','PAM','Pipa','Sumber Lain','Sumur Gali','Sumur Pompa','Sungai') NOT NULL,
@@ -35,8 +35,10 @@ CREATE TABLE `air_bersih` (
   `pemanfaatan_kk` decimal(10,2) DEFAULT '0.00',
   `kondisi` enum('Baik','Rusak') NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`),
+  KEY `id_desa` (`id_desa`,`tanggal`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `air_bersih`
@@ -53,8 +55,8 @@ INSERT INTO `air_bersih` (`id`, `id_desa`, `tanggal`, `jenis_sumber_air_bersih`,
 -- Table structure for table `air_panas`
 --
 
-CREATE TABLE `air_panas` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `air_panas` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_desa` int(11) NOT NULL,
   `tanggal` date NOT NULL,
   `jenis_sumber` enum('Geiser','Gunung Berapi') NOT NULL,
@@ -62,8 +64,10 @@ CREATE TABLE `air_panas` (
   `pemanfaatan` enum('Wisata','Pengobatan','Energi') NOT NULL,
   `kepemilikan` enum('Pemda','Swasta','Adat Atau Perorangan') NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`),
+  KEY `id_desa` (`id_desa`,`tanggal`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `air_panas`
@@ -78,8 +82,8 @@ INSERT INTO `air_panas` (`id`, `id_desa`, `tanggal`, `jenis_sumber`, `jumlah_lok
 -- Table structure for table `apotik_hidup`
 --
 
-CREATE TABLE `apotik_hidup` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `apotik_hidup` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_desa` int(11) NOT NULL,
   `tanggal` date NOT NULL,
   `nama_tanaman_apotik_hidup` int(11) NOT NULL COMMENT 'ref tabel komuditas',
@@ -87,8 +91,10 @@ CREATE TABLE `apotik_hidup` (
   `hasil_produksi_ha` decimal(10,2) NOT NULL DEFAULT '0.00',
   `jumlah_produksi_ton` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`),
+  KEY `id_desa` (`id_desa`,`tanggal`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `apotik_hidup`
@@ -105,8 +111,8 @@ INSERT INTO `apotik_hidup` (`id`, `id_desa`, `tanggal`, `nama_tanaman_apotik_hid
 -- Table structure for table `batas_wilayah`
 --
 
-CREATE TABLE `batas_wilayah` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `batas_wilayah` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_desa` int(11) NOT NULL,
   `bulan` int(11) NOT NULL,
   `tahun` int(11) NOT NULL,
@@ -126,8 +132,10 @@ CREATE TABLE `batas_wilayah` (
   `perda_no` varchar(150) DEFAULT NULL,
   `peta_wilayah` enum('ada','tidak ada') NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_desa` (`id_desa`,`bulan`,`tahun`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `batas_wilayah`
@@ -142,15 +150,17 @@ INSERT INTO `batas_wilayah` (`id`, `id_desa`, `bulan`, `tahun`, `tahun_pembentuk
 -- Table structure for table `dampak_pengolahan_hutan`
 --
 
-CREATE TABLE `dampak_pengolahan_hutan` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `dampak_pengolahan_hutan` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_desa` int(11) NOT NULL,
   `tanggal` date NOT NULL,
   `jenis_dampak` enum('Berubahnya Fungsi Hutan','Hilangnya daerah tangkapan air','Hilangnya Sumber Mata Air','Kebakaran Hutan','Kemusnahan flora fauna dan satwa langka','Kerusakan biota/plasma nutfah hutan','Longsor/Erosi','Musnahnya Habitat Binatang Hutan','Pencemaran Air','Pencemaran Udara','Terjadinya kekeringan/sulit air','Terjadinya lahan kritis') DEFAULT NULL,
   `keterangan` enum('Ya','TIdak') DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`),
+  KEY `id_desa` (`id_desa`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -158,8 +168,8 @@ CREATE TABLE `dampak_pengolahan_hutan` (
 -- Table structure for table `deposit_produksi_galian`
 --
 
-CREATE TABLE `deposit_produksi_galian` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `deposit_produksi_galian` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_desa` int(11) NOT NULL,
   `tanggal` date NOT NULL,
   `jenis_bahan_galian` int(11) NOT NULL,
@@ -174,8 +184,10 @@ CREATE TABLE `deposit_produksi_galian` (
   `tidak_dijual` enum('Ya','Tidak') NOT NULL,
   `kepemilikan` enum('Pemerintah','Swasta','Perorangan','Adat','Lainnya') NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`),
+  KEY `id_desa` (`id_desa`,`tanggal`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `deposit_produksi_galian`
@@ -194,13 +206,14 @@ INSERT INTO `deposit_produksi_galian` (`id`, `id_desa`, `tanggal`, `jenis_bahan_
 -- Table structure for table `desa`
 --
 
-CREATE TABLE `desa` (
-  `id_desa` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `desa` (
+  `id_desa` int(11) NOT NULL AUTO_INCREMENT,
   `nama_desa` varchar(350) NOT NULL,
   `id_kecamatan` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id_desa`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `desa`
@@ -215,8 +228,8 @@ INSERT INTO `desa` (`id_desa`, `nama_desa`, `id_kecamatan`, `created_at`, `updat
 -- Table structure for table `hasil_hutan`
 --
 
-CREATE TABLE `hasil_hutan` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `hasil_hutan` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_desa` int(11) NOT NULL,
   `tanggal` date NOT NULL,
   `komoditas` int(11) DEFAULT NULL,
@@ -230,8 +243,9 @@ CREATE TABLE `hasil_hutan` (
   `dijual_ke_lumbung_desa_atau_kelurahan` enum('Ya','Tidak') DEFAULT NULL,
   `tidak_dijual` enum('Ya','Tidak') DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -239,8 +253,8 @@ CREATE TABLE `hasil_hutan` (
 -- Table structure for table `hasil_kebun`
 --
 
-CREATE TABLE `hasil_kebun` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `hasil_kebun` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_desa` int(11) NOT NULL,
   `tanggal` date NOT NULL,
   `komuditas` int(11) NOT NULL COMMENT 'referensi ke table komuditas',
@@ -262,8 +276,10 @@ CREATE TABLE `hasil_kebun` (
   `dijual_ke_lumbung_desa` enum('ya','tidak') NOT NULL,
   `tidak_dijual` enum('ya','tidak') NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_desa` (`id_desa`,`tanggal`,`komuditas`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `hasil_kebun`
@@ -278,8 +294,8 @@ INSERT INTO `hasil_kebun` (`id`, `id_desa`, `tanggal`, `komuditas`, `luas_perkeb
 -- Table structure for table `hasil_pangan`
 --
 
-CREATE TABLE `hasil_pangan` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `hasil_pangan` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_desa` int(11) NOT NULL,
   `tanggal` date NOT NULL,
   `komuditas` int(11) NOT NULL COMMENT 'referensi ke table komuditas',
@@ -293,8 +309,10 @@ CREATE TABLE `hasil_pangan` (
   `biaya_lainnya` decimal(16,2) DEFAULT '0.00',
   `saldo_produksi` decimal(16,2) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_desa` (`id_desa`,`tanggal`,`komuditas`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `hasil_pangan`
@@ -309,8 +327,8 @@ INSERT INTO `hasil_pangan` (`id`, `id_desa`, `tanggal`, `komuditas`, `luas_produ
 -- Table structure for table `identitas_desa`
 --
 
-CREATE TABLE `identitas_desa` (
-  `id_desa` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `identitas_desa` (
+  `id_desa` int(11) NOT NULL AUTO_INCREMENT,
   `kode_pum` varchar(15) NOT NULL,
   `luas_desa` decimal(10,2) NOT NULL,
   `tinggi_dpl` decimal(5,2) NOT NULL,
@@ -322,8 +340,10 @@ CREATE TABLE `identitas_desa` (
   `berbatas_kecamatan` tinyint(1) NOT NULL,
   `status` enum('desa','nagari','kelurahan') NOT NULL DEFAULT 'desa',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id_desa`),
+  UNIQUE KEY `kode_pum` (`kode_pum`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `identitas_desa`
@@ -338,8 +358,8 @@ INSERT INTO `identitas_desa` (`id_desa`, `kode_pum`, `luas_desa`, `tinggi_dpl`, 
 -- Table structure for table `jenis_lahan`
 --
 
-CREATE TABLE `jenis_lahan` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `jenis_lahan` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_desa` int(11) NOT NULL,
   `tanggal` date NOT NULL,
   `sawah_irigasi_teknis` decimal(10,2) DEFAULT '0.00',
@@ -401,8 +421,11 @@ CREATE TABLE `jenis_lahan` (
   `selisih_luas` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `status` varchar(255) NOT NULL,
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_desa_2` (`id_desa`,`tanggal`),
+  KEY `id_desa` (`id_desa`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `jenis_lahan`
@@ -419,8 +442,8 @@ INSERT INTO `jenis_lahan` (`id`, `id_desa`, `tanggal`, `sawah_irigasi_teknis`, `
 -- Table structure for table `jenis_produksi_ikan`
 --
 
-CREATE TABLE `jenis_produksi_ikan` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `jenis_produksi_ikan` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_desa` int(11) NOT NULL,
   `tanggal` date NOT NULL,
   `nama_ikan` int(11) NOT NULL COMMENT 'rferensi tabel komuditas',
@@ -440,8 +463,10 @@ CREATE TABLE `jenis_produksi_ikan` (
   `dijual_ke_lumbung_desa_kelurahan` enum('Ya','Tidak') DEFAULT NULL,
   `tidak_dijual` enum('Ya','Tidak') DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`),
+  KEY `id_desa` (`id_desa`,`tanggal`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `jenis_produksi_ikan`
@@ -456,16 +481,18 @@ INSERT INTO `jenis_produksi_ikan` (`id`, `id_desa`, `tanggal`, `nama_ikan`, `has
 -- Table structure for table `jumlah_penduduk`
 --
 
-CREATE TABLE `jumlah_penduduk` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `jumlah_penduduk` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_desa` int(11) NOT NULL,
   `tanggal` date NOT NULL,
   `jumlah_laki_laki` int(11) NOT NULL,
   `jumlah_perempuan` int(11) NOT NULL,
   `jumlah_total` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_desa` (`id_desa`,`tanggal`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `jumlah_penduduk`
@@ -480,10 +507,11 @@ INSERT INTO `jumlah_penduduk` (`id`, `id_desa`, `tanggal`, `jumlah_laki_laki`, `
 -- Table structure for table `kecamatan`
 --
 
-CREATE TABLE `kecamatan` (
+CREATE TABLE IF NOT EXISTS `kecamatan` (
   `id_kecamatan` int(11) NOT NULL,
   `nama_kecamatan` varchar(50) NOT NULL,
-  `kode` varchar(15) NOT NULL
+  `kode` varchar(15) NOT NULL,
+  PRIMARY KEY (`id_kecamatan`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -506,8 +534,8 @@ INSERT INTO `kecamatan` (`id_kecamatan`, `nama_kecamatan`, `kode`) VALUES
 -- Table structure for table `kepemilikan_lahan_hutan`
 --
 
-CREATE TABLE `kepemilikan_lahan_hutan` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `kepemilikan_lahan_hutan` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_desa` int(11) NOT NULL,
   `tanggal` date NOT NULL,
   `milik_negara_ha` decimal(10,2) DEFAULT '0.00',
@@ -516,8 +544,10 @@ CREATE TABLE `kepemilikan_lahan_hutan` (
   `milik_masyarakat_perorangan_ha` decimal(10,2) DEFAULT '0.00',
   `luas_hutan_ha` decimal(10,2) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`),
+  KEY `id_desa` (`id_desa`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `kepemilikan_lahan_hutan`
@@ -533,8 +563,8 @@ INSERT INTO `kepemilikan_lahan_hutan` (`id`, `id_desa`, `tanggal`, `milik_negara
 -- Table structure for table `kepemilikan_lahan_kebun`
 --
 
-CREATE TABLE `kepemilikan_lahan_kebun` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `kepemilikan_lahan_kebun` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `tanggal` date NOT NULL,
   `id_desa` int(11) NOT NULL,
   `memiliki_kurang_10_ha` int(11) DEFAULT '0',
@@ -545,8 +575,10 @@ CREATE TABLE `kepemilikan_lahan_kebun` (
   `jumlah_keluarga_tidak_memiliki_lahan` int(11) NOT NULL DEFAULT '0',
   `jumlah_keluarga_petani_kebun` int(11) NOT NULL DEFAULT '0',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `tanggal` (`tanggal`,`id_desa`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `kepemilikan_lahan_kebun`
@@ -561,8 +593,8 @@ INSERT INTO `kepemilikan_lahan_kebun` (`id`, `tanggal`, `id_desa`, `memiliki_kur
 -- Table structure for table `kepemilikan_lahan_pangan`
 --
 
-CREATE TABLE `kepemilikan_lahan_pangan` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `kepemilikan_lahan_pangan` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `tanggal` date NOT NULL,
   `id_desa` int(11) NOT NULL,
   `memiliki_kurang_10_ha` int(11) DEFAULT '0',
@@ -573,8 +605,10 @@ CREATE TABLE `kepemilikan_lahan_pangan` (
   `jumlah_keluarga_tidak_memiliki_lahan` int(11) NOT NULL DEFAULT '0',
   `jumlah_keluarga_petani_tanaman_pangan` int(11) NOT NULL DEFAULT '0',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `tanggal` (`tanggal`,`id_desa`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `kepemilikan_lahan_pangan`
@@ -589,13 +623,14 @@ INSERT INTO `kepemilikan_lahan_pangan` (`id`, `tanggal`, `id_desa`, `memiliki_ku
 -- Table structure for table `komuditas`
 --
 
-CREATE TABLE `komuditas` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `komuditas` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nama` varchar(100) NOT NULL,
   `tipe` enum('pangan','buah','hutan','ternak','ikan','kebun','galian','apotik','produksiikan') NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=464 ;
 
 --
 -- Dumping data for table `komuditas`
@@ -991,8 +1026,8 @@ INSERT INTO `komuditas` (`id`, `nama`, `tipe`, `created_at`, `updated_at`) VALUE
 -- Table structure for table `kondisi_hutan`
 --
 
-CREATE TABLE `kondisi_hutan` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `kondisi_hutan` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_desa` int(11) NOT NULL,
   `tanggal` date NOT NULL,
   `jenis_hutan` enum('Hutan Bakau/Mangrove','Hutan Lindung','Hutan Produksi','Hutan Suaka Alam','Hutan Suaka Margasatwa') DEFAULT NULL,
@@ -1000,8 +1035,10 @@ CREATE TABLE `kondisi_hutan` (
   `kondisi_rusak_ha` decimal(10,2) DEFAULT '0.00',
   `jumlah_luas_hutan_ha` decimal(10,2) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`),
+  KEY `id_desa` (`id_desa`,`tanggal`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -1009,8 +1046,8 @@ CREATE TABLE `kondisi_hutan` (
 -- Table structure for table `kualitas_air_minum`
 --
 
-CREATE TABLE `kualitas_air_minum` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `kualitas_air_minum` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_desa` int(11) NOT NULL,
   `tanggal` date NOT NULL,
   `jenis_air_minum` enum('Bak penampung air hujan','Beli dari tangki swasta','Depot isi ulang','Embung','Hidran umum','Mata Air','Sungai','PAM','Pipa','Sumber Lain','Sumur Gali','Sumur Pompa') NOT NULL,
@@ -1019,8 +1056,10 @@ CREATE TABLE `kualitas_air_minum` (
   `berwarna` enum('Ya','Tidak') NOT NULL,
   `berasa` enum('Ya','Tidak') NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`),
+  KEY `id_desa` (`id_desa`,`tanggal`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `kualitas_air_minum`
@@ -1036,8 +1075,8 @@ INSERT INTO `kualitas_air_minum` (`id`, `id_desa`, `tanggal`, `jenis_air_minum`,
 -- Table structure for table `lembaga_ekonomi`
 --
 
-CREATE TABLE `lembaga_ekonomi` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `lembaga_ekonomi` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_desa` int(11) NOT NULL,
   `tanggal` date NOT NULL,
   `kategori` enum('Lembaga Ekonomi dan Unit Usaha Desa','Jasa Lembaga Keuangan','Industri Kecil dan Menengah') NOT NULL,
@@ -1046,8 +1085,10 @@ CREATE TABLE `lembaga_ekonomi` (
   `jumlah_pengurus` int(11) NOT NULL,
   `jumlah_kegiatan` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_desa` (`id_desa`,`tanggal`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `lembaga_ekonomi`
@@ -1062,8 +1103,8 @@ INSERT INTO `lembaga_ekonomi` (`id`, `id_desa`, `tanggal`, `kategori`, `jenis_le
 -- Table structure for table `lembaga_keamanan`
 --
 
-CREATE TABLE `lembaga_keamanan` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `lembaga_keamanan` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_desa` int(11) NOT NULL,
   `tanggal` date NOT NULL,
   `keberadaan_hansip_linmas` enum('Tidak Ada','Ada') NOT NULL,
@@ -1072,8 +1113,10 @@ CREATE TABLE `lembaga_keamanan` (
   `pelaksanaan_siskamling` enum('Tidak Ada','Ada','','') NOT NULL,
   `jumlah_pos_kamling` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_desa` (`id_desa`,`tanggal`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -1081,8 +1124,8 @@ CREATE TABLE `lembaga_keamanan` (
 -- Table structure for table `lembaga_masyarakat`
 --
 
-CREATE TABLE `lembaga_masyarakat` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `lembaga_masyarakat` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_desa` int(11) NOT NULL,
   `tanggal` date NOT NULL,
   `jenis_lembaga` enum('BADAN USAHA MILIK DESA','IDI','KARANG TARUNA','KELOMPOK GOTONG ROYONG','KELOMPOK PEMIRSA','KELOMPOK TANI/NELAYAN','LEMBAGA','LEMBAGA ADAT','LKD/LKK','LKMD/LKMK','LPMD/LPMK ATAU SEBUTAN LAIN','ORGANISASI BAPAK','ORGANISASI KEAGAMAAN','ORGANISASI PEMUDA LAINNYA','ORGANISASI PEREMPUAN LAIN','ORGANISASI PROFESI LAINNYA','PANTI','PARFI','PECINTA ALAM','PKK','PWI','RUKUN TETANGGA','RUKUN WARGA','WREDATAMA','YAYASAN') NOT NULL,
@@ -1092,8 +1135,10 @@ CREATE TABLE `lembaga_masyarakat` (
   `ruang_lingkup_kegiatan` varchar(50) NOT NULL,
   `jumlah_jenis_kegiatan` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_desa` (`id_desa`,`tanggal`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `lembaga_masyarakat`
@@ -1109,8 +1154,8 @@ INSERT INTO `lembaga_masyarakat` (`id`, `id_desa`, `tanggal`, `jenis_lembaga`, `
 -- Table structure for table `lembaga_pemerintahan`
 --
 
-CREATE TABLE `lembaga_pemerintahan` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `lembaga_pemerintahan` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_desa` int(11) NOT NULL,
   `tanggal` date NOT NULL,
   `dasar_hukum_pembentukan` enum('Perda','Keputusan Bupati','Camat','Belum Ada Dasar Hukum') NOT NULL,
@@ -1123,8 +1168,10 @@ CREATE TABLE `lembaga_pemerintahan` (
   `nama_ketua_bpd` varchar(50) NOT NULL,
   `pendidikan_ketua_bpd` enum('SD','SMP','SMA','DIPLOMA','S1','S2','S3') NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_desa` (`id_desa`,`tanggal`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -1132,8 +1179,8 @@ CREATE TABLE `lembaga_pemerintahan` (
 -- Table structure for table `populasi_ternak`
 --
 
-CREATE TABLE `populasi_ternak` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `populasi_ternak` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_desa` int(11) NOT NULL,
   `tanggal` date NOT NULL,
   `komoditas` int(11) NOT NULL COMMENT 'referensi ke table komuditas',
@@ -1146,8 +1193,10 @@ CREATE TABLE `populasi_ternak` (
   `dijual_ke_lumbung_desa` enum('ya','tidak') NOT NULL,
   `tidak_dijual` enum('ya','tidak') NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_desa` (`id_desa`,`tanggal`,`komoditas`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `populasi_ternak`
@@ -1163,8 +1212,8 @@ INSERT INTO `populasi_ternak` (`id`, `id_desa`, `tanggal`, `komoditas`, `jumlah_
 -- Table structure for table `potensi_pemanfaatan_air`
 --
 
-CREATE TABLE `potensi_pemanfaatan_air` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `potensi_pemanfaatan_air` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_desa` int(11) NOT NULL,
   `tanggal` date NOT NULL,
   `jenis_potensi_air_dan_sumber_daya_air` enum('Bendungan/Waduk/Situ (Ha)','Danau (Ha)','Embung-Embung (Ha)','Jebakan Air (Ha)','Mata Air (Buah)','Rawa (Ha)','Sungai (Buah)') NOT NULL,
@@ -1173,8 +1222,10 @@ CREATE TABLE `potensi_pemanfaatan_air` (
   `kondisi` enum('','Berkurangnya biota sungai','Berlumpur','Jernih dan Tidak Tercemar/memenuhi baku mutu air','Kering','Keruh','Pendangkalan/Pengendapan Lumpur Tinggi','Tercemar') DEFAULT NULL,
   `pemanfaatan` enum('','Air baku untuk pengolahan air minum','Prasarana transportasi','Pembangkit listrik','Perikanan darat maupun laut','Irigasi','Cuci Dan Mandi','Sayuran','Pembudidayaan Hutan Mangrove','Buang air besar','Dan Lain-lain') DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`),
+  KEY `id_desa` (`id_desa`,`tanggal`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `potensi_pemanfaatan_air`
@@ -1191,8 +1242,8 @@ INSERT INTO `potensi_pemanfaatan_air` (`id`, `id_desa`, `tanggal`, `jenis_potens
 -- Table structure for table `potensi_wisata`
 --
 
-CREATE TABLE `potensi_wisata` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `potensi_wisata` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_desa` int(11) NOT NULL,
   `tanggal` date NOT NULL,
   `lokasi_atau_area_wisata` enum('Agrowisata','Air Terjun','Arung Jeram','Cagar Budaya','Danau','Goa','Gunung','Hutan Khusus','Wisata Laut','Padang Savana','Situs Sejarah dan Museum') NOT NULL,
@@ -1200,8 +1251,11 @@ CREATE TABLE `potensi_wisata` (
   `luas_ha` decimal(10,2) NOT NULL DEFAULT '0.00',
   `tingkat_pemanfaatan` enum('Aktif','Pasif') NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`),
+  KEY `id_desa` (`id_desa`,`tanggal`),
+  KEY `id_desa_2` (`id_desa`,`tanggal`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `potensi_wisata`
@@ -1215,19 +1269,128 @@ INSERT INTO `potensi_wisata` (`id`, `id_desa`, `tanggal`, `lokasi_atau_area_wisa
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `prasarana_air_bersih`
+--
+
+CREATE TABLE IF NOT EXISTS `prasarana_air_bersih` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_desa` int(11) NOT NULL,
+  `tanggal` date NOT NULL,
+  `sumur_pompa_unit` decimal(10,3) DEFAULT '0.000',
+  `sumur_gali_unit` decimal(10,3) DEFAULT '0.000',
+  `hidran_umum_unit` decimal(10,3) DEFAULT '0.000',
+  `penampung_air_hujan_unit` decimal(10,3) DEFAULT '0.000',
+  `tangki_air_bersih_unit` decimal(10,2) DEFAULT '0.00',
+  `embung_unit` decimal(10,2) DEFAULT '0.00',
+  `mata_air_unit` decimal(10,2) DEFAULT '0.00',
+  `bangunan_pengolahan_air_unit` decimal(10,2) DEFAULT '0.00',
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`),
+  KEY `id_desa` (`id_desa`,`tanggal`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `prasarana_air_bersih`
+--
+
+INSERT INTO `prasarana_air_bersih` (`id`, `id_desa`, `tanggal`, `sumur_pompa_unit`, `sumur_gali_unit`, `hidran_umum_unit`, `penampung_air_hujan_unit`, `tangki_air_bersih_unit`, `embung_unit`, `mata_air_unit`, `bangunan_pengolahan_air_unit`, `created_at`, `updated_at`) VALUES
+(2, 1, '2017-07-01', '1.210', '12.120', '1212.120', '211.210', '22.32', '33.00', '2.32', '32.32', '2017-06-06 07:08:53', '2017-06-06 07:08:53');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `prasarana_energi`
+--
+
+CREATE TABLE IF NOT EXISTS `prasarana_energi` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_desa` int(11) NOT NULL,
+  `tanggal` date NOT NULL,
+  `listrik_pln_unit` decimal(10,3) DEFAULT '0.000',
+  `diesel_umum_unit` decimal(10,3) DEFAULT '0.000',
+  `genset_pribadi_unit` decimal(10,3) DEFAULT '0.000',
+  `lampu_minyak_tanah_atau_jarak_kelapa_kk` decimal(10,3) DEFAULT '0.000',
+  `kayu_bakar_kk` decimal(10,2) DEFAULT '0.00',
+  `batu_bara_kk` decimal(10,2) DEFAULT '0.00',
+  `tanpa_penerangan_kk` decimal(10,2) DEFAULT '0.00',
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`),
+  KEY `id_desa` (`id_desa`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `prasarana_energi`
+--
+
+INSERT INTO `prasarana_energi` (`id`, `id_desa`, `tanggal`, `listrik_pln_unit`, `diesel_umum_unit`, `genset_pribadi_unit`, `lampu_minyak_tanah_atau_jarak_kelapa_kk`, `kayu_bakar_kk`, `batu_bara_kk`, `tanpa_penerangan_kk`, `created_at`, `updated_at`) VALUES
+(1, 1, '2017-06-07', '12.000', '1.210', '1.210', '1.210', '12.21', '1.21', '1.21', '2017-06-06 08:09:46', '2017-06-06 08:09:46');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `prasarana_kesehatan`
+--
+
+CREATE TABLE IF NOT EXISTS `prasarana_kesehatan` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_desa` int(11) NOT NULL,
+  `tanggal` date NOT NULL,
+  `jenis_prasarana_kesehatan` enum('Apotik','Balai Kesehatan Ibu dan Anak','Balai pengobatan masyarakat yayasan/swasta','Gudang menyimpan obat','Jumlah Rumah/Kantor Praktek Dokter','Poliklinik/balai pengobatan','Posyandu','Puskesmas','Puskesmas Pembantu','Rumah Bersalin','Rumah Sakit Mata','Rumah sakit umum','Toko obat') NOT NULL,
+  `jumlah_unit` decimal(10,3) NOT NULL DEFAULT '0.000',
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`),
+  KEY `id_desa` (`id_desa`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `prasarana_sanitasi`
+--
+
+CREATE TABLE IF NOT EXISTS `prasarana_sanitasi` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_desa` int(11) NOT NULL,
+  `tanggal` date NOT NULL,
+  `sumur_resapan_air_rumah_tangga` decimal(10,3) DEFAULT '0.000',
+  `mck_umum_unit` decimal(10,3) DEFAULT '0.000',
+  `jamban_keluarga_kk` decimal(10,3) DEFAULT '0.000',
+  `saluran_drainase_atau_saluran_pembuangan_sampah` enum('Ya','Tidak') NOT NULL,
+  `kondisi_saluran_drainase_atau_saluran` enum('Rusak','Mampet','Kurang Memadai','Baik') NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`),
+  KEY `id_desa` (`id_desa`,`tanggal`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `prasarana_sanitasi`
+--
+
+INSERT INTO `prasarana_sanitasi` (`id`, `id_desa`, `tanggal`, `sumur_resapan_air_rumah_tangga`, `mck_umum_unit`, `jamban_keluarga_kk`, `saluran_drainase_atau_saluran_pembuangan_sampah`, `kondisi_saluran_drainase_atau_saluran`, `created_at`, `updated_at`) VALUES
+(2, 1, '2017-06-29', '230.000', '3200012.120', '230.000', 'Tidak', 'Baik', '2017-06-06 14:31:49', '2017-06-06 07:31:49');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `produksi_ikan_laut`
 --
 
-CREATE TABLE `produksi_ikan_laut` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `produksi_ikan_laut` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_desa` int(11) NOT NULL,
   `tanggal` date NOT NULL,
   `jenis_dan_alat_produksi` enum('Jala','Jermal','Keramba','Pancing','Pukat','Tambak') NOT NULL,
   `jumlah_alat_atau_luas` decimal(10,3) DEFAULT '0.000',
   `hasil_produksi_ton_pertahun` decimal(10,2) DEFAULT '0.00',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`),
+  KEY `id_desa` (`id_desa`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `produksi_ikan_laut`
@@ -1243,16 +1406,18 @@ INSERT INTO `produksi_ikan_laut` (`id`, `id_desa`, `tanggal`, `jenis_dan_alat_pr
 -- Table structure for table `produksi_ikan_tawar`
 --
 
-CREATE TABLE `produksi_ikan_tawar` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `produksi_ikan_tawar` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_desa` int(11) NOT NULL,
   `tanggal` date NOT NULL,
   `jenis_dan_sarana_produksi` enum('Danau (m2)','Empang/Kolam (m2)','Jala (Unit)','Keramba (Unit)','Pancingan (Unit)','Rawa (m2)','Sawah (m2)','Sungai (m2)') NOT NULL,
   `jumlah_alat_atau_luas` decimal(10,3) DEFAULT '0.000',
   `hasil_produksi_ton_pertahun` decimal(10,2) DEFAULT '0.00',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`),
+  KEY `id_desa` (`id_desa`,`tanggal`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `produksi_ikan_tawar`
@@ -1269,8 +1434,8 @@ INSERT INTO `produksi_ikan_tawar` (`id`, `id_desa`, `tanggal`, `jenis_dan_sarana
 -- Table structure for table `produksi_ternak`
 --
 
-CREATE TABLE `produksi_ternak` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `produksi_ternak` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_desa` int(11) NOT NULL,
   `tanggal` date NOT NULL,
   `jenis_produksi` enum('Air liur burung walet','Bulu','Burung walet','Cinderamata','Daging','Hiasan/lukisan','Kerupuk Kulit',' Kulit','Madu','Susu','Telur') NOT NULL,
@@ -1279,8 +1444,10 @@ CREATE TABLE `produksi_ternak` (
   `nilai_produksi_tahun_ini` decimal(10,2) NOT NULL,
   `jumlah_ternak` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_desa` (`id_desa`,`tanggal`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -1288,8 +1455,8 @@ CREATE TABLE `produksi_ternak` (
 -- Table structure for table `ruang_publik`
 --
 
-CREATE TABLE `ruang_publik` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `ruang_publik` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_desa` int(11) NOT NULL,
   `tanggal` date NOT NULL,
   `jenis_ruang_publik_atau_taman` enum('Hutan Kota','Taman Bermain','Taman Desa/Kel','Taman Kota','Tanah Adat','Tanah Kas Adat') NOT NULL,
@@ -1297,8 +1464,11 @@ CREATE TABLE `ruang_publik` (
   `luas_m2` decimal(10,0) DEFAULT '0',
   `tingkat_pemanfaatan` enum('Aktif','Pasif') NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`),
+  KEY `tanggal` (`tanggal`),
+  KEY `id_desa` (`id_desa`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `ruang_publik`
@@ -1313,13 +1483,15 @@ INSERT INTO `ruang_publik` (`id`, `id_desa`, `tanggal`, `jenis_ruang_publik_atau
 -- Table structure for table `template_table`
 --
 
-CREATE TABLE `template_table` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `template_table` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_desa` int(11) NOT NULL,
   `tanggal` date NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_desa` (`id_desa`,`tanggal`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `template_table`
@@ -1335,16 +1507,17 @@ INSERT INTO `template_table` (`id`, `id_desa`, `tanggal`, `created_at`, `updated
 -- Table structure for table `tingkat_pendidikan`
 --
 
-CREATE TABLE `tingkat_pendidikan` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `tingkat_pendidikan` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_desa` int(11) NOT NULL,
   `tingkat_pendidikan` enum('Usia 3 - 6 tahun yang sedang TK/play group','Usia 7 - 18 tahun yang tidak pernah sekolah','Usia 7 - 18 tahun yang sedang sekolah','Usia 18 - 56 tahun tidak pernah sekolah','Usia 18 - 56 tahun pernah SD tetapi tidak tamat','Usia 12 - 56 tahun tidak tamat SLTP','Usia 18 - 56 tahun tidak tamat SLTA','Tamat SD/sederajat','Tamat SMP/sederajat','Tamat SMA/sederajat','Tamat D-1/sederajat','Tamat D-2/sederajat','Tamat D-3/sederajat','Tamat S-1/sederajat','Tamat S-2/sederajat','Tamat S-3/sederajat','Tamat SLB A','Tamat SLB B','Tamat SLB C') NOT NULL,
   `laki_laki` int(11) NOT NULL,
   `perempuan` int(11) NOT NULL,
   `jumlah` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `tingkat_pendidikan`
@@ -1360,8 +1533,8 @@ INSERT INTO `tingkat_pendidikan` (`id`, `id_desa`, `tingkat_pendidikan`, `laki_l
 -- Table structure for table `tingkat_usia`
 --
 
-CREATE TABLE `tingkat_usia` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `tingkat_usia` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_desa` int(11) NOT NULL,
   `tanggal` date NOT NULL,
   `usia_dibawah_1_tahun` int(11) NOT NULL,
@@ -1375,8 +1548,10 @@ CREATE TABLE `tingkat_usia` (
   `usia_51_sd_60_tahun` int(11) NOT NULL,
   `usia_diatas_60_tahun` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_desa` (`id_desa`,`tanggal`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `tingkat_usia`
@@ -1391,8 +1566,8 @@ INSERT INTO `tingkat_usia` (`id`, `id_desa`, `tanggal`, `usia_dibawah_1_tahun`, 
 -- Table structure for table `users`
 --
 
-CREATE TABLE `users` (
-  `id_user` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `users` (
+  `id_user` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(50) NOT NULL,
   `password` varchar(350) NOT NULL,
   `aktif` int(11) NOT NULL DEFAULT '1',
@@ -1401,8 +1576,10 @@ CREATE TABLE `users` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL,
   `nama` varchar(50) NOT NULL,
-  `email` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `email` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id_user`),
+  UNIQUE KEY `username` (`username`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `users`
@@ -1417,15 +1594,17 @@ INSERT INTO `users` (`id_user`, `username`, `password`, `aktif`, `usertype`, `re
 -- Table structure for table `user_role`
 --
 
-CREATE TABLE `user_role` (
-  `id_role` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `user_role` (
+  `id_role` int(11) NOT NULL AUTO_INCREMENT,
   `id_desa` int(11) NOT NULL,
   `id_kecamatan` int(11) NOT NULL,
   `id_kabupaten` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id_role`),
+  UNIQUE KEY `id_user` (`id_user`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `user_role`
@@ -1434,451 +1613,6 @@ CREATE TABLE `user_role` (
 INSERT INTO `user_role` (`id_role`, `id_desa`, `id_kecamatan`, `id_kabupaten`, `id_user`, `created_at`, `updated_at`) VALUES
 (1, 1, 0, 0, 1, '2017-05-27 18:20:25', NULL);
 
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `air_bersih`
---
-ALTER TABLE `air_bersih`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_desa` (`id_desa`,`tanggal`);
-
---
--- Indexes for table `air_panas`
---
-ALTER TABLE `air_panas`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_desa` (`id_desa`,`tanggal`);
-
---
--- Indexes for table `apotik_hidup`
---
-ALTER TABLE `apotik_hidup`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_desa` (`id_desa`,`tanggal`);
-
---
--- Indexes for table `batas_wilayah`
---
-ALTER TABLE `batas_wilayah`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `id_desa` (`id_desa`,`bulan`,`tahun`);
-
---
--- Indexes for table `dampak_pengolahan_hutan`
---
-ALTER TABLE `dampak_pengolahan_hutan`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_desa` (`id_desa`);
-
---
--- Indexes for table `deposit_produksi_galian`
---
-ALTER TABLE `deposit_produksi_galian`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_desa` (`id_desa`,`tanggal`);
-
---
--- Indexes for table `desa`
---
-ALTER TABLE `desa`
-  ADD PRIMARY KEY (`id_desa`);
-
---
--- Indexes for table `hasil_hutan`
---
-ALTER TABLE `hasil_hutan`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `hasil_kebun`
---
-ALTER TABLE `hasil_kebun`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `id_desa` (`id_desa`,`tanggal`,`komuditas`);
-
---
--- Indexes for table `hasil_pangan`
---
-ALTER TABLE `hasil_pangan`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `id_desa` (`id_desa`,`tanggal`,`komuditas`);
-
---
--- Indexes for table `identitas_desa`
---
-ALTER TABLE `identitas_desa`
-  ADD PRIMARY KEY (`id_desa`),
-  ADD UNIQUE KEY `kode_pum` (`kode_pum`);
-
---
--- Indexes for table `jenis_lahan`
---
-ALTER TABLE `jenis_lahan`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `id_desa_2` (`id_desa`,`tanggal`),
-  ADD KEY `id_desa` (`id_desa`);
-
---
--- Indexes for table `jenis_produksi_ikan`
---
-ALTER TABLE `jenis_produksi_ikan`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_desa` (`id_desa`,`tanggal`);
-
---
--- Indexes for table `jumlah_penduduk`
---
-ALTER TABLE `jumlah_penduduk`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `id_desa` (`id_desa`,`tanggal`);
-
---
--- Indexes for table `kecamatan`
---
-ALTER TABLE `kecamatan`
-  ADD PRIMARY KEY (`id_kecamatan`);
-
---
--- Indexes for table `kepemilikan_lahan_hutan`
---
-ALTER TABLE `kepemilikan_lahan_hutan`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_desa` (`id_desa`);
-
---
--- Indexes for table `kepemilikan_lahan_kebun`
---
-ALTER TABLE `kepemilikan_lahan_kebun`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `tanggal` (`tanggal`,`id_desa`);
-
---
--- Indexes for table `kepemilikan_lahan_pangan`
---
-ALTER TABLE `kepemilikan_lahan_pangan`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `tanggal` (`tanggal`,`id_desa`);
-
---
--- Indexes for table `komuditas`
---
-ALTER TABLE `komuditas`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `kondisi_hutan`
---
-ALTER TABLE `kondisi_hutan`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_desa` (`id_desa`,`tanggal`);
-
---
--- Indexes for table `kualitas_air_minum`
---
-ALTER TABLE `kualitas_air_minum`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_desa` (`id_desa`,`tanggal`);
-
---
--- Indexes for table `lembaga_ekonomi`
---
-ALTER TABLE `lembaga_ekonomi`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `id_desa` (`id_desa`,`tanggal`);
-
---
--- Indexes for table `lembaga_keamanan`
---
-ALTER TABLE `lembaga_keamanan`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `id_desa` (`id_desa`,`tanggal`);
-
---
--- Indexes for table `lembaga_masyarakat`
---
-ALTER TABLE `lembaga_masyarakat`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `id_desa` (`id_desa`,`tanggal`);
-
---
--- Indexes for table `lembaga_pemerintahan`
---
-ALTER TABLE `lembaga_pemerintahan`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `id_desa` (`id_desa`,`tanggal`);
-
---
--- Indexes for table `populasi_ternak`
---
-ALTER TABLE `populasi_ternak`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `id_desa` (`id_desa`,`tanggal`,`komoditas`);
-
---
--- Indexes for table `potensi_pemanfaatan_air`
---
-ALTER TABLE `potensi_pemanfaatan_air`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_desa` (`id_desa`,`tanggal`);
-
---
--- Indexes for table `potensi_wisata`
---
-ALTER TABLE `potensi_wisata`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_desa` (`id_desa`,`tanggal`),
-  ADD KEY `id_desa_2` (`id_desa`,`tanggal`);
-
---
--- Indexes for table `produksi_ikan_laut`
---
-ALTER TABLE `produksi_ikan_laut`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_desa` (`id_desa`);
-
---
--- Indexes for table `produksi_ikan_tawar`
---
-ALTER TABLE `produksi_ikan_tawar`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_desa` (`id_desa`,`tanggal`);
-
---
--- Indexes for table `produksi_ternak`
---
-ALTER TABLE `produksi_ternak`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `id_desa` (`id_desa`,`tanggal`);
-
---
--- Indexes for table `ruang_publik`
---
-ALTER TABLE `ruang_publik`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `tanggal` (`tanggal`),
-  ADD KEY `id_desa` (`id_desa`);
-
---
--- Indexes for table `template_table`
---
-ALTER TABLE `template_table`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `id_desa` (`id_desa`,`tanggal`);
-
---
--- Indexes for table `tingkat_pendidikan`
---
-ALTER TABLE `tingkat_pendidikan`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `tingkat_usia`
---
-ALTER TABLE `tingkat_usia`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `id_desa` (`id_desa`,`tanggal`);
-
---
--- Indexes for table `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id_user`),
-  ADD UNIQUE KEY `username` (`username`);
-
---
--- Indexes for table `user_role`
---
-ALTER TABLE `user_role`
-  ADD PRIMARY KEY (`id_role`),
-  ADD UNIQUE KEY `id_user` (`id_user`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `air_bersih`
---
-ALTER TABLE `air_bersih`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT for table `air_panas`
---
-ALTER TABLE `air_panas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `apotik_hidup`
---
-ALTER TABLE `apotik_hidup`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
---
--- AUTO_INCREMENT for table `batas_wilayah`
---
-ALTER TABLE `batas_wilayah`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
---
--- AUTO_INCREMENT for table `dampak_pengolahan_hutan`
---
-ALTER TABLE `dampak_pengolahan_hutan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `deposit_produksi_galian`
---
-ALTER TABLE `deposit_produksi_galian`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
---
--- AUTO_INCREMENT for table `desa`
---
-ALTER TABLE `desa`
-  MODIFY `id_desa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `hasil_hutan`
---
-ALTER TABLE `hasil_hutan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `hasil_kebun`
---
-ALTER TABLE `hasil_kebun`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `hasil_pangan`
---
-ALTER TABLE `hasil_pangan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `identitas_desa`
---
-ALTER TABLE `identitas_desa`
-  MODIFY `id_desa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `jenis_lahan`
---
-ALTER TABLE `jenis_lahan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
---
--- AUTO_INCREMENT for table `jenis_produksi_ikan`
---
-ALTER TABLE `jenis_produksi_ikan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `jumlah_penduduk`
---
-ALTER TABLE `jumlah_penduduk`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT for table `kepemilikan_lahan_hutan`
---
-ALTER TABLE `kepemilikan_lahan_hutan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `kepemilikan_lahan_kebun`
---
-ALTER TABLE `kepemilikan_lahan_kebun`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT for table `kepemilikan_lahan_pangan`
---
-ALTER TABLE `kepemilikan_lahan_pangan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `komuditas`
---
-ALTER TABLE `komuditas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=464;
---
--- AUTO_INCREMENT for table `kondisi_hutan`
---
-ALTER TABLE `kondisi_hutan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `kualitas_air_minum`
---
-ALTER TABLE `kualitas_air_minum`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `lembaga_ekonomi`
---
-ALTER TABLE `lembaga_ekonomi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
---
--- AUTO_INCREMENT for table `lembaga_keamanan`
---
-ALTER TABLE `lembaga_keamanan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT for table `lembaga_masyarakat`
---
-ALTER TABLE `lembaga_masyarakat`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT for table `lembaga_pemerintahan`
---
-ALTER TABLE `lembaga_pemerintahan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `populasi_ternak`
---
-ALTER TABLE `populasi_ternak`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT for table `potensi_pemanfaatan_air`
---
-ALTER TABLE `potensi_pemanfaatan_air`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT for table `potensi_wisata`
---
-ALTER TABLE `potensi_wisata`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT for table `produksi_ikan_laut`
---
-ALTER TABLE `produksi_ikan_laut`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `produksi_ikan_tawar`
---
-ALTER TABLE `produksi_ikan_tawar`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT for table `produksi_ternak`
---
-ALTER TABLE `produksi_ternak`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `ruang_publik`
---
-ALTER TABLE `ruang_publik`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `template_table`
---
-ALTER TABLE `template_table`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT for table `tingkat_pendidikan`
---
-ALTER TABLE `tingkat_pendidikan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT for table `tingkat_usia`
---
-ALTER TABLE `tingkat_usia`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `user_role`
---
-ALTER TABLE `user_role`
-  MODIFY `id_role` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
