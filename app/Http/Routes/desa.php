@@ -8,3 +8,8 @@ Route::get('/home', "Desa\HomeController@index");
 require "routes1.php";
 //programmer 2
 require "routes2.php";
+
+//programmer 1
+require "routes3.php";
+//programmer 2
+require "routes4.php";

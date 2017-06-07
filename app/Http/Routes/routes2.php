@@ -171,6 +171,9 @@ Route::post('/delete', "Desa\PotensiSdaDampakPengolahanHutanController@deleteDam
 });
 
 
+<<<<<<< HEAD
+/////// Kehutanan ==========================================================>>>>>>>>>>
+=======
 /////// SDM ==========================================================>>>>>>>>>>
 
 //ROUTE prasarana_air_bersih
@@ -227,6 +230,7 @@ Route::post('/delete', "Desa\PotensiSdmKantorDesaController@deleteKantorDesa");
 
 //===================================================================================================
 
+>>>>>>> d933e74144984459f78f5dbcd32ae1fbf1125908
 
 //kualitas udara
 Route::group(['prefix' =>'/potensi/kualitas-udara'], function(){
