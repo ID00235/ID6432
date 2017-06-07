@@ -213,10 +213,19 @@ Route::post('/update', "Desa\PotensiSdmPrasaranaEnergiController@updatePrasarana
 Route::post('/delete', "Desa\PotensiSdmPrasaranaEnergiController@deletePrasaranaEnergi");
 });
 
+//ROUTE kantor_desa
+Route::group(['prefix' =>'potensi/sdm/kantor-desa'], function(){
+Route::get('/', "Desa\PotensiSdmKantorDesaController@listKantorDesa");
+Route::get('/new', "Desa\PotensiSdmKantorDesaController@newKantorDesa");
+Route::get('/edit/{id}', "Desa\PotensiSdmKantorDesaController@editKantorDesa");
+Route::post('/insert', "Desa\PotensiSdmKantorDesaController@insertKantorDesa");
+Route::post('/update', "Desa\PotensiSdmKantorDesaController@updateKantorDesa");
+Route::post('/delete', "Desa\PotensiSdmKantorDesaController@deleteKantorDesa");
+});
 
 
 
-
+//===================================================================================================
 
 
 //kualitas udara
