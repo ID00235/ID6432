@@ -22,6 +22,7 @@
     <link href="{{asset('css/bootstrap-spinner.css')}}" rel="stylesheet" />
     <link href="{{asset('css/yamm.css')}}" rel="stylesheet" />
     <link href="{{asset('css/awesome-bootstrap-checkbox.css')}}" rel="stylesheet" />
+    <link href="{{asset('css/dataTables.bootstrap4.min.css')}}" rel="stylesheet" />
     @section("stylesheet")
     @show
   </head>
@@ -76,7 +77,8 @@
     <script src="{{asset('js/bootstrap-datetimepicker.js')}}"></script>
     <script src="{{asset('js/bootstrap-notify.js')}}"></script>
     <script src="{{asset('js/bootstrap-table.js')}}"></script>
-    <script src="{{asset('js/jquery.datatables.js')}}"></script>
+    <script src="{{asset('js/jquery.dataTables.min.js')}}"></script>
+    <script src="{{asset('js/dataTables.bootstrap4.min.js')}}"></script>
     <script src="{{asset('js/jquery.mask.min.js')}}"></script>
     <script src="{{asset('js/bootbox.min.js')}}"></script>
     <script src="{{asset('js/jquery.form.min.js')}}"></script>

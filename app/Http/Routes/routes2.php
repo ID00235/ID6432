@@ -173,20 +173,6 @@ Route::post('/delete', "Desa\PotensiSdaDampakPengolahanHutanController@deleteDam
 
 /////// Kehutanan ==========================================================>>>>>>>>>>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //kualitas udara
 Route::group(['prefix' =>'/potensi/kualitas-udara'], function(){
 	Route::get('/', "Desa\PotensiKualitasUdaraController@kualitasudara");	
