@@ -87,11 +87,11 @@
                           </div>
                           <div class="col">
                             <h6 class="dropdown-header">Sarana Prasarana</h6>
-                            <a class="dropdown-item" href="{{URLGroup('potensi/sdm/lembaga-pemerintahan')}}">Prasarana Air Bersih</a>
-                            <a class="dropdown-item" href="{{URLGroup('potensi/sdm/lembaga-pemerintahan')}}">Prasarana Sanitasi</a>
-                            <a class="dropdown-item" href="{{URLGroup('potensi/sdm/lembaga-pemerintahan')}}">Prasarana Kesehatan</a>
-                            <a class="dropdown-item" href="{{URLGroup('potensi/sdm/lembaga-pemerintahan')}}">Prasarana Energi dan Penerangan</a>
-                            <a class="dropdown-item" href="{{URLGroup('potensi/sdm/lembaga-ekonomi')}}">Kantor Desa</a> 
+                            <a class="dropdown-item" href="{{URLGroup('potensi/sdm/prasarana-air-bersih')}}">Prasarana Air Bersih</a>
+                            <a class="dropdown-item" href="{{URLGroup('potensi/sdm/prasarana-sanitasi')}}">Prasarana Sanitasi</a>
+                            <a class="dropdown-item" href="{{URLGroup('potensi/sdm/prasarana-kesehatan')}}">Prasarana Kesehatan</a>
+                            <a class="dropdown-item" href="{{URLGroup('potensi/sdm/prasarana-energi')}}">Prasarana Energi dan Penerangan</a>
+                            <a class="dropdown-item" href="{{URLGroup('potensi/sdm/kantor-desa')}}">Kantor Desa</a> 
                           </div>
                       </div>
                   </div>
