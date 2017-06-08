@@ -26,6 +26,8 @@ $id_desa = Auth::user()->userdesa();
   			<div class="card-block">	 
         {!!Form::open(['url' => URLGroup("potensi/sdm/jumlah-penduduk/update"), 'name'=>'form-update-jumlah_penduduk'])!!}
         {{Form::hidden("id",Crypt::encrypt($data->id))}}
+        <b style="color:blue;">Gedung Kantor</b><hr>
+
         {{Form::bsText("tanggal",tanggalIndo($data->tanggal),['class'=>'col-4 datepicker form-control','required'=>true])}}
         {{Form::bsText("jumlah_laki_laki",$data->jumlah_laki_laki,['class'=>'col-12 numerik input-right form-control','required'=>true])}}
         {{Form::bsText("jumlah_perempuan",$data->jumlah_perempuan,['class'=>'col-12 numerik input-right form-control','required'=>true])}}
