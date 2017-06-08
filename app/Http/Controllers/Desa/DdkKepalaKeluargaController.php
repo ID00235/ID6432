@@ -1,3 +1,4 @@
+
 <?php
 namespace App\Http\Controllers\Desa;
 
@@ -14,7 +15,7 @@ use Vinkla\Hashids\Facades\Hashids;
 use Yajra\Datatables\Datatables;
 
 //model (table) yang digunakan
-
+/*
 class DdkKepalaKeluargaController extends Controller
 {
 

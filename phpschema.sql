@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 06, 2017 at 05:17 
+-- Generation Time: Jun 08, 2017 at 09:19 
 -- Server version: 5.6.16
 -- PHP Version: 5.5.11
 
@@ -500,6 +500,61 @@ CREATE TABLE IF NOT EXISTS `jumlah_penduduk` (
 
 INSERT INTO `jumlah_penduduk` (`id`, `id_desa`, `tanggal`, `jumlah_laki_laki`, `jumlah_perempuan`, `jumlah_total`, `created_at`, `updated_at`) VALUES
 (4, 1, '2017-06-06', 145, 130, 275, '2017-06-04 06:19:57', '2017-06-04 06:19:57');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `kantor_desa`
+--
+
+CREATE TABLE IF NOT EXISTS `kantor_desa` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_desa` int(11) NOT NULL,
+  `tanggal` date NOT NULL,
+  `gedung_kantor` enum('Ada','Tidak Ada') DEFAULT NULL,
+  `Jumlah_ruang_kerja_ruang` decimal(10,2) DEFAULT '0.00',
+  `kondisi` enum('Baik','Rusak') DEFAULT NULL,
+  `balai_desa_Kelurahan_atau_Sejenisnya` enum('Ada','Tidak Ada') DEFAULT NULL,
+  `Listrik` enum('Ada','Tidak Ada') DEFAULT NULL,
+  `air_bersih` enum('Ada','Tidak Ada') DEFAULT NULL,
+  `telepon` enum('Ada','Tidak Ada') DEFAULT NULL,
+  `rumah_dinas_kepala_desa_atau_lurah` enum('Ada','Tidak Ada') DEFAULT NULL,
+  `rumah_dinas_perangkat` enum('Ada','Tidak Ada') DEFAULT NULL,
+  `fasilitas_lainnya` enum('Ada','Tidak Ada') DEFAULT NULL,
+  `mesin_tik_buah` enum('Ada','Tidak Ada') DEFAULT NULL,
+  `meja_buah` enum('Ada','Tidak Ada') DEFAULT NULL,
+  `kursi_buah` enum('Ada','Tidak Ada') DEFAULT NULL,
+  `lemari_arsip_buah` enum('Ada','Tidak Ada') DEFAULT NULL,
+  `komputer_unit` enum('Ada','Tidak Ada') DEFAULT NULL,
+  `mesin_fax_unit` enum('Ada','Tidak Ada') DEFAULT NULL,
+  `kendaraan_dinas_unit` enum('Ada','Tidak Ada') DEFAULT NULL,
+  `buku_data_peraturan_desa` enum('Ada dan Terisi','Ada dan Tidak Terisi','Tidak Terisi') DEFAULT NULL,
+  `buku_keputusan_kepala_desa_atau_lurah` enum('Ada dan Terisi','Ada dan Tidak Terisi','Tidak Terisi') DEFAULT NULL,
+  `buku_administrasi_kependudukan` enum('Ada dan Terisi','Ada dan Tidak Terisi','Tidak Terisi') DEFAULT NULL,
+  `buku_data_inventaris` enum('Ada dan Terisi','Ada dan Tidak Terisi','Tidak Terisi') DEFAULT NULL,
+  `buku_data_aparat` enum('Ada dan Terisi','Ada dan Tidak Terisi','Tidak Terisi') DEFAULT NULL,
+  `buku_data_tanah_kas_desa` enum('Ada dan Terisi','Ada dan Tidak Terisi','Tidak Terisi') DEFAULT NULL,
+  `buku_administras_pajak_dan_retribusi` enum('Ada dan Terisi','Ada dan Tidak Terisi','Tidak Terisi') DEFAULT NULL,
+  `buku_data_tanah` enum('Ada dan Terisi','Ada dan Tidak Terisi','Tidak Terisi') DEFAULT NULL,
+  `buku_laporan_pengaduan_masyarakat` enum('Ada dan Terisi','Ada dan Tidak Terisi','Tidak Terisi') DEFAULT NULL,
+  `buku_agenda_ekspedisi` enum('Ada dan Terisi','Ada dan Tidak Terisi','Tidak Terisi') DEFAULT NULL,
+  `buku_profil_desa_dan_kelurahan` enum('Ada dan Terisi','Ada dan Tidak Terisi','Tidak Terisi') DEFAULT NULL,
+  `buku_data_induk_penduduk` enum('Ada dan Terisi','Ada dan Tidak Terisi','Tidak Terisi') DEFAULT NULL,
+  `buku_data_mutasi_penduduk` enum('Ada dan Terisi','Ada dan Tidak Terisi','Tidak Terisi') DEFAULT NULL,
+  `buku_rekapitulasi_penduduk_akhir_bulan` enum('Ada dan Terisi','Ada dan Tidak Terisi','Tidak Terisi') DEFAULT NULL,
+  `buku_registrasi_pelayanan_penduduk` enum('Ada dan Terisi','Ada dan Tidak Terisi','Tidak Terisi') DEFAULT NULL,
+  `buku_data_penduduk_sementara` enum('Ada dan Terisi','Ada dan Tidak Terisi','Tidak Terisi') DEFAULT NULL,
+  `buku_anggaran_penerimaan` enum('Ada dan Terisi','Ada dan Tidak Terisi','Tidak Terisi') DEFAULT NULL,
+  `buku_anggaran_pengeluaran_pegawai_atau_pembangunan` enum('Ada dan Terisi','Ada dan Tidak Terisi','Tidak Terisi') DEFAULT NULL,
+  `buku_kas_umum` enum('Ada dan Terisi','Ada dan Tidak Terisi','Tidak Terisi') DEFAULT NULL,
+  `buku_kas_pembantu_penerimaan` enum('Ada dan Terisi','Ada dan Tidak Terisi','Tidak Terisi') DEFAULT NULL,
+  `buku_kas_pembantu_pengeluaran_rutin_atau_pembangunan` enum('Ada dan Terisi','Ada dan Tidak Terisi','Tidak Terisi') DEFAULT NULL,
+  `buku_data_lembaga_kemasyarakatan` enum('Ada dan Terisi','Ada dan Tidak Terisi','Tidak Terisi') DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`),
+  KEY `id_desa` (`id_desa`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -1318,7 +1373,7 @@ CREATE TABLE IF NOT EXISTS `prasarana_energi` (
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`),
   KEY `id_desa` (`id_desa`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `prasarana_energi`
@@ -1343,7 +1398,7 @@ CREATE TABLE IF NOT EXISTS `prasarana_kesehatan` (
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`),
   KEY `id_desa` (`id_desa`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
