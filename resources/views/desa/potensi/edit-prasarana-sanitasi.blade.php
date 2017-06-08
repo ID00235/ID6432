@@ -25,24 +25,24 @@ $id_desa = Auth::user()->userdesa();
   			</div>
   			<div class="card-block">	 
 
-{!!Form::open(['url' => URLGroup("potensi/sdm/prasarana-sanitasi/update"), 'name'=>'form-update-prasarana_sanitasi'])!!}
-{{Form::hidden("id",Crypt::encrypt($data->id))}}
-{{Form::bsText("tanggal",tanggalIndo($data->tanggal),['class'=>'col-4 datepicker form-control','required'=>true])}}
-{{Form::bsText("sumur_resapan_air_rumah_tangga",$data->sumur_resapan_air_rumah_tangga,['class'=>'col-12 double input-right form-control', ])}}
-{{Form::bsText("mck_umum_unit",$data->mck_umum_unit,['class'=>'col-12 double input-right form-control', ])}}
-{{Form::bsText("jamban_keluarga_kk",$data->jamban_keluarga_kk,['class'=>'col-12 double input-right form-control', ])}}
-<?php
-$list = array('Ya'=>'YA', 'Tidak'=>'TIDAK', );
-$select =$data->saluran_drainase_atau_saluran_pembuangan_sampah;
-?>
-{!!Form::bsRadioInline($list,$select,"saluran_drainase_atau_saluran_pembuangan_sampah",['required'=>true])!!}
-<?php
-$list = array('Rusak'=>'RUSAK', 'Mampet'=>'MAMPET', 'Kurang Memadai'=>'KURANG MEMADAI', 'Baik'=>'BAIK', );
-$select =$data->kondisi_saluran_drainase_atau_saluran;
-?>
-{!!Form::bsRadioInline($list,$select,"kondisi_saluran_drainase_atau_saluran",['required'=>true])!!}
-{!!Form::bsSubmit('Simpan',"")!!}
-{!!Form::close()!!} 
+          {!!Form::open(['url' => URLGroup("potensi/sdm/prasarana-sanitasi/update"), 'name'=>'form-update-prasarana_sanitasi'])!!}
+          {{Form::hidden("id",Crypt::encrypt($data->id))}}
+          {{Form::bsText("tanggal",tanggalIndo($data->tanggal),['class'=>'col-4 datepicker form-control','required'=>true])}}
+          {{Form::bsText("sumur_resapan_air_rumah_tangga",$data->sumur_resapan_air_rumah_tangga,['class'=>'col-12 numerik input-right form-control', ])}}
+          {{Form::bsText("mck_umum_unit",$data->mck_umum_unit,['class'=>'col-12 numerik input-right form-control', ])}}
+          {{Form::bsText("jamban_keluarga_kk",$data->jamban_keluarga_kk,['class'=>'col-12 numerik input-right form-control', ])}}
+          <?php
+          $list = array('Ya'=>'YA', 'Tidak'=>'TIDAK', );
+          $select =$data->saluran_drainase_atau_saluran_pembuangan_sampah;
+          ?>
+          {!!Form::bsRadioInline($list,$select,"saluran_drainase_atau_saluran_pembuangan_sampah",['required'=>true])!!}
+          <?php
+          $list = array('Rusak'=>'RUSAK', 'Mampet'=>'MAMPET', 'Kurang Memadai'=>'KURANG MEMADAI', 'Baik'=>'BAIK', );
+          $select =$data->kondisi_saluran_drainase_atau_saluran;
+          ?>
+          {!!Form::bsRadioInline($list,$select,"kondisi_saluran_drainase_atau_saluran",['required'=>true])!!}
+          {!!Form::bsSubmit('Simpan',"")!!}
+          {!!Form::close()!!} 
     		</div>
     	</div>
 	</div>

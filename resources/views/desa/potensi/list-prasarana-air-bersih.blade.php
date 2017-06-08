@@ -49,14 +49,14 @@ $id_desa = Auth::user()->userdesa();
                      </td>
                      <td align="center">{{$no}}</td>
                      <td>{{($d->tanggal)}}</td>
-                     <td align="right">{{desimal2($d->sumur_pompa_unit)}}</td>
-                     <td align="right">{{desimal2($d->sumur_gali_unit)}}</td>
-                     <td align="right">{{desimal2($d->hidran_umum_unit)}}</td>
-                     <td align="right">{{desimal2($d->penampung_air_hujan_unit)}}</td>
-                     <td align="right">{{desimal2($d->tangki_air_bersih_unit)}}</td>
-                     <td align="right">{{desimal2($d->embung_unit)}}</td>
-                     <td align="right">{{desimal2($d->mata_air_unit)}}</td>
-                     <td align="right">{{desimal2($d->bangunan_pengolahan_air_unit)}}</td>
+                     <td align="right">{{($d->sumur_pompa_unit)}}</td>
+                     <td align="right">{{($d->sumur_gali_unit)}}</td>
+                     <td align="right">{{($d->hidran_umum_unit)}}</td>
+                     <td align="right">{{($d->penampung_air_hujan_unit)}}</td>
+                     <td align="right">{{($d->tangki_air_bersih_unit)}}</td>
+                     <td align="right">{{($d->embung_unit)}}</td>
+                     <td align="right">{{($d->mata_air_unit)}}</td>
+                     <td align="right">{{($d->bangunan_pengolahan_air_unit)}}</td>
                </tr>
                <?php $no++;?>
          @endforeach

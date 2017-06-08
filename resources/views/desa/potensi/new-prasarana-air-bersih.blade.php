@@ -24,18 +24,18 @@ $id_desa = Auth::user()->userdesa();
             </div>
             <div class="card-block">     
                         {!!Form::open(['url' => URLGroup("potensi/sdm/prasarana-air-bersih/insert"), 'name'=>'form-insert-prasarana_air_bersih'])!!}
-{{Form::hidden("id_desa",Hashids::encode(Auth::user()->userdesa()))}}
-{{Form::bsText("tanggal","",['class'=>'col-7 datepicker form-control','required'=>true])}}
-{{Form::bsText("sumur_pompa_unit","",['class'=>'col-7 double input-right form-control', ])}}
-{{Form::bsText("sumur_gali_unit","",['class'=>'col-7 double input-right form-control', ])}}
-{{Form::bsText("hidran_umum_unit","",['class'=>'col-7 double input-right form-control', ])}}
-{{Form::bsText("penampung_air_hujan_unit","",['class'=>'col-7 double input-right form-control', ])}}
-{{Form::bsText("tangki_air_bersih_unit","",['class'=>'col-7 double input-right form-control', ])}}
-{{Form::bsText("embung_unit","",['class'=>'col-7 double input-right form-control', ])}}
-{{Form::bsText("mata_air_unit","",['class'=>'col-7 double input-right form-control', ])}}
-{{Form::bsText("bangunan_pengolahan_air_unit","",['class'=>'col-7 double input-right form-control', ])}}
-{!!Form::bsSubmit('Simpan',"")!!}
-{!!Form::close()!!} 
+                        {{Form::hidden("id_desa",Hashids::encode(Auth::user()->userdesa()))}}
+                        {{Form::bsText("tanggal","",['class'=>'col-7 datepicker form-control','required'=>true])}}
+                        {{Form::bsText("sumur_pompa_unit","",['class'=>'col-7 numerik input-right form-control', ])}}
+                        {{Form::bsText("sumur_gali_unit","",['class'=>'col-7 numerik input-right form-control', ])}}
+                        {{Form::bsText("hidran_umum_unit","",['class'=>'col-7 numerik input-right form-control', ])}}
+                        {{Form::bsText("penampung_air_hujan_unit","",['class'=>'col-7 numerik input-right form-control', ])}}
+                        {{Form::bsText("tangki_air_bersih_unit","",['class'=>'col-7 numerik input-right form-control', ])}}
+                        {{Form::bsText("embung_unit","",['class'=>'col-7 numerik input-right form-control', ])}}
+                        {{Form::bsText("mata_air_unit","",['class'=>'col-7 numerik input-right form-control', ])}}
+                        {{Form::bsText("bangunan_pengolahan_air_unit","",['class'=>'col-7 numerik input-right form-control', ])}}
+                        {!!Form::bsSubmit('Simpan',"")!!}
+                        {!!Form::close()!!} 
             </div>
         </div>
     </div>

@@ -44,7 +44,7 @@ $id_desa = Auth::user()->userdesa();
                      <td align="center">{{$no}}</td>
                      <td align="center">{{tanggalIndo($d->tanggal)}}</td>
                      <td>{{($d->jenis_prasarana_kesehatan)}}</td>
-                     <td align="right">{{desimal2($d->jumlah_unit)}}</td>
+                     <td align="right">{{($d->jumlah_unit)}}</td>
                </tr>
                <?php $no++;?>
          @endforeach

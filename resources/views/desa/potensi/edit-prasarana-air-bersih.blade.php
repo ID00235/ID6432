@@ -28,14 +28,14 @@ $id_desa = Auth::user()->userdesa();
 {!!Form::open(['url' => URLGroup("potensi/sdm/prasarana-air-bersih/update"), 'name'=>'form-update-prasarana_air_bersih'])!!}
 {{Form::hidden("id",Crypt::encrypt($data->id))}}
 {{Form::bsText("tanggal",tanggalIndo($data->tanggal),['class'=>'col-4 datepicker form-control','required'=>true])}}
-{{Form::bsText("sumur_pompa_unit",$data->sumur_pompa_unit,['class'=>'col-12 double input-right form-control', ])}}
-{{Form::bsText("sumur_gali_unit",$data->sumur_gali_unit,['class'=>'col-12 double input-right form-control', ])}}
-{{Form::bsText("hidran_umum_unit",$data->hidran_umum_unit,['class'=>'col-12 double input-right form-control', ])}}
-{{Form::bsText("penampung_air_hujan_unit",$data->penampung_air_hujan_unit,['class'=>'col-12 double input-right form-control', ])}}
-{{Form::bsText("tangki_air_bersih_unit",$data->tangki_air_bersih_unit,['class'=>'col-12 double input-right form-control', ])}}
-{{Form::bsText("embung_unit",$data->embung_unit,['class'=>'col-12 double input-right form-control', ])}}
-{{Form::bsText("mata_air_unit",$data->mata_air_unit,['class'=>'col-12 double input-right form-control', ])}}
-{{Form::bsText("bangunan_pengolahan_air_unit",$data->bangunan_pengolahan_air_unit,['class'=>'col-12 double input-right form-control', ])}}
+{{Form::bsText("sumur_pompa_unit",$data->sumur_pompa_unit,['class'=>'col-12 numerik input-right form-control', ])}}
+{{Form::bsText("sumur_gali_unit",$data->sumur_gali_unit,['class'=>'col-12 numerik input-right form-control', ])}}
+{{Form::bsText("hidran_umum_unit",$data->hidran_umum_unit,['class'=>'col-12 numerik input-right form-control', ])}}
+{{Form::bsText("penampung_air_hujan_unit",$data->penampung_air_hujan_unit,['class'=>'col-12 numerik input-right form-control', ])}}
+{{Form::bsText("tangki_air_bersih_unit",$data->tangki_air_bersih_unit,['class'=>'col-12 numerik input-right form-control', ])}}
+{{Form::bsText("embung_unit",$data->embung_unit,['class'=>'col-12 numerik input-right form-control', ])}}
+{{Form::bsText("mata_air_unit",$data->mata_air_unit,['class'=>'col-12 numerik input-right form-control', ])}}
+{{Form::bsText("bangunan_pengolahan_air_unit",$data->bangunan_pengolahan_air_unit,['class'=>'col-12 numerik input-right form-control', ])}}
 {!!Form::bsSubmit('Simpan',"")!!}
 {!!Form::close()!!} 
     		</div>

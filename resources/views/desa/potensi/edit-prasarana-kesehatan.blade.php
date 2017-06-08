@@ -33,7 +33,7 @@ $list = array('Apotik'=>'APOTIK', 'Balai Kesehatan Ibu dan Anak'=>'BALAI KESEHAT
 $select =$data->jenis_prasarana_kesehatan;
 ?>
 {!!Form::bsSelect($list,$select,"jenis_prasarana_kesehatan",['required'=>true])!!}
-{{Form::bsText("jumlah_unit",$data->jumlah_unit,['class'=>'col-12 double input-right form-control', 'required'=>true])}}
+{{Form::bsText("jumlah_unit",$data->jumlah_unit,['class'=>'col-12 numerik input-right form-control', 'required'=>true])}}
 {!!Form::bsSubmit('Simpan',"")!!}
 {!!Form::close()!!} 
     		</div>

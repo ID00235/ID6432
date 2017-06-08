@@ -46,9 +46,9 @@ $id_desa = Auth::user()->userdesa();
                      </td>
                      <td align="center">{{$no}}</td>
                      <td align="center">{{tanggalIndo($d->tanggal)}}</td>
-                     <td align="right">{{desimal2($d->sumur_resapan_air_rumah_tangga)}}</td>
-                     <td align="right">{{desimal2($d->mck_umum_unit)}}</td>
-                     <td align="right">{{desimal2($d->jamban_keluarga_kk)}}</td>
+                     <td align="right">{{($d->sumur_resapan_air_rumah_tangga)}}</td>
+                     <td align="right">{{($d->mck_umum_unit)}}</td>
+                     <td align="right">{{($d->jamban_keluarga_kk)}}</td>
                      <td>{{($d->saluran_drainase_atau_saluran_pembuangan_sampah)}}</td>
                      <td>{{($d->kondisi_saluran_drainase_atau_saluran)}}</td>
                </tr>

@@ -24,11 +24,11 @@ $id_desa = Auth::user()->userdesa();
             </div>
             <div class="card-block">     
                         {!!Form::open(['url' => URLGroup("potensi/sdm/prasarana-sanitasi/insert"), 'name'=>'form-insert-prasarana_sanitasi'])!!}
-{{Form::hidden("id_desa",Hashids::encode(Auth::user()->userdesa()))}}
-{{Form::bsText("tanggal","",['class'=>'col-7 datepicker form-control','required'=>true])}}
-{{Form::bsText("sumur_resapan_air_rumah_tangga","",['class'=>'col-7 double input-right form-control', ])}}
-{{Form::bsText("mck_umum_unit","",['class'=>'col-7 double input-right form-control', ])}}
-{{Form::bsText("jamban_keluarga_kk","",['class'=>'col-7 double input-right form-control', ])}}
+                    {{Form::hidden("id_desa",Hashids::encode(Auth::user()->userdesa()))}}
+                    {{Form::bsText("tanggal","",['class'=>'col-7 datepicker form-control','required'=>true])}}
+                    {{Form::bsText("sumur_resapan_air_rumah_tangga","",['class'=>'col-7 numerik input-right form-control', ])}}
+                    {{Form::bsText("mck_umum_unit","",['class'=>'col-7 numerik input-right form-control', ])}}
+                    {{Form::bsText("jamban_keluarga_kk","",['class'=>'col-7 numerik input-right form-control', ])}}
 <?php
 $list = array('Ya'=>'YA', 'Tidak'=>'TIDAK', );
 $select ='Ya';

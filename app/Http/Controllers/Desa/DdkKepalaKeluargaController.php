@@ -1,4 +1,3 @@
-
 <?php
 namespace App\Http\Controllers\Desa;
 
@@ -14,8 +13,6 @@ use Symfony\Component\HttpKernel\Exception\HttpException;
 use Vinkla\Hashids\Facades\Hashids;
 use Yajra\Datatables\Datatables;
 
-//model (table) yang digunakan
-/*
 class DdkKepalaKeluargaController extends Controller
 {
 

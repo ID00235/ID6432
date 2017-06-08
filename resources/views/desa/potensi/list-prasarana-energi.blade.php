@@ -48,13 +48,13 @@ $id_desa = Auth::user()->userdesa();
                      </td>
                      <td align="center">{{$no}}</td>
                      <td align="center">{{tanggalIndo($d->tanggal)}}</td>
-                     <td align="right">{{desimal2($d->listrik_pln_unit)}}</td>
-                     <td align="right">{{desimal2($d->diesel_umum_unit)}}</td>
-                     <td align="right">{{desimal2($d->genset_pribadi_unit)}}</td>
-                     <td align="right">{{desimal2($d->lampu_minyak_tanah_atau_jarak_kelapa_kk)}}</td>
-                     <td align="right">{{desimal2($d->kayu_bakar_kk)}}</td>
-                     <td align="right">{{desimal2($d->batu_bara_kk)}}</td>
-                     <td align="right">{{desimal2($d->tanpa_penerangan_kk)}}</td>
+                     <td align="right">{{($d->listrik_pln_unit)}}</td>
+                     <td align="right">{{($d->diesel_umum_unit)}}</td>
+                     <td align="right">{{($d->genset_pribadi_unit)}}</td>
+                     <td align="right">{{($d->lampu_minyak_tanah_atau_jarak_kelapa_kk)}}</td>
+                     <td align="right">{{($d->kayu_bakar_kk)}}</td>
+                     <td align="right">{{($d->batu_bara_kk)}}</td>
+                     <td align="right">{{($d->tanpa_penerangan_kk)}}</td>
                </tr>
                <?php $no++;?>
          @endforeach

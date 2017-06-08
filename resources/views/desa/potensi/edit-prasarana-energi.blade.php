@@ -28,13 +28,13 @@ $id_desa = Auth::user()->userdesa();
 {!!Form::open(['url' => URLGroup("potensi/sdm/prasarana-energi/update"), 'name'=>'form-update-prasarana_energi'])!!}
 {{Form::hidden("id",Crypt::encrypt($data->id))}}
 {{Form::bsText("tanggal",tanggalIndo($data->tanggal),['class'=>'col-4 datepicker form-control','required'=>true])}}
-{{Form::bsText("listrik_pln_unit",$data->listrik_pln_unit,['class'=>'col-12 double input-right form-control', ])}}
-{{Form::bsText("diesel_umum_unit",$data->diesel_umum_unit,['class'=>'col-12 double input-right form-control', ])}}
-{{Form::bsText("genset_pribadi_unit",$data->genset_pribadi_unit,['class'=>'col-12 double input-right form-control', ])}}
-{{Form::bsText("lampu_minyak_tanah_atau_jarak_kelapa_kk",$data->lampu_minyak_tanah_atau_jarak_kelapa_kk,['class'=>'col-12 double input-right form-control', ])}}
-{{Form::bsText("kayu_bakar_kk",$data->kayu_bakar_kk,['class'=>'col-12 double input-right form-control', ])}}
-{{Form::bsText("batu_bara_kk",$data->batu_bara_kk,['class'=>'col-12 double input-right form-control', ])}}
-{{Form::bsText("tanpa_penerangan_kk",$data->tanpa_penerangan_kk,['class'=>'col-12 double input-right form-control', ])}}
+{{Form::bsText("listrik_pln_unit",$data->listrik_pln_unit,['class'=>'col-12 numerik input-right form-control', ])}}
+{{Form::bsText("diesel_umum_unit",$data->diesel_umum_unit,['class'=>'col-12 numerik input-right form-control', ])}}
+{{Form::bsText("genset_pribadi_unit",$data->genset_pribadi_unit,['class'=>'col-12 numerik input-right form-control', ])}}
+{{Form::bsText("lampu_minyak_tanah_atau_jarak_kelapa_kk",$data->lampu_minyak_tanah_atau_jarak_kelapa_kk,['class'=>'col-12 numerik input-right form-control', ])}}
+{{Form::bsText("kayu_bakar_kk",$data->kayu_bakar_kk,['class'=>'col-12 numerik input-right form-control', ])}}
+{{Form::bsText("batu_bara_kk",$data->batu_bara_kk,['class'=>'col-12 numerik input-right form-control', ])}}
+{{Form::bsText("tanpa_penerangan_kk",$data->tanpa_penerangan_kk,['class'=>'col-12 numerik input-right form-control', ])}}
 {!!Form::bsSubmit('Simpan',"")!!}
 {!!Form::close()!!} 
     		</div>
